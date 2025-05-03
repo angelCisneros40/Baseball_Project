@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(Baseball_Project VERSION 0.1 LANGUAGES CXX)
+if (WIN32 AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-subsystem,console")
+endif()
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -17,12 +20,15 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        fileWriteTest.h
+        fileWriteTest.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Baseball_Project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        resources.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Baseball_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

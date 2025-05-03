@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "qapplication": "cpp",
+        "filesystem": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp",
+        "qmainwindow": "cpp",
+        "iostream": "cpp"
+    }
+}

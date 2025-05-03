@@ -1,11 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
+#include <QFile>
+#include "fileWriteTest.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
+namespace Ui
+{
+    class MainWindow;
 }
 QT_END_NAMESPACE
 
@@ -18,6 +20,7 @@ public:
     ~MainWindow();
 
 private:
+    void printToTextBrowser();
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

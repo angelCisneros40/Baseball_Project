@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/src">
+        <file>src/Stadium-NonDirected.jpg</file>
+        <file>src/output.txt</file>
+        <file>src/background.jpg</file>
+    </qresource>
+</RCC>
