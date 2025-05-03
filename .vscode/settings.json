@@ -5,6 +5,7 @@
         "iosfwd": "cpp",
         "fstream": "cpp",
         "qmainwindow": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "qfile": "cpp"
     }
 }
