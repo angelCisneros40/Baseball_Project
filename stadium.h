@@ -22,6 +22,7 @@ public:
         int capacity = 0);
     stadium(const stadium& otherStadium);                               //copy constructor
 
+
     //Accessors
     std::string getName() {return name;}
     std::string getTeam() {return team;}
@@ -32,7 +33,7 @@ public:
     std::string getPhone() {return phoneNum;}
     int getMonth() {return dateOpened[0];}
     int getDay() {return dateOpened[1];}
-    int getYear() {return dateOpend[2];}
+    int getYear() {return dateOpened[2];}
     int getCapacity() {return capacity;}
 
     //Mutators
@@ -52,6 +53,10 @@ public:
     friend int compTeam(const stadium& stadium1, const stadium& stadium2);
     friend int compDate(const stadium& stadium1, const stadium& stadium2);
 
+    stadium& operator= (const stadium& otherStadium);
+    friend bool operator== (const stadium& stadium1, const stadium& stadium2) {return stadium1.name == stadium2.name;}
+    friend bool operator!= (const stadium& stadium1, const stadium& stadium2) {return stadium1.name != stadium2.name;}
+
 private:
     std::string name;                           //CALC/OUT - Name of the stadium
     std::string team;                           //CALC/OUT - Name of the team in the stadium
@@ -67,17 +72,17 @@ private:
 
 //Default constructor
 stadium::stadium(
-    std::string name = "",
-    std::string team = "",
-    std::string address = "",
-    std::string city = "",
-    std::string state = "",
-    int zip = 0,
-    std::string phoneNum = "",
-    int month = 0,
-    int day = 0,
-    int year = 0,
-    int capacity = 0):
+    std::string name,
+    std::string team,
+    std::string address,
+    std::string city,
+    std::string state,
+    int zip,
+    std::string phoneNum,
+    int month,
+    int day,
+    int year,
+    int capacity):
     name(name), team(team), address(address), city(city), state(state), zip(zip), phoneNum(phoneNum), capacity(capacity)
 {
     dateOpened[0] = month;
@@ -175,7 +180,7 @@ int compTeam(const stadium& stadium1, const stadium& stadium2) {
 * 0 if stadium1.date == stadium2.date, and 1 if
 * stadium1.date > stadium2.date.
 ***********************************************************/
-bool compDate(const stadium& stadium1, const stadium& stadium2) {
+int compDate(const stadium& stadium1, const stadium& stadium2) {
     //stadium1 opened years(s) after stadium2
     if (stadium1.dateOpened[2] > stadium2.dateOpened[2])
         return 1;
@@ -199,6 +204,21 @@ bool compDate(const stadium& stadium1, const stadium& stadium2) {
 
     //They are the same
     return 0;
+}
+
+stadium& stadium::operator= (const stadium& otherStadium) {
+    std::string name = otherStadium.name;
+    std::string team = otherStadium.team;
+    std::string address = otherStadium.address;
+    std::string city = otherStadium.city;
+    std::string state = otherStadium.state;
+    int zip = otherStadium.zip;
+    std::string phoneNum = otherStadium.phoneNum;
+    dateOpened[0] = otherStadium.dateOpened[0];
+    dateOpened[1] = otherStadium.dateOpened[1];
+    dateOpened[2] = otherStadium.dateOpened[2];
+    int capacity = otherStadium.capacity;
+
 }
 
 #endif // STADIUM_H
