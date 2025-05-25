@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <QMainWindow>
 #include <QFile>
+#include <QMainWindow>
+#include <QPainter>
+#include <QPen>
 #include "fileWriteTest.h"
 
 QT_BEGIN_NAMESPACE
