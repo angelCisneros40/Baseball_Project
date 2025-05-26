@@ -1,7 +1,60 @@
 <RCC>
-    <qresource prefix="/src">
-        <file>src/Stadium-NonDirected.jpg</file>
-        <file>src/output.txt</file>
-        <file>src/background.jpg</file>
-    </qresource>
+  <qresource prefix="/src">
+    <file>src/background.jpg</file>
+    <file>src/Layer 1.png</file>
+    <file>src/Layer 2.png</file>
+    <file>src/Layer 3.png</file>
+    <file>src/Layer 4.png</file>
+    <file>src/Layer 5.png</file>
+    <file>src/Layer 6.png</file>
+    <file>src/Layer 7.png</file>
+    <file>src/Layer 8.png</file>
+    <file>src/Layer 9.png</file>
+    <file>src/Layer 10.png</file>
+    <file>src/Layer 11.png</file>
+    <file>src/Layer 12.png</file>
+    <file>src/Layer 13.png</file>
+    <file>src/Layer 14.png</file>
+    <file>src/Layer 15.png</file>
+    <file>src/Layer 16.png</file>
+    <file>src/Layer 17.png</file>
+    <file>src/Layer 18.png</file>
+    <file>src/Layer 19.png</file>
+    <file>src/Layer 21.png</file>
+    <file>src/Layer 22.png</file>
+    <file>src/Layer 23.png</file>
+    <file>src/Layer 24.png</file>
+    <file>src/Layer 25.png</file>
+    <file>src/Layer 26.png</file>
+    <file>src/Layer 27.png</file>
+    <file>src/Layer 28.png</file>
+    <file>src/Layer 29.png</file>
+    <file>src/Layer 30.png</file>
+    <file>src/Layer 31.png</file>
+    <file>src/Layer 32.png</file>
+    <file>src/Layer 33.png</file>
+    <file>src/Layer 34.png</file>
+    <file>src/Layer 35.png</file>
+    <file>src/Layer 36.png</file>
+    <file>src/Layer 37.png</file>
+    <file>src/Layer 38.png</file>
+    <file>src/Layer 39.png</file>
+    <file>src/Layer 40.png</file>
+    <file>src/Layer 41.png</file>
+    <file>src/Layer 42.png</file>
+    <file>src/Layer 43.png</file>
+    <file>src/Layer 44.png</file>
+    <file>src/Layer 45.png</file>
+    <file>src/Layer 46.png</file>
+    <file>src/line.png</file>
+    <file>src/output.txt</file>
+    <file>src/Screenshot from 2025-05-14 07-21-30.png</file>
+    <file>src/Stadium-NonDirected.jpg</file>
+    <file>src/Stadium-NonDirected.png</file>
+    <file>src/Stadium-NonDirected.jpg</file>
+    <file>src/output.txt</file>
+    <file>src/background.jpg</file>
+    <file>src/Screenshot from 2025-05-14 07-21-30.png</file>
+    <file>src/line.png</file>
+  </qresource>
 </RCC>

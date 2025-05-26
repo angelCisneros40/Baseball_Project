@@ -1,14 +1,17 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "canvaswidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    connect(ui->testOutputButton, &QPushButton::clicked, this,
-            &MainWindow::printToTextBrowser);
-    // testOutputButton
+    CanvasWidget *canvas = new CanvasWidget(this);
+    // ui->verticalLayout->addWidget(canvas);
+
+    connect(ui->testOutputButton, &QPushButton::clicked, this, &MainWindow::printToTextBrowser);
 }
 
 MainWindow::~MainWindow()
