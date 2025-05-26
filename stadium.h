@@ -19,7 +19,9 @@ public:
         int month = 0,
         int day = 0,
         int year = 0,
-        int capacity = 0);
+        int capacity = 0,
+        std::string league = "National",
+        bool og30 = true);
     stadium(const stadium& otherStadium);                               //copy constructor
 
 
@@ -35,6 +37,8 @@ public:
     int getDay() {return dateOpened[1];}
     int getYear() {return dateOpened[2];}
     int getCapacity() {return capacity;}
+    std::string getLeague() {return league;}
+    bool isOg() {return og30;}
 
     //Mutators
     void setName(std::string name) {this->name = name;}
@@ -46,6 +50,8 @@ public:
     void setPhone(std::string phone) {this->phoneNum = phone;}
     void setDate(int month, int day, int year) {dateOpened[0] = month; dateOpened[1] = day; dateOpened[2] = year;}
     void setCapacity(int capacity) {this->capacity = capacity;}
+    void setLeague(std::string league) {this->league = league;}
+    void setOG(bool og30) {this->og30 = og30;}
 
 
     //Relational functions
@@ -67,6 +73,8 @@ private:
     std::string phoneNum;                       //OUT - Phone number of the stadium
     int dateOpened[3];                          //CALC/OUT - Date the stadium opened (0,month/1,day/2,year)
     int capacity;                               //OUT - The seating capacity of the stadium
+    std::string league;                         //CALC/OUT - Which league the stadium's team is a part of
+    bool og30;                                  //CALC/OUT - Whether the stadium was in original 30, and thus part of graph
 
 };
 
@@ -82,8 +90,10 @@ stadium::stadium(
     int month,
     int day,
     int year,
-    int capacity):
-    name(name), team(team), address(address), city(city), state(state), zip(zip), phoneNum(phoneNum), capacity(capacity)
+    int capacity,
+    std::string league,
+    bool og30):
+    name(name), team(team), address(address), city(city), state(state), zip(zip), phoneNum(phoneNum), capacity(capacity), league(league), og30(og30)
 {
     dateOpened[0] = month;
     dateOpened[1] = day;
@@ -103,6 +113,8 @@ stadium::stadium(const stadium& otherStadium) {
     dateOpened[1] = otherStadium.dateOpened[1];
     dateOpened[2] = otherStadium.dateOpened[2];
     capacity = otherStadium.capacity;
+    league = otherStadium.league;
+    og30 = otherStadium.og30;
 }
 
 /**********************************************************
@@ -207,18 +219,21 @@ int compDate(const stadium& stadium1, const stadium& stadium2) {
 }
 
 stadium& stadium::operator= (const stadium& otherStadium) {
-    std::string name = otherStadium.name;
-    std::string team = otherStadium.team;
-    std::string address = otherStadium.address;
-    std::string city = otherStadium.city;
-    std::string state = otherStadium.state;
-    int zip = otherStadium.zip;
-    std::string phoneNum = otherStadium.phoneNum;
+    name = otherStadium.name;
+    team = otherStadium.team;
+    address = otherStadium.address;
+    city = otherStadium.city;
+    state = otherStadium.state;
+    zip = otherStadium.zip;
+    phoneNum = otherStadium.phoneNum;
     dateOpened[0] = otherStadium.dateOpened[0];
     dateOpened[1] = otherStadium.dateOpened[1];
     dateOpened[2] = otherStadium.dateOpened[2];
-    int capacity = otherStadium.capacity;
+    capacity = otherStadium.capacity;
+    league = otherStadium.league;
+    og30 = otherStadium.og30;
 
+    return *this;
 }
 
 #endif // STADIUM_H

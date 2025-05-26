@@ -2,6 +2,7 @@
 #define STADIUMGRAPH_H
 
 #include <iostream>
+#include <limits>
 #include "stadium.h"
 
 //Edges can be stored in pairs of 2 nodes, the first one having 0 distance pointing to the 2nd, containing the distance
@@ -31,6 +32,7 @@ struct graphNode
     }
 };
 
+
 class stadiumGraph
 {
 public:
@@ -42,6 +44,13 @@ public:
     void insert(stadium value);
     void insert(stadium target, stadium value, int distance);
 
+    void dijkstra(int start, graphNode*& S, int*& C, int*& P);
+    stadiumGraph completeGraph();
+    graphNode* shortestPathAll();
+    graphNode* shortestPathNational();
+    graphNode* shortestPathAmerican();
+    void expandPath(graphNode*& visited);
+
     stadiumGraph& operator= (const stadiumGraph& otherGraph);
 
 private:
@@ -51,6 +60,7 @@ private:
     void sizeUp();
     void clear();
     int find(stadium value);
+    int find(std::string name);
 };
 
 #endif // STADIUMGRAPH_H
