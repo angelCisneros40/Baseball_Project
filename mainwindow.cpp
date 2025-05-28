@@ -94,7 +94,7 @@ void MainWindow::testFakeRoute()
     for (QLabel *label : labels)
         if (label->objectName().endsWith("_Blue"))
             if (showFakeRoute && fakeRoute.contains(label->objectName()))
-                label->setVisible(true);
+            label->setVisible(true);
             else
                 label->setVisible(false);
 }
