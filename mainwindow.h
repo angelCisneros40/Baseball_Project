@@ -29,6 +29,7 @@ private:
     void testBlueLinebutton();
     void testBlackLinebutton();
     void testFakeRoute();
+    void outputSouvenirPurchase();
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
