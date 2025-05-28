@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1367</width>
-    <height>769</height>
+    <width>1241</width>
+    <height>754</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -576,7 +576,7 @@
    <widget class="QComboBox" name="combobox_stadiumA">
     <property name="geometry">
      <rect>
-      <x>1160</x>
+      <x>1070</x>
       <y>0</y>
       <width>171</width>
       <height>31</height>
@@ -2319,7 +2319,7 @@
    <widget class="QComboBox" name="combobox_stadiumB">
     <property name="geometry">
      <rect>
-      <x>1160</x>
+      <x>1070</x>
       <y>40</y>
       <width>171</width>
       <height>31</height>
@@ -2552,7 +2552,7 @@
    <widget class="QPushButton" name="button_PrintDistanceBetweenTwo">
     <property name="geometry">
      <rect>
-      <x>1160</x>
+      <x>1070</x>
       <y>80</y>
       <width>171</width>
       <height>41</height>
@@ -4522,7 +4522,7 @@ Stadiums</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1367</width>
+     <width>1241</width>
      <height>21</height>
     </rect>
    </property>
