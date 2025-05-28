@@ -25,11 +25,18 @@ private:
     bool showBlackEdges = true;
     bool showBlueEdges = true;
     bool showFakeRoute = false;
+    bool button_AddStadiumToCustomTripIsVisible = false;
     void printToTextBrowser();
     void testBlueLinebutton();
     void testBlackLinebutton();
     void testFakeRoute();
     void outputSouvenirPurchase();
+    void toggleAdminTools();
+    void testOutput();
+    void initCustomTrip();
+    void planCustomTrip();
+    void itemPurchased();
+    void stadiumAToStadiumB();
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

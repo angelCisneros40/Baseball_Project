@@ -1,6 +1,6 @@
 Stadium: 
-American Family Field
+LoanDepot Park
 
 
 Souvenir: 
-Baseball Bat          $35.35
+Baseball Cap          $25.99

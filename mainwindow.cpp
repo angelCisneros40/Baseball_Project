@@ -7,18 +7,26 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     CanvasWidget *canvas = new CanvasWidget(this);
-    connect(ui->testOutputButton, &QPushButton::clicked, this, &MainWindow::printToTextBrowser);
+    connect(ui->testOutputButton, &QPushButton::clicked, this, &MainWindow::testOutput);
     connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
     connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
     connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
     connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
+    connect(ui->AdminPinLineEdit, &QLineEdit::returnPressed, this, &MainWindow::toggleAdminTools);
+    connect(ui->button_PlanCustomTrip, &QPushButton::clicked, this, &MainWindow::initCustomTrip);
+    connect(ui->button_AddStadiumToCustomTrip, &QPushButton::clicked, this, &MainWindow::planCustomTrip);
+    connect(ui->button_PurchaseSouvenir, &QPushButton::clicked, this, &MainWindow::itemPurchased);
+    connect(ui->button_PrintDistanceBetweenTwo, &QPushButton::clicked, this, &MainWindow::stadiumAToStadiumB);
+    ui->label_moveThisTeamText->setVisible(false);
+    ui->label_moveToThisStadiumText->setVisible(false);
+    ui->comboBox_moveThisTeam->setVisible(false);
+    ui->comboBox_moveToThisStadium->setVisible(false);
+    ui->button_AddStadiumToCustomTrip->setVisible(button_AddStadiumToCustomTripIsVisible);
+    clearOutputFile();
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() { delete ui; }
 
 void MainWindow::printToTextBrowser()
 {
@@ -125,6 +133,122 @@ void MainWindow::outputSouvenirPurchase()
             << stadium.toStdString()
             << "\n\n\nSouvenir: \n"
             << souvenir.toStdString() << "\n";
+
+    outFile.close();
+
+    printToTextBrowser();
+}
+
+void MainWindow::toggleAdminTools()
+{
+    QString inputPin = ui->AdminPinLineEdit->text();
+
+    QString result;
+    bool isCorrectPin = (inputPin == "12345");
+
+    if (isCorrectPin)
+        result = "Correct Pin";
+    else
+        result = "Wrong Pin";
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << result.toStdString() << "\n";
+    outFile.close();
+
+    ui->label_moveThisTeamText->setVisible(isCorrectPin);
+    ui->label_moveToThisStadiumText->setVisible(isCorrectPin);
+    ui->comboBox_moveThisTeam->setVisible(isCorrectPin);
+    ui->comboBox_moveToThisStadium->setVisible(isCorrectPin);
+
+    ui->AdminPinLineEdit->clear();
+    printToTextBrowser();
+}
+
+void MainWindow::testOutput()
+{
+    testReadToWriteFile();
+    printToTextBrowser();
+}
+
+void MainWindow::initCustomTrip()
+{
+    ui->button_AddStadiumToCustomTrip->setVisible(!button_AddStadiumToCustomTripIsVisible);
+    button_AddStadiumToCustomTripIsVisible = !button_AddStadiumToCustomTripIsVisible;
+    clearOutputFile();
+    printToTextBrowser();
+}
+
+void MainWindow::planCustomTrip()
+{
+    QString inputStadium = ui->comboBox_CustomTrip->currentText();
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::app);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << inputStadium.toStdString() << "\n";
+    outFile.close();
+
+    printToTextBrowser();
+}
+
+void MainWindow::itemPurchased()
+{
+    clearOutputFile();
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::app);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+    outFile << "item purchased!" << "\n";
+    outFile.close();
+    printToTextBrowser();
+}
+
+void MainWindow::stadiumAToStadiumB()
+{
+    clearOutputFile();
+
+    QString stadiumA = ui->combobox_stadiumA->currentText();
+    QString stadiumB = ui->combobox_stadiumB->currentText();
+    int distance = 0;
+
+    if (stadiumA == "Select Stadium A" || stadiumA.isEmpty())
+        stadiumA = "None";
+    if (stadiumB == "Select Stadium B" || stadiumB.isEmpty())
+        stadiumB = "None";
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+    outFile << "Stadium A: \n"
+            << stadiumA.toStdString()
+            << "\n\n\nStadium B: \n"
+            << stadiumB.toStdString()
+            << "\n"
+            << "Total Distance: "
+            << distance;
 
     outFile.close();
 

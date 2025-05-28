@@ -4,8 +4,8 @@
 int main(int argc, char *argv[])
 {
     // clearOutputFile();
-    testReadToWriteFile();
-    printOutputTxt();
+    // testReadToWriteFile();
+    // printOutputTxt();
 
     QApplication a(argc, argv);
     MainWindow w;

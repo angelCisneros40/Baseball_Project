@@ -8,6 +8,7 @@
         "iostream": "cpp",
         "qfile": "cpp",
         "qpainter": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "limits": "cpp"
     }
 }
