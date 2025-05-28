@@ -55,24 +55,26 @@ void MainWindow::printToTextBrowser()
     }
 }
 
-void MainWindow::testBlueLinebutton()
-{
-    showBlueEdges = !showBlueEdges;
-    for (int i = 52; i <= 99; ++i)
-    {
-        QLabel *label = findChild<QLabel *>(QString("label_%1").arg(i));
-        if (label)
-            label->setVisible(showBlueEdges);
-    }
-}
-
 void MainWindow::testBlackLinebutton()
 {
     showBlackEdges = !showBlackEdges;
-    for (int i = 3; i <= 51; ++i)
+
+    QList<QLabel*> labels = findChildren<QLabel *>();
+    for (QLabel *label : labels)
     {
-        QLabel *label = findChild<QLabel *>(QString("label_%1").arg(i));
-        if (label)
+        if (label->objectName().endsWith("_Black"))
             label->setVisible(showBlackEdges);
+    }
+}
+
+void MainWindow::testBlueLinebutton()
+{
+    showBlueEdges = !showBlueEdges;
+
+    QList<QLabel*> labels = findChildren<QLabel *>();
+    for (QLabel *label : labels)
+    {
+        if (label->objectName().endsWith("_Blue"))
+            label->setVisible(showBlueEdges);
     }
 }
