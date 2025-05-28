@@ -5,25 +5,26 @@
 #include <limits>
 #include "stadium.h"
 
-//Edges can be stored in pairs of 2 nodes, the first one having 0 distance pointing to the 2nd, containing the distance
+// Edges can be stored in pairs of 2 nodes, the first one having 0 distance pointing to the 2nd, containing the distance
 struct graphNode
 {
     stadium value;
     int distance;
-    graphNode* adjacent;
+    graphNode *adjacent;
 
-    graphNode(): value(stadium()), distance(0), adjacent(nullptr) {}
-    graphNode(stadium value, int distance = 0, graphNode* adjacent = nullptr): value(value), distance(distance), adjacent(adjacent) {}
-    graphNode (const graphNode& otherNode): value(otherNode.value), distance(otherNode.distance), adjacent(otherNode.adjacent) {}
+    graphNode() : value(stadium()), distance(0), adjacent(nullptr) {}
+    graphNode(stadium value, int distance = 0, graphNode *adjacent = nullptr) : value(value), distance(distance), adjacent(adjacent) {}
+    graphNode(const graphNode &otherNode) : value(otherNode.value), distance(otherNode.distance), adjacent(otherNode.adjacent) {}
 
-    bool operator== (const graphNode& otherNode) { return value == otherNode.value; }
-    bool operator!= (const graphNode& otherNode) { return value != otherNode.value; }
-    bool operator< (const graphNode& otherNode) { return distance < otherNode.distance; }
-    bool operator> (const graphNode& otherNode) { return distance > otherNode.distance; }
-    bool operator<= (const graphNode& otherNode) { return distance <= otherNode.distance; }
-    bool operator>= (const graphNode& otherNode) { return distance >= otherNode.distance; }
+    bool operator==(const graphNode &otherNode) { return value == otherNode.value; }
+    bool operator!=(const graphNode &otherNode) { return value != otherNode.value; }
+    bool operator<(const graphNode &otherNode) { return distance < otherNode.distance; }
+    bool operator>(const graphNode &otherNode) { return distance > otherNode.distance; }
+    bool operator<=(const graphNode &otherNode) { return distance <= otherNode.distance; }
+    bool operator>=(const graphNode &otherNode) { return distance >= otherNode.distance; }
 
-    graphNode& operator= (const graphNode& otherNode) {
+    graphNode &operator=(const graphNode &otherNode)
+    {
         value = otherNode.value;
         distance = otherNode.distance;
         adjacent = otherNode.adjacent;
@@ -32,29 +33,28 @@ struct graphNode
     }
 };
 
-
 class stadiumGraph
 {
 public:
-    stadiumGraph(): adjacencyList(nullptr), vertices(0) {}
+    stadiumGraph() : adjacencyList(nullptr), vertices(0) {}
     stadiumGraph(stadium value);
-    stadiumGraph(const stadiumGraph& otherGraph);
+    stadiumGraph(const stadiumGraph &otherGraph);
     ~stadiumGraph();
 
     void insert(stadium value);
     void insert(stadium target, stadium value, int distance);
 
-    void dijkstra(int start, graphNode*& S, int*& C, int*& P);
+    void dijkstra(int start, graphNode *&S, int *&C, int *&P);
     stadiumGraph completeGraph();
-    graphNode* shortestPathAll();
-    graphNode* shortestPathNational();
-    graphNode* shortestPathAmerican();
-    void expandPath(graphNode*& visited);
+    graphNode *shortestPathAll();
+    graphNode *shortestPathNational();
+    graphNode *shortestPathAmerican();
+    void expandPath(graphNode *&visited);
 
-    stadiumGraph& operator= (const stadiumGraph& otherGraph);
+    stadiumGraph &operator=(const stadiumGraph &otherGraph);
 
 private:
-    graphNode** adjacencyList;
+    graphNode **adjacencyList;
     int vertices;
 
     void sizeUp();
