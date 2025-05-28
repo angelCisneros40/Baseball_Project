@@ -12,16 +12,15 @@ public:
         std::string name = "",
         std::string team = "",
         std::string address = "",
-        std::string city = "",
-        std::string state = "",
-        int zip = 0,
+        std::string addressLine2 = "",
         std::string phoneNum = "",
         int month = 0,
         int day = 0,
         int year = 0,
         int capacity = 0,
         std::string league = "National",
-        bool og30 = true);
+        bool og30 = true,
+        std::string field = "grass");
     stadium(const stadium& otherStadium);                               //copy constructor
 
 
@@ -29,9 +28,7 @@ public:
     std::string getName() {return name;}
     std::string getTeam() {return team;}
     std::string getAddress() {return address;}
-    std::string getCity() {return city;}
-    std::string getState() {return state;}
-    int getZip() {return zip;}
+    std::string getAddressLine2() {return addressLine2;}
     std::string getPhone() {return phoneNum;}
     int getMonth() {return dateOpened[0];}
     int getDay() {return dateOpened[1];}
@@ -39,19 +36,19 @@ public:
     int getCapacity() {return capacity;}
     std::string getLeague() {return league;}
     bool isOg() {return og30;}
+    std::string getField() {return field;}
 
     //Mutators
     void setName(std::string name) {this->name = name;}
     void setTeam(std::string team) {this->team = team;}
     void setAddress(std::string address) {this->address = address;}
-    void setCity(std::string city) {this->city = city;}
-    void setState(std::string state) {this->state = state;}
-    void setZip(int zip) {this->zip = zip;}
+    void setAddressLine2(std::string addressLine2) {this->addressLine2 = addressLine2;}
     void setPhone(std::string phone) {this->phoneNum = phone;}
     void setDate(int month, int day, int year) {dateOpened[0] = month; dateOpened[1] = day; dateOpened[2] = year;}
     void setCapacity(int capacity) {this->capacity = capacity;}
     void setLeague(std::string league) {this->league = league;}
     void setOG(bool og30) {this->og30 = og30;}
+    void setField(std::string field) {this->field = field;}
 
 
     //Relational functions
@@ -67,14 +64,13 @@ private:
     std::string name;                           //CALC/OUT - Name of the stadium
     std::string team;                           //CALC/OUT - Name of the team in the stadium
     std::string address;                        //OUT - Address of the stadium
-    std::string city;                           //OUT - City the stadium is in
-    std::string state;                          //OUT - The state the stadium is in
-    int zip;                                    //OUT - Zip code of the stadium
+    std::string addressLine2;                   //OUT - City, state, country if applicable, and zip code
     std::string phoneNum;                       //OUT - Phone number of the stadium
     int dateOpened[3];                          //CALC/OUT - Date the stadium opened (0,month/1,day/2,year)
     int capacity;                               //OUT - The seating capacity of the stadium
     std::string league;                         //CALC/OUT - Which league the stadium's team is a part of
     bool og30;                                  //CALC/OUT - Whether the stadium was in original 30, and thus part of graph
+    std::string field;                          //CALC/OUT - Whether the field is made of turf or grass
 
 };
 
@@ -83,17 +79,16 @@ stadium::stadium(
     std::string name,
     std::string team,
     std::string address,
-    std::string city,
-    std::string state,
-    int zip,
+    std::string addressLine2,
     std::string phoneNum,
     int month,
     int day,
     int year,
     int capacity,
     std::string league,
-    bool og30):
-    name(name), team(team), address(address), city(city), state(state), zip(zip), phoneNum(phoneNum), capacity(capacity), league(league), og30(og30)
+    bool og30,
+    std::string field):
+    name(name), team(team), address(address), addressLine2(addressLine2), phoneNum(phoneNum), capacity(capacity), league(league), og30(og30), field(field)
 {
     dateOpened[0] = month;
     dateOpened[1] = day;
@@ -105,9 +100,7 @@ stadium::stadium(const stadium& otherStadium) {
     name = otherStadium.name;
     team = otherStadium.team;
     address = otherStadium.address;
-    city = otherStadium.city;
-    state = otherStadium.state;
-    zip = otherStadium.zip;
+    addressLine2 = otherStadium.addressLine2;
     phoneNum = otherStadium.phoneNum;
     dateOpened[0] = otherStadium.dateOpened[0];
     dateOpened[1] = otherStadium.dateOpened[1];
@@ -115,6 +108,7 @@ stadium::stadium(const stadium& otherStadium) {
     capacity = otherStadium.capacity;
     league = otherStadium.league;
     og30 = otherStadium.og30;
+    field = otherStadium.field;
 }
 
 /**********************************************************
@@ -222,9 +216,7 @@ stadium& stadium::operator= (const stadium& otherStadium) {
     name = otherStadium.name;
     team = otherStadium.team;
     address = otherStadium.address;
-    city = otherStadium.city;
-    state = otherStadium.state;
-    zip = otherStadium.zip;
+    addressLine2 = otherStadium.addressLine2;
     phoneNum = otherStadium.phoneNum;
     dateOpened[0] = otherStadium.dateOpened[0];
     dateOpened[1] = otherStadium.dateOpened[1];
@@ -232,6 +224,7 @@ stadium& stadium::operator= (const stadium& otherStadium) {
     capacity = otherStadium.capacity;
     league = otherStadium.league;
     og30 = otherStadium.og30;
+    field = otherStadium.field;
 
     return *this;
 }
