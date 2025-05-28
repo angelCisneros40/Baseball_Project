@@ -1,0 +1,468 @@
+American Family Field
+Milwaukee Brewers
+1 Brewers Way
+Milwaukee, WI 53214
+(414)902-4452
+04/06/2001
+41900
+National
+grass
+{
+Wrigley Field,80
+Target Field,300
+Rogers Centre,430
+}
+Angel Stadium
+Los Angeles Angels
+2000 E Gene Autry Way
+Anaheim, CA 92806
+(714)940-2000
+04/19/1996
+45517
+American
+grass
+{
+Dodger Stadium,0
+Petco Park,110
+Oracle Park,340
+Sutter Health Park,340
+Target Field,1500
+}
+Busch Stadium
+St. Louis Cardinals
+700 Clark Ave.
+St. Louis, MO 63102
+(314)345-9600
+04/10/2006
+44383
+National
+grass
+{
+Kauffman Stadium,235
+Great American Ballpark,310
+Target Field,465
+Daikin Park,680
+}
+Chase Field
+Arizona Diamondbacks
+401 East Jefferson Street
+Phoenix, AZ 85004
+(602)514-8400
+03/31/1998
+48330
+National
+turf
+{
+Petco Park,300
+Coors Field,580
+Oracle Park,650
+Sutter Health Park,650
+Globe Life Field,870
+Minute Maid Park,1115
+}
+Citi Field
+New York Mets
+41 Seaver Way
+Queens, NY 11368
+(718)507-8499
+04/13/2009
+41992
+National
+grass
+{
+Yankee Stadium,0
+Citizens Bank Park,80
+Fenway Park,195
+PNC Park,315
+}
+Citizens Bank Park
+Philadelphia Phillies
+1 Citizens Bank Way
+Philadelphia, PA 19148
+(215)463-1000
+04/03/2004
+42901
+National
+grass
+{
+Yankee Stadium,80
+Citi Field,80
+Camden Yards,90
+Nationals Park,90
+}
+Comerica Park
+Detroit Tigers
+2100 Woodward Avenue
+Detroit, MI 48201
+(313)962-4000
+04/11/2000
+41083
+American
+grass
+{
+Progressive Field,90
+Rogers Centre,210
+Rate Field,240
+}
+Coors Field
+Colorado Rockies
+2001 Blake St.
+Denver, CO 80205
+(303)292-0200
+04/26/1995
+46897
+National
+grass
+{
+Kauffman Stadium,560
+Chase Field,580
+Globe Life Field,650
+Petco Park,830
+}
+Daikin Park
+Houston Astros
+501 Crawford Street
+Houston, TX 77002
+(713)259-8000
+03/30/2000
+41168
+American
+grass
+{
+Globe Life Field,230
+George M. Steinbrenner Field,790
+LoanDepot Park,965
+Chase Field,1115
+}
+Dodger Stadium
+Los Angeles Dodgers
+1000 Vin Scully Ave.
+Los Angeles, CA 90090
+(866)363-4377
+04/10/1962
+56000
+National
+grass
+{
+Angel Stadium,0
+Petco Park,110
+Oracle Park,340
+Sutter Health Park,340
+Target Field,1500
+}
+Fenway Park
+Boston Red Sox
+4 Jersey St.
+Boston, MA 02215
+(877)733-7699
+04/20/1912
+37755
+American
+grass
+{
+Yankee Stadium,195
+Citi Field,195
+Rogers Centre,430
+LoanDepot Park,1255
+}
+George M. Steinbrenner Field
+Tampa Bay Rays
+1 Steinbrenner Dr.
+Tampa, FL 33614
+(813)875-7753
+03/01/1996
+11026
+American
+grass
+{
+LoanDepot Park,210
+Great American Ballpark,790
+Daikin Park,790
+}
+Globe Life Field
+Texas Rangers
+734 Stadium Drive
+Arlington, TX 76011
+(817)533-1972
+06/24/2020
+40300
+American
+turf
+{
+Daikin Park,230
+Kauffman Stadium,460
+Coors Field,650
+Truist Park,740
+Chase Field,870
+}
+Great American Ballpark
+Cincinnati Reds
+100 Joe Nuxhall Way
+Cincinnati, OH 45202
+(513)765-7000
+03/31/2003
+43500
+National
+grass
+{
+Progressive Field,225
+Wrigley Field,250
+Rate Field,250
+PNC Park,260
+Busch Stadium,310
+Truist Park,375
+George M. Steinbrenner Field,790
+}
+Kauffman Stadium
+Kansas City Royals
+1 Royal Way
+Kansas City, MO 64129
+(816)921-8000
+04/10/1973
+37903
+American
+grass
+{
+Busch Stadium,235
+Wrigley Field,415
+Rate Field,415
+Globe Life Field,460
+Coors Field,560
+}
+LoanDepot Park
+Miami Marlins
+501 Marlins Way
+Miami, FL 33125
+(305)480-1300
+04/04/2012
+36742
+National
+turf
+{
+George M. Steinbrenner Field,210
+Camden Yards,930
+Nationals Park,930
+Daikin Park,965
+Fenway Park,1255
+}
+Nationals Park
+Washington Nationals
+1500 S Capitol St. SE
+Washington, DC 20003
+(202)675-6287
+03/30/2008
+41373
+National
+grass
+{
+Camden Yards,0
+Citizens Bank Park,90
+PNC Park,195
+Truist Park,560
+LoanDepot Park,930
+}
+Oracle Park
+San Francisco Giants
+24 Willie Mays Plaza
+San Francisco, CA 94107
+(415)972-2000
+04/11/2000
+41331
+National
+grass
+{
+Sutter Health Park,0
+Angel Stadium,340
+Dodger Stadium,340
+Chase Field,650
+T-Mobile Park,680
+}
+Camden Yards
+Baltimore Orioles
+333 West Camden Street
+Baltimore, MD 21201
+(410)685-9800
+04/06/1992
+44970
+American
+grass
+{
+Nationals Park,0
+Citizens Bank Park,90
+PNC Park,195
+Truist Park,560
+LoanDepot Park,930
+}
+Petco Park
+San Diego Padres
+100 Park Blvd
+San Diego, CA 92101
+(619)795-5555
+04/08/2004
+39860
+National
+grass
+{
+Angel Stadium,110
+Dodger Stadium,110
+Chase Field,300
+Coors Field,830
+}
+PNC Park
+Pittsburgh Pirates
+115 Federal St.
+Pittsburgh, PA 15212
+(412)321-2827
+03/31/2001
+38747
+National
+grass
+{
+Progressive Field,115
+Camden Yards,195
+Nationals Park,195
+Rogers Centre,225
+Great American Ballpark,260
+Yankee Stadium,315
+Citi Field,315
+}
+Progressive Field
+Cleveland Guardians
+2401 Ontario St.
+Cleveland, OH 44115
+(216)420-4487
+04/02/1994
+34830
+American
+grass
+{
+Comerica Park,90
+PNC Park,115
+Great American Ballpark,225
+}
+Rate Field
+Chicago White Sox
+333 W 35th St.
+Chicago, IL 60616
+(312)674-1000
+04/18/1991
+40615
+American
+grass
+{
+Wrigley Field,0
+American Family Field,80
+Comerica Park,240
+Great American Ballpark,250
+Kauffman Stadium,415
+}
+Rogers Centre
+Toronto Blue Jays
+1 Blue Jays Way
+Toronto, Ontario, Canada M5V1J3
++1 416-341-1000
+06/03/1989
+39150
+American
+turf
+{
+Comerica Park,210
+PNC Park,225
+American Family Field,430
+Fenway Park,430
+T-Mobile Park,2070
+}
+Sutter Health Park
+Athletics
+400 Ballpark Dr.
+Sacramento, CA 95691
+(916)376-4722
+05/15/2000
+13416
+American
+grass
+{
+Oracle Park,0
+Angel Stadium,340
+Dodger Stadium,340
+Chase Field,650
+T-Mobile Park,680
+}
+T-Mobile Park
+Seattle Mariners
+1250 First Ave. S
+Seattle, WA 98134
+(206)346-4000
+07/15/1999
+47929
+American
+grass
+{
+Oracle Park,680
+Sutter Health Park,680
+Target Field,1390
+Rogers Centre,2070
+}
+Target Field
+Minnesota Twins
+1 Twins Way
+Minneapolis, MN 55403
+(612)659-3400
+04/12/2010
+38544
+American
+grass
+{
+American Family Field,300
+Busch Stadium,465
+T-Mobile Park,1390
+Angel Stadium,1500
+Dodger Stadium,1500
+}
+Truist Park
+Atlanta Braves
+755 Battery Ave. SE
+Atlanta, GA 30339
+(404)577-9100
+04/14/2017
+41084
+National
+grass
+{
+Great American Ballpark,375
+Camden Yards,560
+Nationals Parks,560
+LoanDepot Park,600
+Globe Life Field,740
+}
+Wrigley Field
+Chicago Cubs
+1060 W Addison St.
+Chicago, IL 60613
+(800)843-2827
+04/23/1914
+41649
+National
+grass
+{
+Rate Field,0
+American Family Field,80
+Comerica Park,240
+Great American Ballpark,250
+Kauffman Stadium,415
+}
+Yankee Stadium
+New York Yankees
+1 E 161st St.
+Bronx, NY 10451
+(212)926-5337
+04/16/2009
+46537
+American
+grass
+{
+Citi Field,0
+Citizens Bank Park,80
+Fenway Park,195
+PNC Park,315
+}

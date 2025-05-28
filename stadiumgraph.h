@@ -51,6 +51,11 @@ public:
     graphNode *shortestPathAmerican();
     void expandPath(graphNode *&visited);
 
+
+    graphNode* getStadium(int index) {return adjacencyList[index];}
+    int find(stadium value);
+    int find(std::string name);
+
     stadiumGraph &operator=(const stadiumGraph &otherGraph);
 
 private:
@@ -59,8 +64,6 @@ private:
 
     void sizeUp();
     void clear();
-    int find(stadium value);
-    int find(std::string name);
 };
 
 #endif // STADIUMGRAPH_H

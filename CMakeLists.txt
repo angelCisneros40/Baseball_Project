@@ -36,6 +36,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         stadium.h
         canvaswidget.h
         canvaswidget.cpp
+        stadiumgraph.h
+        stadiumgraph.cpp
+        readStadiums.h
+        readStadiums.cpp
+        stadium.cpp
+        stadiumTree.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Baseball_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

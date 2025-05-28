@@ -583,8 +583,13 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>TMobile Park</string>
+     <string>Select Stadium A</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Select Stadium A</string>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>American Family Field</string>
@@ -2321,8 +2326,13 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>TMobile Park</string>
+     <string>Select Stadium B</string>
     </property>
+    <item>
+     <property name="text">
+      <string>Select Stadium B</string>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>American Family Field</string>
