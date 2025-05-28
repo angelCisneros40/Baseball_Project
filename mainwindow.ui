@@ -576,7 +576,7 @@
    <widget class="QComboBox" name="combobox_stadiumA">
     <property name="geometry">
      <rect>
-      <x>1070</x>
+      <x>1020</x>
       <y>0</y>
       <width>171</width>
       <height>31</height>
@@ -2264,9 +2264,9 @@
    <widget class="QPushButton" name="testBlueLineToggle">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>30</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2277,9 +2277,9 @@
    <widget class="QPushButton" name="testBlackLineToggle">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>60</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2306,9 +2306,9 @@
    <widget class="QPushButton" name="highlightRouteToggle">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>90</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2319,7 +2319,7 @@
    <widget class="QComboBox" name="combobox_stadiumB">
     <property name="geometry">
      <rect>
-      <x>1070</x>
+      <x>1020</x>
       <y>40</y>
       <width>171</width>
       <height>31</height>
@@ -2487,9 +2487,9 @@
    <widget class="QPushButton" name="highlightRouteToggle_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>120</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2500,9 +2500,9 @@
    <widget class="QPushButton" name="highlightRouteToggle_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>150</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2513,9 +2513,9 @@
    <widget class="QPushButton" name="highlightRouteToggle_4">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>180</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2526,7 +2526,7 @@
    <widget class="QPushButton" name="button_PlanCustomTrip">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>410</x>
       <y>30</y>
       <width>171</width>
       <height>24</height>
@@ -2539,9 +2539,9 @@
    <widget class="QPushButton" name="highlightRouteToggle_6">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>210</y>
-      <width>161</width>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
@@ -2552,7 +2552,7 @@
    <widget class="QPushButton" name="button_PrintDistanceBetweenTwo">
     <property name="geometry">
      <rect>
-      <x>1070</x>
+      <x>1020</x>
       <y>80</y>
       <width>171</width>
       <height>41</height>
@@ -2650,7 +2650,7 @@ Stadiums</string>
    <widget class="QPushButton" name="highlightRouteToggle_8">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>150</y>
       <width>171</width>
       <height>31</height>
@@ -2663,7 +2663,7 @@ Stadiums</string>
    <widget class="QComboBox" name="stadiumComboBox">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>30</y>
       <width>171</width>
       <height>31</height>
@@ -2831,7 +2831,7 @@ Stadiums</string>
    <widget class="QComboBox" name="souvenirComboBox">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>70</y>
       <width>171</width>
       <height>31</height>
@@ -2869,7 +2869,7 @@ Stadiums</string>
    <widget class="QPushButton" name="button_PurchaseSouvenir">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>110</y>
       <width>171</width>
       <height>31</height>
@@ -2882,7 +2882,7 @@ Stadiums</string>
    <widget class="QLineEdit" name="AdminPinLineEdit">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>230</x>
       <y>190</y>
       <width>171</width>
       <height>31</height>
@@ -2898,7 +2898,7 @@ Stadiums</string>
    <widget class="QComboBox" name="comboBox_CustomTrip">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>410</x>
       <y>60</y>
       <width>171</width>
       <height>31</height>
@@ -4377,7 +4377,7 @@ Stadiums</string>
    <widget class="QPushButton" name="button_AddStadiumToCustomTrip">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>410</x>
       <y>100</y>
       <width>171</width>
       <height>31</height>
