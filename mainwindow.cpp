@@ -3,15 +3,15 @@
 #include "canvaswidget.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     CanvasWidget *canvas = new CanvasWidget(this);
-    // ui->verticalLayout->addWidget(canvas);
-
+    showBlackEdges = true;
+    showBlueEdges = true;
     connect(ui->testOutputButton, &QPushButton::clicked, this, &MainWindow::printToTextBrowser);
+    connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
+    connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
 }
 
 MainWindow::~MainWindow()
@@ -52,5 +52,27 @@ void MainWindow::printToTextBrowser()
             "**********************************"
             "</div>"
             "</div>");
+    }
+}
+
+void MainWindow::testBlueLinebutton()
+{
+    showBlueEdges = !showBlueEdges;
+    for (int i = 52; i <= 99; ++i)
+    {
+        QLabel *label = findChild<QLabel *>(QString("label_%1").arg(i));
+        if (label)
+            label->setVisible(showBlueEdges);
+    }
+}
+
+void MainWindow::testBlackLinebutton()
+{
+    showBlackEdges = !showBlackEdges;
+    for (int i = 3; i <= 51; ++i)
+    {
+        QLabel *label = findChild<QLabel *>(QString("label_%1").arg(i));
+        if (label)
+            label->setVisible(showBlackEdges);
     }
 }

@@ -1705,6 +1705,32 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="testBlueLineToggle">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>test blue line toggle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlackLineToggle">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>test black line toggle</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1712,7 +1738,7 @@
      <x>0</x>
      <y>0</y>
      <width>1205</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menumenubar_test">
@@ -1724,6 +1750,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
