@@ -100,8 +100,6 @@ void MainWindow::testFakeRoute()
             else
                 label->setVisible(false);
 }
-<<<<<<< HEAD
-=======
 
 void MainWindow::outputSouvenirPurchase()
 {
@@ -132,4 +130,3 @@ void MainWindow::outputSouvenirPurchase()
 
     printToTextBrowser();
 }
->>>>>>> 5dff7bcfd50e4952b59d41b83fd7117197ae51ab
