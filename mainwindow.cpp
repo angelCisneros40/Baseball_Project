@@ -7,11 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     CanvasWidget *canvas = new CanvasWidget(this);
-    showBlackEdges = true;
-    showBlueEdges = true;
     connect(ui->testOutputButton, &QPushButton::clicked, this, &MainWindow::printToTextBrowser);
     connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
     connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
+    connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
 }
 
 MainWindow::~MainWindow()
@@ -59,7 +58,7 @@ void MainWindow::testBlackLinebutton()
 {
     showBlackEdges = !showBlackEdges;
 
-    QList<QLabel*> labels = findChildren<QLabel *>();
+    QList<QLabel *> labels = findChildren<QLabel *>();
     for (QLabel *label : labels)
     {
         if (label->objectName().endsWith("_Black"))
@@ -71,10 +70,31 @@ void MainWindow::testBlueLinebutton()
 {
     showBlueEdges = !showBlueEdges;
 
-    QList<QLabel*> labels = findChildren<QLabel *>();
+    QList<QLabel *> labels = findChildren<QLabel *>();
     for (QLabel *label : labels)
     {
         if (label->objectName().endsWith("_Blue"))
             label->setVisible(showBlueEdges);
     }
+}
+
+void MainWindow::testFakeRoute()
+{
+    showFakeRoute = !showFakeRoute;
+
+    QStringList fakeRoute = {
+        "label_TMobileToStutterHealth_Blue",
+        "label_StutterHealthToDodger_Blue",
+        "label_DodgerToPetco_Blue",
+        "label_PetcoToChase_Blue",
+        "label_ChaseToDaikin_Blue",
+        "label_DaikinToLoanDepot_Blue"};
+
+    QList<QLabel *> labels = findChildren<QLabel *>();
+    for (QLabel *label : labels)
+        if (label->objectName().endsWith("_Blue"))
+            if (showFakeRoute && fakeRoute.contains(label->objectName()))
+                label->setVisible(true);
+            else
+                label->setVisible(false);
 }

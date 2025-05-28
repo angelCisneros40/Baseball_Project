@@ -6,6 +6,8 @@
         "fstream": "cpp",
         "qmainwindow": "cpp",
         "iostream": "cpp",
-        "qfile": "cpp"
+        "qfile": "cpp",
+        "qpainter": "cpp",
+        "new": "cpp"
     }
 }

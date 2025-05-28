@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1205</width>
-    <height>657</height>
+    <width>1367</width>
+    <height>769</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,24 +23,27 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>-70</x>
-      <y>-30</y>
-      <width>1341</width>
-      <height>681</height>
+      <x>0</x>
+      <y>-50</y>
+      <width>1371</width>
+      <height>781</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/src/src/background.jpg);</string>
+     <string notr="true">image: url(:/src/src/background.png);</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>220</y>
+      <x>35</x>
+      <y>340</y>
       <width>301</width>
       <height>371</height>
      </rect>
@@ -49,11 +52,480 @@
    <widget class="QLabel" name="outputLabel">
     <property name="geometry">
      <rect>
-      <x>305</x>
-      <y>170</y>
+      <x>110</x>
+      <y>290</y>
       <width>171</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>170</red>
+          <green>170</green>
+          <blue>170</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="127">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Accent">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>170</red>
+          <green>170</green>
+          <blue>170</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="127">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Accent">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Light">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Midlight">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Dark">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Mid">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>170</red>
+          <green>170</green>
+          <blue>170</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="BrightText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Shadow">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="AlternateBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipBase">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>220</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ToolTipText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="PlaceholderText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="127">
+          <red>127</red>
+          <green>127</green>
+          <blue>127</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Accent">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
     </property>
     <property name="font">
      <font>
@@ -75,8 +547,8 @@
    <widget class="QPushButton" name="testOutputButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>220</y>
+      <x>30</x>
+      <y>290</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -104,9 +576,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>90</y>
-      <width>171</width>
+      <x>1020</x>
+      <y>10</y>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -117,41 +589,178 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>90</y>
+      <x>1020</x>
+      <y>50</y>
       <width>131</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Choose E Stadium</string>
+     <string>Choose End Stadium</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>90</y>
-      <width>161</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>T-Mobile Park</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_2">
-    <property name="geometry">
-     <rect>
-      <x>1030</x>
-      <y>90</y>
+      <x>1160</x>
+      <y>10</y>
       <width>171</width>
       <height>31</height>
      </rect>
     </property>
     <property name="placeholderText">
-     <string>T-Mobile Park</string>
+     <string>TMobile Park</string>
     </property>
+    <item>
+     <property name="text">
+      <string>American Family Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Angel Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Busch Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chase Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citi Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citizens Bank Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Comerica Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Coors Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Daikin Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dodger Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fenway Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>George M. Steinbrenner Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Globe Life Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Great American Ball Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kauffman Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>LoanDepot Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nationals Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oracle Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oriole Park at Camden Yards</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Petco Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNC Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Progressive Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rate Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rogers Centre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sutter Health Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TMobile Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Target Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Truist Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wrigley Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Yankee Stadium</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label_TMobileToRogers_Black">
     <property name="geometry">
@@ -1678,7 +2287,7 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>131</width>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -1691,7 +2300,7 @@
      <rect>
       <x>30</x>
       <y>60</y>
-      <width>131</width>
+      <width>161</width>
       <height>24</height>
      </rect>
     </property>
@@ -1715,6 +2324,612 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="highlightRouteToggle">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>test highlight route</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>50</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>TMobile Park</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>American Family Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Angel Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Busch Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chase Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citi Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citizens Bank Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Comerica Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Coors Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Daikin Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dodger Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fenway Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>George M. Steinbrenner Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Globe Life Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Great American Ball Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kauffman Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>LoanDepot Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nationals Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oracle Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oriole Park at Camden Yards</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Petco Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNC Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Progressive Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rate Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rogers Centre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sutter Health Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TMobile Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Target Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Truist Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wrigley Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Yankee Stadium</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plan Full League Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>150</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plan American League Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plan American League Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plan Custom Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Print Route Summary</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_7">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>340</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Print Distance
+Between Two Stadiums</string>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlueLineToggle_2">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>540</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort Stadiums by Name</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlackLineToggle_2">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>390</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort Stadiums by 
+Team Name</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlackLineToggle_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>440</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort American League 
+Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlackLineToggle_4">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>490</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort National League 
+Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlueLineToggle_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>570</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stadiums with Grass</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testBlueLineToggle_4">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>600</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort by Date Opened</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_8">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>150</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View Purchase Summary</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_3">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>30</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Select Stadium</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>American Family Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Angel Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Busch Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chase Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citi Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citizens Bank Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Comerica Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Coors Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Daikin Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dodger Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fenway Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>George M. Steinbrenner Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Globe Life Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Great American Ball Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kauffman Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>LoanDepot Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nationals Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oracle Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oriole Park at Camden Yards</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Petco Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNC Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Progressive Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rate Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rogers Centre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sutter Health Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TMobile Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Target Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Truist Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wrigley Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Yankee Stadium</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>70</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Select Souvenir</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select Souvenir</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Cap	$25.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Bat	$35.35</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Foam Finger	$9.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Team Jersey	$89.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Team Hoodie	$69.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Keychain	$6.50</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bobblehead 	$24.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Trading Card	$29.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Seat Cushion	$11.49</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Lanyard	$7.99</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Glove 	$39.99</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="highlightRouteToggle_9">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>110</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Purchase Souvenir</string>
+    </property>
+   </widget>
    <zorder>backgroundWidget</zorder>
    <zorder>label_map</zorder>
    <zorder>label_StutterHealthToDodger_Black</zorder>
@@ -1725,7 +2940,6 @@
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>comboBox</zorder>
-   <zorder>comboBox_2</zorder>
    <zorder>label_TMobileToRogers_Black</zorder>
    <zorder>label_TMobileToTarget_Black</zorder>
    <zorder>label_TMobileToStutterHealth_Black</zorder>
@@ -1822,13 +3036,31 @@
    <zorder>label_DaikinToGeorge_Blue</zorder>
    <zorder>testBlueLineToggle</zorder>
    <zorder>testBlackLineToggle</zorder>
+   <zorder>highlightRouteToggle</zorder>
+   <zorder>comboBox_2</zorder>
+   <zorder>highlightRouteToggle_2</zorder>
+   <zorder>highlightRouteToggle_3</zorder>
+   <zorder>highlightRouteToggle_4</zorder>
+   <zorder>highlightRouteToggle_5</zorder>
+   <zorder>highlightRouteToggle_6</zorder>
+   <zorder>highlightRouteToggle_7</zorder>
+   <zorder>testBlueLineToggle_2</zorder>
+   <zorder>testBlackLineToggle_2</zorder>
+   <zorder>testBlackLineToggle_3</zorder>
+   <zorder>testBlackLineToggle_4</zorder>
+   <zorder>testBlueLineToggle_3</zorder>
+   <zorder>testBlueLineToggle_4</zorder>
+   <zorder>highlightRouteToggle_8</zorder>
+   <zorder>comboBox_3</zorder>
+   <zorder>comboBox_4</zorder>
+   <zorder>highlightRouteToggle_9</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1205</width>
+     <width>1367</width>
      <height>22</height>
     </rect>
    </property>

@@ -22,11 +22,13 @@ public:
     ~MainWindow();
 
 private:
-    bool showBlackEdges;
-    bool showBlueEdges;
+    bool showBlackEdges = true;
+    bool showBlueEdges = true;
+    bool showFakeRoute = false;
     void printToTextBrowser();
     void testBlueLinebutton();
     void testBlackLinebutton();
+    void testFakeRoute();
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
