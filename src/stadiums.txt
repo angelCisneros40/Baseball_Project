@@ -3,7 +3,7 @@ Milwaukee Brewers
 1 Brewers Way
 Milwaukee, WI 53214
 (414)902-4452
-4/6/2001
+04/06/2001
 41900
 National
 grass
@@ -17,7 +17,7 @@ Los Angeles Angels
 2000 E Gene Autry Way
 Anaheim, CA 92806
 (714)940-2000
-4/19/1996
+04/19/1996
 45517
 American
 grass
@@ -33,7 +33,7 @@ St. Louis Cardinals
 700 Clark Ave.
 St. Louis, MO 63102
 (314)345-9600
-4/10/2006
+04/10/2006
 44383
 National
 grass
@@ -48,7 +48,7 @@ Arizona Diamondbacks
 401 East Jefferson Street
 Phoenix, AZ 85004
 (602)514-8400
-3/31/1998
+03/31/1998
 48330
 National
 turf
@@ -65,7 +65,7 @@ New York Mets
 41 Seaver Way
 Queens, NY 11368
 (718)507-8499
-4/13/2009
+04/13/2009
 41992
 National
 grass
@@ -80,7 +80,7 @@ Philadelphia Phillies
 1 Citizens Bank Way
 Philadelphia, PA 19148
 (215)463-1000
-4/3/2004
+04/03/2004
 42901
 National
 grass
@@ -95,7 +95,7 @@ Detroit Tigers
 2100 Woodward Avenue
 Detroit, MI 48201
 (313)962-4000
-4/11/2000
+04/11/2000
 41083
 American
 grass
@@ -109,7 +109,7 @@ Colorado Rockies
 2001 Blake St.
 Denver, CO 80205
 (303)292-0200
-4/26/1995
+04/26/1995
 46897
 National
 grass
@@ -124,7 +124,7 @@ Houston Astros
 501 Crawford Street
 Houston, TX 77002
 (713)259-8000
-3/30/2000
+03/30/2000
 41168
 American
 grass
@@ -139,7 +139,7 @@ Los Angeles Dodgers
 1000 Vin Scully Ave.
 Los Angeles, CA 90090
 (866)363-4377
-4/10/1962
+04/10/1962
 56000
 National
 grass
@@ -155,7 +155,7 @@ Boston Red Sox
 4 Jersey St.
 Boston, MA 02215
 (877)733-7699
-4/20/1912
+04/20/1912
 37755
 American
 grass
@@ -170,7 +170,7 @@ Tampa Bay Rays
 1 Steinbrenner Dr.
 Tampa, FL 33614
 (813)875-7753
-3/1/1996
+03/01/1996
 11026
 American
 grass
@@ -184,7 +184,7 @@ Texas Rangers
 734 Stadium Drive
 Arlington, TX 76011
 (817)533-1972
-6/24/2020
+06/24/2020
 40300
 American
 turf
@@ -200,7 +200,7 @@ Cincinnati Reds
 100 Joe Nuxhall Way
 Cincinnati, OH 45202
 (513)765-7000
-3/31/2003
+03/31/2003
 43500
 National
 grass
@@ -218,7 +218,7 @@ Kansas City Royals
 1 Royal Way
 Kansas City, MO 64129
 (816)921-8000
-4/10/1973
+04/10/1973
 37903
 American
 grass
@@ -234,7 +234,7 @@ Miami Marlins
 501 Marlins Way
 Miami, FL 33125
 (305)480-1300
-4/4/2012
+04/04/2012
 36742
 National
 turf
@@ -250,7 +250,7 @@ Washington Nationals
 1500 S Capitol St. SE
 Washington, DC 20003
 (202)675-6287
-3/30/2008
+03/30/2008
 41373
 National
 grass
@@ -266,7 +266,7 @@ San Francisco Giants
 24 Willie Mays Plaza
 San Francisco, CA 94107
 (415)972-2000
-4/11/2000
+04/11/2000
 41331
 National
 grass
@@ -282,7 +282,7 @@ Baltimore Orioles
 333 West Camden Street
 Baltimore, MD 21201
 (410)685-9800
-4/6/1992
+04/06/1992
 44970
 American
 grass
@@ -298,7 +298,7 @@ San Diego Padres
 100 Park Blvd
 San Diego, CA 92101
 (619)795-5555
-4/8/2004
+04/08/2004
 39860
 National
 grass
@@ -313,7 +313,7 @@ Pittsburgh Pirates
 115 Federal St.
 Pittsburgh, PA 15212
 (412)321-2827
-3/31/2001
+03/31/2001
 38747
 National
 grass
@@ -331,7 +331,7 @@ Cleveland Guardians
 2401 Ontario St.
 Cleveland, OH 44115
 (216)420-4487
-4/2/1994
+04/02/1994
 34830
 American
 grass
@@ -345,7 +345,7 @@ Chicago White Sox
 333 W 35th St.
 Chicago, IL 60616
 (312)674-1000
-4/18/1991
+04/18/1991
 40615
 American
 grass
@@ -361,7 +361,7 @@ Toronto Blue Jays
 1 Blue Jays Way
 Toronto, Ontario, Canada M5V1J3
 +1 416-341-1000
-6/3/1989
+06/03/1989
 39150
 American
 turf
@@ -377,7 +377,7 @@ Athletics
 400 Ballpark Dr.
 Sacramento, CA 95691
 (916)376-4722
-5/15/2000
+05/15/2000
 13416
 American
 grass
@@ -393,7 +393,7 @@ Seattle Mariners
 1250 First Ave. S
 Seattle, WA 98134
 (206)346-4000
-7/15/1999
+07/15/1999
 47929
 American
 grass
@@ -408,7 +408,7 @@ Minnesota Twins
 1 Twins Way
 Minneapolis, MN 55403
 (612)659-3400
-4/12/2010
+04/12/2010
 38544
 American
 grass
@@ -424,7 +424,7 @@ Atlanta Braves
 755 Battery Ave. SE
 Atlanta, GA 30339
 (404)577-9100
-4/14/2017
+04/14/2017
 41084
 National
 grass
@@ -440,7 +440,7 @@ Chicago Cubs
 1060 W Addison St.
 Chicago, IL 60613
 (800)843-2827
-4/23/1914
+04/23/1914
 41649
 National
 grass
@@ -456,7 +456,7 @@ New York Yankees
 1 E 161st St.
 Bronx, NY 10451
 (212)926-5337
-4/16/2009
+04/16/2009
 46537
 American
 grass
