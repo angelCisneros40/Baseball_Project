@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/src">
-        <file>src/background.jpg</file>
         <file>src/Layer 1.png</file>
         <file>src/Layer 2.png</file>
         <file>src/Layer 3.png</file>
@@ -53,7 +52,6 @@
         <file>src/Stadium-NonDirected.png</file>
         <file>src/Stadium-NonDirected.jpg</file>
         <file>src/output.txt</file>
-        <file>src/background.jpg</file>
         <file>src/Screenshot from 2025-05-14 07-21-30.png</file>
         <file>src/line.png</file>
         <file>src/Layer 1 (blue).png</file>
@@ -101,5 +99,6 @@
         <file>src/Layer 44 (blue).png</file>
         <file>src/Layer 45 (blue).png</file>
         <file>src/Layer 46 (blue).png</file>
+        <file>src/background.png</file>
     </qresource>
 </RCC>
