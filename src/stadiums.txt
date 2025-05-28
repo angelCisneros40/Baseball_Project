@@ -87,7 +87,7 @@ grass
 {
 Yankee Stadium,80
 Citi Field,80
-Oriole Park at Camden Yards,90
+Camden Yards,90
 Nationals Park,90
 }
 Comerica Park
@@ -240,7 +240,7 @@ National
 turf
 {
 George M. Steinbrenner Field,210
-Oriole Park at Camden Yards,930
+Camden Yards,930
 Nationals Park,930
 Daikin Park,965
 Fenway Park,1255
@@ -255,7 +255,7 @@ Washington, DC 20003
 National
 grass
 {
-Oriole Park at Camden Yards,0
+Camden Yards,0
 Citizens Bank Park,90
 PNC Park,195
 Truist Park,560
@@ -277,7 +277,7 @@ Dodger Stadium,340
 Chase Field,650
 T-Mobile Park,680
 }
-Oriole Park at Camden Yards
+Camden Yards
 Baltimore Orioles
 333 West Camden Street
 Baltimore, MD 21201
@@ -319,7 +319,7 @@ National
 grass
 {
 Progressive Field,115
-Oriole Park at Camden Yards,195
+Camden Yards,195
 Nationals Park,195
 Rogers Centre,225
 Great American Ballpark,260
@@ -363,3 +363,106 @@ Toronto, Ontario, Canada M5V1J3
 +1 416-341-1000
 6/3/1989
 39150
+American
+turf
+{
+Comerica Park,210
+PNC Park,225
+American Family Field,430
+Fenway Park,430
+T-Mobile Park,2070
+}
+Sutter Health Park
+Athletics
+400 Ballpark Dr.
+Sacramento, CA 95691
+(916)376-4722
+5/15/2000
+13416
+American
+grass
+{
+Oracle Park,0
+Angel Stadium,340
+Dodger Stadium,340
+Chase Field,650
+T-Mobile Park,680
+}
+T-Mobile Park
+Seattle Mariners
+1250 First Ave. S
+Seattle, WA 98134
+(206)346-4000
+7/15/1999
+47929
+American
+grass
+{
+Oracle Park,680
+Sutter Health Park,680
+Target Field,1390
+Rogers Centre,2070
+}
+Target Field
+Minnesota Twins
+1 Twins Way
+Minneapolis, MN 55403
+(612)659-3400
+4/12/2010
+38544
+American
+grass
+{
+American Family Field,300
+Busch Stadium,465
+T-Mobile Park,1390
+Angel Stadium,1500
+Dodger Stadium,1500
+}
+Truist Park
+Atlanta Braves
+755 Battery Ave. SE
+Atlanta, GA 30339
+(404)577-9100
+4/14/2017
+41084
+National
+grass
+{
+Great American Ballpark,375
+Camden Yards,560
+Nationals Parks,560
+LoanDepot Park,600
+Globe Life Field,740
+}
+Wrigley Field
+Chicago Cubs
+1060 W Addison St.
+Chicago, IL 60613
+(800)843-2827
+4/23/1914
+41649
+National
+grass
+{
+Rate Field,0
+American Family Field,80
+Comerica Park,240
+Great American Ballpark,250
+Kauffman Stadium,415
+}
+Yankee Stadium
+New York Yankees
+1 E 161st St.
+Bronx, NY 10451
+(212)926-5337
+4/16/2009
+46537
+American
+grass
+{
+Citi Field,0
+Citizens Bank Park,80
+Fenway Park,195
+PNC Park,315
+}
