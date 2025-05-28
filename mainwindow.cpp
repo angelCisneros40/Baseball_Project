@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
     connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
     connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
+    connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
+    connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
 }
 
 MainWindow::~MainWindow()
@@ -98,3 +100,36 @@ void MainWindow::testFakeRoute()
             else
                 label->setVisible(false);
 }
+<<<<<<< HEAD
+=======
+
+void MainWindow::outputSouvenirPurchase()
+{
+    QString souvenir = ui->souvenirComboBox->currentText();
+    QString stadium = ui->stadiumComboBox->currentText();
+
+    if (souvenir == "Select Souvenir" || souvenir.isEmpty())
+        souvenir = "None";
+    if (stadium == "Select Stadium" || stadium.isEmpty())
+        stadium = "None";
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << "Stadium: \n"
+            << stadium.toStdString()
+            << "\n\n\nSouvenir: \n"
+            << souvenir.toStdString() << "\n";
+
+    outFile.close();
+
+    printToTextBrowser();
+}
+>>>>>>> 5dff7bcfd50e4952b59d41b83fd7117197ae51ab

@@ -2676,7 +2676,7 @@ Stadiums</string>
      <string>View Purchase Summary</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_3">
+   <widget class="QComboBox" name="stadiumComboBox">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -2844,7 +2844,7 @@ Stadiums</string>
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_4">
+   <widget class="QComboBox" name="souvenirComboBox">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -2863,57 +2863,22 @@ Stadiums</string>
     </item>
     <item>
      <property name="text">
-      <string>Baseball Cap	$25.99</string>
+      <string>Baseball Cap          $25.99</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Baseball Bat	$35.35</string>
+      <string>Baseball Bat          $35.35</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Foam Finger	$9.99</string>
+      <string>Team pennant          $12.99</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Team Jersey	$89.99</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Team Hoodie	$69.99</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Keychain	$6.50</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Bobblehead 	$24.99</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Trading Card	$29.99</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Seat Cushion	$11.49</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lanyard	$7.99</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Baseball Glove 	$39.99</string>
+      <string>Autographed baseball  $19.99</string>
      </property>
     </item>
    </widget>
@@ -2928,6 +2893,38 @@ Stadiums</string>
     </property>
     <property name="text">
      <string>Purchase Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>190</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Admin PIN: 12345</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>230</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Add New Stadium:</string>
     </property>
    </widget>
    <zorder>backgroundWidget</zorder>
@@ -3051,9 +3048,11 @@ Stadiums</string>
    <zorder>testBlueLineToggle_3</zorder>
    <zorder>testBlueLineToggle_4</zorder>
    <zorder>highlightRouteToggle_8</zorder>
-   <zorder>comboBox_3</zorder>
-   <zorder>comboBox_4</zorder>
+   <zorder>stadiumComboBox</zorder>
+   <zorder>souvenirComboBox</zorder>
    <zorder>highlightRouteToggle_9</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>lineEdit_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -3061,7 +3060,7 @@ Stadiums</string>
      <x>0</x>
      <y>0</y>
      <width>1367</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menumenubar_test">
