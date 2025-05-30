@@ -34,8 +34,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         souvenir.h
         stadiumtree.h
         stadium.h
-        canvaswidget.h
-        canvaswidget.cpp
         stadiumgraph.h
         stadiumgraph.cpp
         readStadiums.h

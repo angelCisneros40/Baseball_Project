@@ -25,18 +25,31 @@ private:
     bool showBlackEdges = true;
     bool showBlueEdges = true;
     bool showFakeRoute = false;
-    bool button_AddStadiumToCustomTripIsVisible = false;
+    bool intiCustomTrip = true;
+
     void printToTextBrowser();
     void testBlueLinebutton();
     void testBlackLinebutton();
     void testFakeRoute();
     void outputSouvenirPurchase();
     void toggleAdminTools();
-    void testOutput();
     void initCustomTrip();
     void planCustomTrip();
+    void runCustomTrip();
     void itemPurchased();
+    void startFullLeagueTrip();
+    void startAmericanLeaugeTrip();
+    void startNationalLeaugeTrip();
     void stadiumAToStadiumB();
+    void printPurchaseSummaryToOutput();
+    void ChangeTeamToStadiumOutput();
+    void ChangeTeamToStadium();
+    void sortStadiumsByTeamName();
+    void sortALStadiumsByTeamName();
+    void sortNLStadiumsByTeamName();
+    void sortStadiumsByName();
+    void sortStadiumsWithGrass();
+    void sortStadiumsByDateOpened();
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

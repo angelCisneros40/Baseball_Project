@@ -1,7 +1,1 @@
-Stadium A: 
-None
-
-
-Stadium B: 
-None
-Total Distance: 0
+Stadiums sorted by Date Opened:
