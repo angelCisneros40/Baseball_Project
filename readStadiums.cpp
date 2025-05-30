@@ -10,7 +10,8 @@ void readStadiumFiles(StadiumTree &nameSorted,
                       StadiumTree &americanTeamSorted,
                       StadiumTree &nationalTeamSorted,
                       StadiumTree &fieldTeamSorted,
-                      stadiumGraph &graph) {
+                      stadiumGraph &graph)
+{
 
     fs::path projectRoot = findProjectRoot();
     fs::path filePath = projectRoot / "src" / "stadiums.txt";
@@ -38,11 +39,10 @@ void readStadiumFiles(StadiumTree &nameSorted,
 
         capacity = std::stoi(capStr);
 
-
-        char* modifiableCDate = new char[capStr.size() + 1];
+        char *modifiableCDate = new char[capStr.size() + 1];
         std::strcpy(modifiableCDate, capStr.c_str());
 
-        char* part = strtok(modifiableCDate, "/");
+        char *part = strtok(modifiableCDate, "/");
         month = atoi(part);
         part = strtok(NULL, "/");
         day = atoi(part);
@@ -79,10 +79,10 @@ void readStadiumFiles(StadiumTree &nameSorted,
             std::string newName;
             int distance;
 
-            char* modifiableLine = new char[line.size() + 1];
+            char *modifiableLine = new char[line.size() + 1];
             std::strcpy(modifiableLine, line.c_str());
 
-            char* halves = strtok(modifiableLine, ",");
+            char *halves = strtok(modifiableLine, ",");
             newName = halves;
             halves = strtok(NULL, ",");
             distance = atoi(halves);
@@ -96,7 +96,8 @@ void readStadiumFiles(StadiumTree &nameSorted,
     }
 }
 
-void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph) {
+void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
+{
     fs::path projectRoot = findProjectRoot();
     fs::path filePath = projectRoot / "src" / "stadiums.txt";
     ofstream outfile(filePath, ios::out | ios::trunc);
@@ -106,29 +107,31 @@ void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph) {
         return;
     }
 
-    stadium* allStadiums = nameSorted.compileInOrder();
+    stadium *allStadiums = nameSorted.compileInOrder();
     int size = nameSorted.size();
 
     for (int i = 0; i < size; i++)
     {
         int index = graph.find(allStadiums[i]);
 
-        outfile << allStadiums->getName() << "\n" <<
-            allStadiums->getTeam() << "\n" <<
-            allStadiums->getAddress() << "\n" <<
-            allStadiums->getAddressLine2() << "\n" <<
-            allStadiums->getPhone() << "\n" <<
-            allStadiums->getMonth() << "/" << allStadiums->getDay() << "/" << allStadiums->getYear() << "\n" <<
-            allStadiums->getCapacity() << "\n" <<
-            allStadiums->getLeague() << "\n" <<
-            allStadiums->getField() << "\n" << "{";
+        outfile << allStadiums->getName() << "\n"
+                << allStadiums->getTeam() << "\n"
+                << allStadiums->getAddress() << "\n"
+                << allStadiums->getAddressLine2() << "\n"
+                << allStadiums->getPhone() << "\n"
+                << allStadiums->getMonth() << "/" << allStadiums->getDay() << "/" << allStadiums->getYear() << "\n"
+                << allStadiums->getCapacity() << "\n"
+                << allStadiums->getLeague() << "\n"
+                << allStadiums->getField() << "\n"
+                << "{";
 
         if (index != -1)
         {
-            graphNode* current = graph.getStadium(index)->adjacent;
+            graphNode *current = graph.getStadium(index)->adjacent;
 
             for (; current; current = current->adjacent)
-                outfile << "\n" << current->value.getName() << "," << current->distance;
+                outfile << "\n"
+                        << current->value.getName() << "," << current->distance;
             outfile << "\n";
         }
 

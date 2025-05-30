@@ -102,4 +102,7 @@
         <file>src/Layer 46 (blue).png</file>
         <file>src/background.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>src/souvenirs.txt</file>
+    </qresource>
 </RCC>

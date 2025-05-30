@@ -43,10 +43,42 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::printToTextBrowser()
+void MainWindow::printOutputToTextBrowser()
 {
     fs::path projectRoot = findProjectRoot();
     fs::path outputPath = projectRoot / "src" / "output.txt";
+    QString filePath = QString::fromStdString(outputPath.string());
+    QFile file(filePath);
+
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream in(&file);
+        QString fileContent = in.readAll();
+        file.close();
+        QString formattedContent = "<pre style='font-family: Courier; font-size: 10pt;'>" + fileContent + "</pre>";
+        ui->textBrowser->setHtml(formattedContent);
+    }
+    else
+    {
+        ui->textBrowser->setHtml(
+            "<div style='display: flex; align-items: center; "
+            "justify-content: center; height: 100%; text-align: center; "
+            "color: red; font-size: 12pt;'>"
+            "<div>"
+            "<br><br><br><br><br>"
+            "**********************************<br>"
+            "<span>Error: Could not open output.txt</span><br>"
+            "<span>check if output path is correct</span><br>"
+            "**********************************"
+            "</div>"
+            "</div>");
+    }
+}
+
+void MainWindow::printSouvenirToTextBrowser()
+{
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "souvenirs.txt";
     QString filePath = QString::fromStdString(outputPath.string());
     QFile file(filePath);
 
@@ -143,7 +175,7 @@ void MainWindow::outputSouvenirPurchase()
 
     outFile.close();
 
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::toggleAdminTools()
@@ -173,13 +205,13 @@ void MainWindow::toggleAdminTools()
     ui->comboBox_moveToThisStadium->setVisible(isCorrectPin);
     ui->button_SubmitTeamToStadiumChanges->setVisible(isCorrectPin);
     ui->AdminPinLineEdit->clear();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::initCustomTrip()
 {
     clearOutputFile();
-    printToTextBrowser();
+    printOutputToTextBrowser();
     ui->button_AddStadiumToCustomTrip->setVisible(intiCustomTrip);
     ui->comboBox_CustomTrip->setVisible(intiCustomTrip);
     ui->button_StartCustomTrip->setVisible(intiCustomTrip);
@@ -200,12 +232,13 @@ void MainWindow::planCustomTrip()
 
     outFile << inputStadium.toStdString() << "\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::itemPurchased()
 {
     clearOutputFile();
+
     fs::path projectRoot = findProjectRoot();
     fs::path outputPath = projectRoot / "src" / "output.txt";
     ofstream outFile(outputPath, ios::out | ios::app);
@@ -214,9 +247,35 @@ void MainWindow::itemPurchased()
         cerr << "Error: Could not open output.txt for writing\n";
         return;
     }
+
+    QString souvenir = ui->souvenirComboBox->currentText();
+    QString stadium = ui->stadiumComboBox->currentText();
+    if (souvenir == "Select Souvenir" || souvenir.isEmpty() ||
+        stadium == "Select Stadium" || stadium.isEmpty())
+    {
+
+        outFile << "Please complete selection." << "\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
     outFile << "item purchased!" << "\n";
     outFile.close();
-    printToTextBrowser();
+
+    fs::path outputPath2 = projectRoot / "src" / "souvenirs.txt";
+    ofstream outFile2(outputPath2, ios::out | ios::app);
+    if (!outFile2.is_open())
+    {
+        cerr << "Error: Could not open souvenirs.txt for writing\n";
+        return;
+    }
+
+    outFile2 << "stadium: " << stadium.toStdString()
+             << "\nitem: " << souvenir.toStdString() << "\n\n";
+    outFile2.close();
+
+    printOutputToTextBrowser();
 }
 
 void MainWindow::stadiumAToStadiumB()
@@ -248,7 +307,7 @@ void MainWindow::stadiumAToStadiumB()
             << "Total Distance: "
             << distance;
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::runCustomTrip()
@@ -270,7 +329,7 @@ void MainWindow::runCustomTrip()
 
     outFile << "Here is your Custom Trip!\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::startFullLeagueTrip()
@@ -288,7 +347,7 @@ void MainWindow::startFullLeagueTrip()
 
     outFile << "Here is your Full League Trip\nstarting from Dodgers Stadium!\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::startAmericanLeaugeTrip()
@@ -306,7 +365,7 @@ void MainWindow::startAmericanLeaugeTrip()
 
     outFile << "Here is your American League Trip\nstarting from Dodgers Stadium!\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::startNationalLeaugeTrip()
@@ -324,25 +383,13 @@ void MainWindow::startNationalLeaugeTrip()
 
     outFile << "Here is your National League Trip\nstarting from Dodgers Stadium!\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::printPurchaseSummaryToOutput()
 {
     clearOutputFile();
-
-    fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
-    if (!outFile.is_open())
-    {
-        cerr << "Error: Could not open output.txt for writing\n";
-        return;
-    }
-
-    outFile << "Here is your purchase summary:\n";
-    outFile.close();
-    printToTextBrowser();
+    printSouvenirReceipt();
 }
 
 void MainWindow::ChangeTeamToStadiumOutput()
@@ -365,7 +412,7 @@ void MainWindow::ChangeTeamToStadiumOutput()
             << "\n\n\nto this stadium: \n"
             << thisstadium.toStdString();
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::ChangeTeamToStadium()
@@ -389,7 +436,7 @@ void MainWindow::ChangeTeamToStadium()
             << thisstadium.toStdString()
             << "!\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortStadiumsByTeamName()
@@ -407,7 +454,7 @@ void MainWindow::sortStadiumsByTeamName()
 
     outFile << "Stadiums sorted by team name:\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortALStadiumsByTeamName()
@@ -426,7 +473,7 @@ void MainWindow::sortALStadiumsByTeamName()
     outFile << "American League Stadiums\n"
             << "sorted by team name:\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortNLStadiumsByTeamName()
@@ -445,7 +492,7 @@ void MainWindow::sortNLStadiumsByTeamName()
     outFile << "National League Stadiums\n"
             << "sorted by team name:\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortStadiumsByName()
@@ -463,7 +510,7 @@ void MainWindow::sortStadiumsByName()
 
     outFile << "Stadiums sorted by name:\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortStadiumsWithGrass()
@@ -481,7 +528,7 @@ void MainWindow::sortStadiumsWithGrass()
 
     outFile << "Stadiums sorted by name \n(with grass):\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
 }
 
 void MainWindow::sortStadiumsByDateOpened()
@@ -499,5 +546,72 @@ void MainWindow::sortStadiumsByDateOpened()
 
     outFile << "Stadiums sorted by Date Opened:\n";
     outFile.close();
-    printToTextBrowser();
+    printOutputToTextBrowser();
+}
+
+vector<souvenir> MainWindow::initSouvenirList()
+{
+    vector<souvenir> souvenirs;
+    fs::path projectRoot = findProjectRoot();
+    fs::path filePath = projectRoot / "src" / "souvenirs.txt";
+
+    ifstream file(filePath);
+    if (!file.is_open())
+    {
+        cerr << "Error: Could not open souvenirs.txt for reading.\n";
+        return souvenirs;
+    }
+
+    string line;
+    string stadium, item;
+    double price;
+
+    while (getline(file, line))
+    {
+        if (line.empty())
+            continue;
+
+        if (line.rfind("stadium: ", 0) == 0)
+            stadium = line.substr(9);
+        else if (line.rfind("item: ", 0) == 0)
+        {
+            item = line.substr(6);
+            if (priceMap.find(item) != priceMap.end())
+                price = priceMap[item];
+
+            souvenirs.emplace_back(stadium, item, price);
+        }
+    }
+
+    file.close();
+    return souvenirs;
+}
+
+void MainWindow::printSouvenirReceipt()
+{
+    vector<souvenir> list = initSouvenirList();
+    double total = 0;
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing receipt\n";
+        return;
+    }
+
+    for (size_t i = 0; i < list.size(); ++i)
+    {
+        souvenir s = list[i];
+        outFile << "stadium: " << s.getStadiumName()
+                << "\nitem: " << s.getItemName()
+                << "\n - $" << fixed << setprecision(2) << s.getPrice() << '\n';
+        total += s.getPrice();
+    }
+
+    outFile << "========================\n";
+    outFile << "Total: $" << fixed << setprecision(2) << total << '\n';
+    outFile.close();
+
+    printOutputToTextBrowser();
 }

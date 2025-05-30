@@ -13,8 +13,7 @@ stadium::stadium(
     int capacity,
     std::string league,
     std::string field,
-    bool og30):
-    name(name), team(team), address(address), addressLine2(addressLine2), phoneNum(phoneNum), capacity(capacity), league(league), og30(og30), field(field)
+    bool og30) : name(name), team(team), address(address), addressLine2(addressLine2), phoneNum(phoneNum), capacity(capacity), league(league), og30(og30), field(field)
 {
     dateOpened[0] = month;
     dateOpened[1] = day;

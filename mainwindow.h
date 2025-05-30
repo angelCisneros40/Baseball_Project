@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QPen>
 #include "fileWriteTest.h"
+#include "souvenir.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -22,12 +23,20 @@ public:
     ~MainWindow();
 
 private:
+    Ui::MainWindow *ui;
+
     bool showBlackEdges = true;
     bool showBlueEdges = true;
     bool showFakeRoute = false;
     bool intiCustomTrip = true;
+    unordered_map<string, double> priceMap = {
+        {"Baseball cap", 25.99},
+        {"Baseball bat", 35.35},
+        {"Team pennant", 12.99},
+        {"Autographed baseball", 19.99}};
 
-    void printToTextBrowser();
+    void printOutputToTextBrowser();
+    void printSouvenirToTextBrowser();
     void testBlueLinebutton();
     void testBlackLinebutton();
     void testFakeRoute();
@@ -50,6 +59,7 @@ private:
     void sortStadiumsByName();
     void sortStadiumsWithGrass();
     void sortStadiumsByDateOpened();
-    Ui::MainWindow *ui;
+    vector<souvenir> initSouvenirList();
+    void printSouvenirReceipt();
 };
 #endif // MAINWINDOW_H

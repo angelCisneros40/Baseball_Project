@@ -2808,22 +2808,22 @@ Stadiums</string>
     </item>
     <item>
      <property name="text">
-      <string>Baseball Cap          $25.99</string>
+      <string>Baseball Cap</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Baseball Bat          $35.35</string>
+      <string>Baseball Bat</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Team pennant          $12.99</string>
+      <string>Team pennant</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Autographed baseball  $19.99</string>
+      <string>Autographed baseball</string>
      </property>
     </item>
    </widget>

@@ -1,17 +1,15 @@
 stadium: Angel Stadium
 item: Team pennant
- - $12.99
+
 stadium: Coors Field
 item: Autographed baseball
- - $19.99
+
 stadium: Coors Field
 item: Baseball Cap
- - $19.99
+
 stadium: Globe Life Field
 item: Baseball Bat
- - $19.99
+
 stadium: Busch Stadium
 item: Autographed baseball
- - $19.99
-========================
-Total: $92.95
+
