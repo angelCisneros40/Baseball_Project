@@ -2818,12 +2818,12 @@ Stadiums</string>
     </item>
     <item>
      <property name="text">
-      <string>Team pennant</string>
+      <string>Team Pennant</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Autographed baseball</string>
+      <string>Autographed Baseball</string>
      </property>
     </item>
    </widget>

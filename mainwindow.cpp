@@ -152,6 +152,7 @@ void MainWindow::outputSouvenirPurchase()
 {
     QString souvenir = ui->souvenirComboBox->currentText();
     QString stadium = ui->stadiumComboBox->currentText();
+    double price = 0;
 
     if (souvenir == "Select Souvenir" || souvenir.isEmpty())
         souvenir = "None";
@@ -168,10 +169,15 @@ void MainWindow::outputSouvenirPurchase()
         return;
     }
 
+    if (priceMap.find(souvenir.toStdString()) != priceMap.end())
+        price = priceMap[souvenir.toStdString()];
+
     outFile << "Stadium: \n"
             << stadium.toStdString()
             << "\n\n\nSouvenir: \n"
-            << souvenir.toStdString() << "\n";
+            << souvenir.toStdString() << "\n"
+            << "\n\n\nPrice: \n$"
+            << price << "\n";
 
     outFile.close();
 

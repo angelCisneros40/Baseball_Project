@@ -30,10 +30,10 @@ private:
     bool showFakeRoute = false;
     bool intiCustomTrip = true;
     unordered_map<string, double> priceMap = {
-        {"Baseball cap", 25.99},
-        {"Baseball bat", 35.35},
-        {"Team pennant", 12.99},
-        {"Autographed baseball", 19.99}};
+        {"Baseball Cap", 25.99},
+        {"Baseball Bat", 35.35},
+        {"Team Pennant", 12.99},
+        {"Autographed Baseball", 19.99}};
 
     void printOutputToTextBrowser();
     void printSouvenirToTextBrowser();

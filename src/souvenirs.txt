@@ -1,15 +1,15 @@
-stadium: Angel Stadium
-item: Team pennant
-
-stadium: Coors Field
-item: Autographed baseball
-
-stadium: Coors Field
+stadium: American Family Field
 item: Baseball Cap
 
-stadium: Globe Life Field
+stadium: American Family Field
 item: Baseball Bat
 
-stadium: Busch Stadium
-item: Autographed baseball
+stadium: American Family Field
+item: Team Pennant
+
+stadium: American Family Field
+item: Autographed Baseball
+
+stadium: American Family Field
+item: Autographed Baseball
 
