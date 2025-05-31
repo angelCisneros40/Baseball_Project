@@ -425,25 +425,83 @@ void MainWindow::ChangeTeamToStadiumOutput()
 void MainWindow::ChangeTeamToStadium()
 {
     clearOutputFile();
-    QString thisTeam = ui->comboBox_moveThisTeam->currentText();
-    QString thisstadium = ui->comboBox_moveToThisStadium->currentText();
+    QString selectedTeam = ui->comboBox_moveThisTeam->currentText();
+    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText();
 
     fs::path projectRoot = findProjectRoot();
+    fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
+    fs::path tempPath = projectRoot / "src" / "stadiums_temp.txt";
     fs::path outputPath = projectRoot / "src" / "output.txt";
+
+    ifstream inFile(stadiumsPath);
+    ofstream tempFile(tempPath);
     ofstream outFile(outputPath, ios::out | ios::trunc);
-    if (!outFile.is_open())
+
+    if (!inFile.is_open() || !tempFile.is_open() || !outFile.is_open())
     {
-        cerr << "Error: Could not open output.txt for writing\n";
+        cerr << "Error: Could not open one or more files for read/write\n";
         return;
     }
 
-    outFile << "Team "
-            << thisTeam.toStdString()
-            << "\nchanged to "
-            << thisstadium.toStdString()
-            << "!\n";
+    vector<vector<string>> blocks;
+    vector<string> currentBlock;
+    string line;
+
+    while (getline(inFile, line))
+    {
+        currentBlock.push_back(line);
+        if (line.find('}') != string::npos)
+        {
+            blocks.push_back(currentBlock);
+            currentBlock.clear();
+        }
+    }
+
+    inFile.close();
+
+    int indexTeam = -1, indexStadium = -1;
+
+    for (int i = 0; i < blocks.size(); ++i)
+    {
+        if (blocks[i].size() >= 2)
+        {
+            QString stadiumName = QString::fromStdString(blocks[i][0]).trimmed();
+            QString teamName = QString::fromStdString(blocks[i][1]).trimmed();
+
+            if (teamName == selectedTeam)
+                indexTeam = i;
+            if (stadiumName == selectedStadium)
+                indexStadium = i;
+        }
+    }
+
+    if (indexTeam == -1 || indexStadium == -1)
+    {
+        cerr << "Error: Could not find matching team or stadium\n";
+        return;
+    }
+    swap(blocks[indexTeam][1], blocks[indexStadium][1]);
+    for (const auto &block : blocks)
+    {
+        for (const auto &l : block)
+            tempFile << l << '\n';
+    }
+
+    tempFile.close();
+
+    fs::remove(stadiumsPath);
+    fs::rename(tempPath, stadiumsPath);
+
+    outFile << "Team \"" << selectedTeam.toStdString()
+            << "\" moved to \"" << selectedStadium.toStdString() << "\"!\n";
     outFile.close();
+
     printOutputToTextBrowser();
+
+    teamSortedTree.clear();
+    stadiumSortedTree.clear();
+    dateSortedTree.clear();
+    loadStadiumsFromFile();
 }
 
 void MainWindow::loadStadiumsFromFile()
@@ -475,13 +533,12 @@ void MainWindow::loadStadiumsFromFile()
 
         getline(inFile, league);
         getline(inFile, field);
-        getline(inFile, line); // skip {
+        getline(inFile, line);
 
         while (getline(inFile, line) && line != "}")
-        { /* skip adjacents */
+        {
         }
 
-        // Parse date string
         int month = 0, day = 0, year = 0;
         sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
 

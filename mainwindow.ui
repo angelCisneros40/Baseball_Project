@@ -3980,7 +3980,7 @@ Team Name (with grass)</string>
      </rect>
     </property>
     <property name="placeholderText">
-     <string>TMobile Park</string>
+     <string>American Family Field</string>
     </property>
     <item>
      <property name="text">
@@ -3995,6 +3995,11 @@ Team Name (with grass)</string>
     <item>
      <property name="text">
       <string>Busch Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Camden Yards</string>
      </property>
     </item>
     <item>
@@ -4049,7 +4054,7 @@ Team Name (with grass)</string>
     </item>
     <item>
      <property name="text">
-      <string>Great American Ball Park</string>
+      <string>Great American Ballpark</string>
      </property>
     </item>
     <item>
@@ -4074,17 +4079,12 @@ Team Name (with grass)</string>
     </item>
     <item>
      <property name="text">
-      <string>Oriole Park at Camden Yards</string>
+      <string>PNC Park</string>
      </property>
     </item>
     <item>
      <property name="text">
       <string>Petco Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>PNC Park</string>
      </property>
     </item>
     <item>
@@ -4109,7 +4109,7 @@ Team Name (with grass)</string>
     </item>
     <item>
      <property name="text">
-      <string>TMobile Park</string>
+      <string>T-Mobile Park</string>
      </property>
     </item>
     <item>
@@ -4143,26 +4143,11 @@ Team Name (with grass)</string>
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Dodgers</string>
+     <string>Arizona Diamondbacks</string>
     </property>
     <item>
      <property name="text">
-      <string>Dodgers</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Braves</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Orioles</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Diamondbacks</string>
+      <string>Arizona Diamondbacks</string>
      </property>
     </item>
     <item>
@@ -4172,127 +4157,137 @@ Team Name (with grass)</string>
     </item>
     <item>
      <property name="text">
-      <string>Angels</string>
+      <string>Atlanta Braves</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Red Sox</string>
+      <string>Baltimore Orioles</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Cubs</string>
+      <string>Boston Red Sox</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>White Sox</string>
+      <string>Chicago Cubs</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Reds</string>
+      <string>Chicago White Sox</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Guardians</string>
+      <string>Cincinnati Reds</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Rockies</string>
+      <string>Cleveland Guardians</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Tigers</string>
+      <string>Colorado Rockies</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Astros</string>
+      <string>Detroit Tigers</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>City Royals</string>
+      <string>Houston Astros</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Marlins</string>
+      <string>Kansas City Royals</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Brewers</string>
+      <string>Los Angeles Angels</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Twins</string>
+      <string>Los Angeles Dodgers</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Mets</string>
+      <string>Miami Marlins</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Yankees</string>
+      <string>Milwaukee Brewers</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Phillies</string>
+      <string>Minnesota Twins</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Pirates</string>
+      <string>New York Mets</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Padres</string>
+      <string>New York Yankees</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Giants</string>
+      <string>Philadelphia Phillies</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Mariners</string>
+      <string>Pittsburgh Pirates</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Cardinals</string>
+      <string>San Diego Padres</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Rays</string>
+      <string>San Francisco Giants</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Rangers</string>
+      <string>Seattle Mariners</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Blue Jays</string>
+      <string>St. Louis Cardinals</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Nationals</string>
+      <string>Tampa Bay Rays</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Texas Rangers</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Toronto Blue Jays</string>
      </property>
     </item>
    </widget>

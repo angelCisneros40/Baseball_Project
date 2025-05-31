@@ -600,3 +600,25 @@ void StadiumTree::showFront()
 {
     showNode(root);
 }
+
+/**********************************************************
+ *
+ * Method clear: Class StadiumTree
+ *_________________________________________________________
+ * This method clears the entire tree by deleting all nodes
+ * and resetting the root to nullptr.
+ *
+ * PRE-CONDITIONS
+ * None
+ *
+ * POST-CONDITIONS
+ * The tree will be empty after this function executes.
+ ***********************************************************/
+void StadiumTree::clear()
+{
+    if (root != nullptr)
+    {
+        destroySubTree(root);
+        root = nullptr;
+    }
+}

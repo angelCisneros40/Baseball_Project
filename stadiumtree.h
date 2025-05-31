@@ -54,6 +54,8 @@ public:
 
     bool operator==(const StadiumTree &otherTree);
     StadiumTree &operator=(const StadiumTree &otherTree);
+
+    void clear();
 };
 
 #endif // STADIUMTREE_H
