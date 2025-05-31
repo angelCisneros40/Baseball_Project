@@ -1,11 +1,32 @@
-Stadium: 
-American Family Field
-
-
-Souvenir: 
-Baseball Bat
-
-
-
-Price: 
-$35.35
+Stadiums sorted by team name:
+=============================
+Milwaukee Brewers - American Family Field
+Los Angeles Angels - Angel Stadium
+St. Louis Cardinals - Busch Stadium
+Baltimore Orioles - Camden Yards
+Arizona Diamondbacks - Chase Field
+New York Mets - Citi Field
+Philadelphia Phillies - Citizens Bank Park
+Detroit Tigers - Comerica Park
+Colorado Rockies - Coors Field
+Houston Astros - Daikin Park
+Los Angeles Dodgers - Dodger Stadium
+Boston Red Sox - Fenway Park
+Tampa Bay Rays - George M. Steinbrenner Field
+Texas Rangers - Globe Life Field
+Cincinnati Reds - Great American Ballpark
+Kansas City Royals - Kauffman Stadium
+Miami Marlins - LoanDepot Park
+Washington Nationals - Nationals Park
+San Francisco Giants - Oracle Park
+Pittsburgh Pirates - PNC Park
+San Diego Padres - Petco Park
+Cleveland Guardians - Progressive Field
+Chicago White Sox - Rate Field
+Toronto Blue Jays - Rogers Centre
+Athletics - Sutter Health Park
+Seattle Mariners - T-Mobile Park
+Minnesota Twins - Target Field
+Atlanta Braves - Truist Park
+Chicago Cubs - Wrigley Field
+=============================

@@ -6,6 +6,7 @@
 #include <QPen>
 #include "fileWriteTest.h"
 #include "souvenir.h"
+#include "stadiumtree.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -34,6 +35,7 @@ private:
         {"Baseball Bat", 35.35},
         {"Team Pennant", 12.99},
         {"Autographed Baseball", 19.99}};
+    StadiumTree teamSortedTree;
 
     void printOutputToTextBrowser();
     void printSouvenirToTextBrowser();
@@ -61,5 +63,6 @@ private:
     void sortStadiumsByDateOpened();
     vector<souvenir> initSouvenirList();
     void printSouvenirReceipt();
+    void loadStadiumsFromFile();
 };
 #endif // MAINWINDOW_H

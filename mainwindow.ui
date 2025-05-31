@@ -42,17 +42,17 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>35</x>
-      <y>340</y>
-      <width>301</width>
-      <height>371</height>
+      <x>20</x>
+      <y>330</y>
+      <width>501</width>
+      <height>401</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="outputLabel">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>190</x>
       <y>290</y>
       <width>171</width>
       <height>51</height>
@@ -563,7 +563,7 @@
    <widget class="QComboBox" name="combobox_stadiumA">
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>400</x>
       <y>0</y>
       <width>171</width>
       <height>31</height>
@@ -2248,32 +2248,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="testBlueLineToggle">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>211</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test blue line toggle</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="testBlackLineToggle">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>211</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test black line toggle</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_StutterHealthToDodger_Black">
     <property name="geometry">
      <rect>
@@ -2290,23 +2264,10 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="highlightRouteToggle">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>211</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>test highlight route</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="combobox_stadiumB">
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>400</x>
       <y>40</y>
       <width>171</width>
       <height>31</height>
@@ -2474,8 +2435,8 @@
    <widget class="QPushButton" name="button_PlanFullLeagueTrip">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>120</y>
+      <x>0</x>
+      <y>0</y>
       <width>211</width>
       <height>24</height>
      </rect>
@@ -2487,8 +2448,8 @@
    <widget class="QPushButton" name="button_PlanAmericanLeaugeTrip">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>150</y>
+      <x>0</x>
+      <y>30</y>
       <width>211</width>
       <height>24</height>
      </rect>
@@ -2500,8 +2461,8 @@
    <widget class="QPushButton" name="button_PlanNationalLeaugeTrip">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>180</y>
+      <x>0</x>
+      <y>60</y>
       <width>211</width>
       <height>24</height>
      </rect>
@@ -2513,7 +2474,7 @@
    <widget class="QPushButton" name="button_PrintDistanceBetweenTwo">
     <property name="geometry">
      <rect>
-      <x>1020</x>
+      <x>400</x>
       <y>80</y>
       <width>171</width>
       <height>41</height>
@@ -2530,10 +2491,10 @@ Between Two Stadiums</string>
    <widget class="QPushButton" name="button_SortStadiumsByName">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>490</y>
-      <width>161</width>
-      <height>24</height>
+      <x>0</x>
+      <y>190</y>
+      <width>211</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -2543,76 +2504,76 @@ Between Two Stadiums</string>
    <widget class="QPushButton" name="button_SortStadiumsByTeamName">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>340</y>
-      <width>161</width>
-      <height>41</height>
+      <x>0</x>
+      <y>90</y>
+      <width>211</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sort Stadiums by 
-Team Name</string>
+     <string>Sort Stadiums by Team Name</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SortALStadiumsByTeamName">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>390</y>
-      <width>161</width>
+      <x>0</x>
+      <y>110</y>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sort American League 
-Stadiums</string>
+     <string>Sort Stadiums by American League
+Team Name</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SortNLStadiumsByTeamName">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>440</y>
-      <width>161</width>
+      <x>0</x>
+      <y>150</y>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sort National League 
-Stadiums</string>
+     <string>Sort Stadiums by National League
+Team Name</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SortStadiumsWithGrass">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>520</y>
-      <width>161</width>
-      <height>24</height>
+      <x>0</x>
+      <y>210</y>
+      <width>211</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sort Stadiums with Grass</string>
+     <string>Sort Stadiums by 
+Team Name (with grass)</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SortStadiumsByDateOpened">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>550</y>
-      <width>161</width>
+      <x>0</x>
+      <y>250</y>
+      <width>211</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>Sort by Date Opened</string>
+     <string>Sort Stadiums by Date Opened</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_PurchaseSummary">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>150</y>
+      <x>220</x>
+      <y>120</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -2624,8 +2585,8 @@ Stadiums</string>
    <widget class="QComboBox" name="stadiumComboBox">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>30</y>
+      <x>220</x>
+      <y>0</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -2792,8 +2753,8 @@ Stadiums</string>
    <widget class="QComboBox" name="souvenirComboBox">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>70</y>
+      <x>220</x>
+      <y>40</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -2830,8 +2791,8 @@ Stadiums</string>
    <widget class="QPushButton" name="button_PurchaseSouvenir">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>110</y>
+      <x>220</x>
+      <y>80</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -2843,8 +2804,8 @@ Stadiums</string>
    <widget class="QLineEdit" name="AdminPinLineEdit">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>190</y>
+      <x>600</x>
+      <y>10</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -2859,8 +2820,8 @@ Stadiums</string>
    <widget class="QComboBox" name="comboBox_CustomTrip">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>50</y>
+      <x>220</x>
+      <y>200</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -3022,9 +2983,9 @@ Stadiums</string>
    <widget class="QLabel" name="label_moveThisTeamText">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>240</y>
-      <width>131</width>
+      <x>810</x>
+      <y>10</y>
+      <width>171</width>
       <height>21</height>
      </rect>
     </property>
@@ -3517,8 +3478,8 @@ Stadiums</string>
    <widget class="QLabel" name="label_moveToThisStadiumText">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>240</y>
+      <x>990</x>
+      <y>10</y>
       <width>171</width>
       <height>21</height>
      </rect>
@@ -4012,8 +3973,8 @@ Stadiums</string>
    <widget class="QComboBox" name="comboBox_moveToThisStadium">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>260</y>
+      <x>990</x>
+      <y>30</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -4175,9 +4136,9 @@ Stadiums</string>
    <widget class="QComboBox" name="comboBox_moveThisTeam">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>260</y>
-      <width>131</width>
+      <x>810</x>
+      <y>30</y>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -4338,8 +4299,8 @@ Stadiums</string>
    <widget class="QPushButton" name="button_AddStadiumToCustomTrip">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>90</y>
+      <x>220</x>
+      <y>240</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -4351,8 +4312,8 @@ Stadiums</string>
    <widget class="QPushButton" name="button_PlanCustomTrip">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>10</y>
+      <x>220</x>
+      <y>160</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -4364,10 +4325,10 @@ Stadiums</string>
    <widget class="QPushButton" name="button_StartCustomTrip">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>30</y>
-      <width>141</width>
-      <height>61</height>
+      <x>400</x>
+      <y>180</y>
+      <width>121</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -4377,8 +4338,8 @@ Stadiums</string>
    <widget class="QPushButton" name="button_SubmitTeamToStadiumChanges">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>300</y>
+      <x>900</x>
+      <y>70</y>
       <width>171</width>
       <height>31</height>
      </rect>
@@ -4488,9 +4449,6 @@ Stadiums</string>
    <zorder>label_GreatAmericanBallToProgressive_Blue</zorder>
    <zorder>label_GreatAmericanBallToTruist_Blue</zorder>
    <zorder>label_DaikinToGeorge_Blue</zorder>
-   <zorder>testBlueLineToggle</zorder>
-   <zorder>testBlackLineToggle</zorder>
-   <zorder>highlightRouteToggle</zorder>
    <zorder>combobox_stadiumB</zorder>
    <zorder>button_PlanFullLeagueTrip</zorder>
    <zorder>button_PlanAmericanLeaugeTrip</zorder>

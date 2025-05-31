@@ -39,7 +39,7 @@ StadiumTree::StadiumTree(const StadiumTree &otherTree)
  ***********************************************************/
 void StadiumTree::insertNode(stadium val, char style)
 {
-    //If only national and is american or only american and is national, don't add
+    // If only national and is american or only american and is national, don't add
     if ((style == 'n' && val.getLeague() == "American") || (style == 'm' && val.getLeague() == "National"))
         return;
 
@@ -75,13 +75,13 @@ void StadiumTree::insert(stadiumNode *&nodePtr, stadiumNode *&newNode, char styl
     // Empty spot reached
     if (nodePtr == NULL)
         nodePtr = newNode;
-    //If field-separated, and don't both have same field type
+    // If field-separated, and don't both have same field type
     else if (style == 'f' && nodePtr->value.getField() != newNode->value.getField())
     {
-        //Grass come first, meaning lower value/left side of tree
+        // Grass come first, meaning lower value/left side of tree
         if (newNode->value.getField() == "grass")
             insert(nodePtr->left, newNode, style);
-        //Turf -> move right
+        // Turf -> move right
         else
             insert(nodePtr->right, newNode, style);
     }
@@ -231,7 +231,7 @@ bool StadiumTree::equal(stadiumNode *target, stadiumNode *otherNode)
  * the tree structure starting from the otherNode attached
  * to target.
  ***********************************************************/
-void StadiumTree::copyNode(stadiumNode *target, stadiumNode *otherNode)
+void StadiumTree::copyNode(stadiumNode *&target, stadiumNode *otherNode)
 {
     // Create a new node with value equal to otherNodes.
     target = new stadiumNode;
@@ -266,15 +266,15 @@ void StadiumTree::showNode(stadiumNode *target)
 {
     // If target isn't NULL
     if (target)
-        std::cout << "Results: " << target->value.getName(); // Output target's value
+        cout << "Results: " << target->value.getName(); // Output target's value
     else
     {
         // If the whole tree is empty
         if (target == root)
-            std::cout << "The tree is currently empty.";
+            cout << "The tree is currently empty.";
         // If searching for a node failed
         else
-            std::cout << "No such value could be found in the tree.";
+            cout << "No such value could be found in the tree.";
     }
 }
 
@@ -475,7 +475,7 @@ void StadiumTree::makeDeletion(stadiumNode *&nodePtr)
         tempNodePtr = nodePtr;
         nodePtr = nodePtr->left;
         delete tempNodePtr;
-        std::cout << "Deleting employee's info.\n";
+        cout << "Deleting employee's info.\n";
     }
     // If only has right child
     else if (nodePtr->left == NULL)
@@ -483,7 +483,7 @@ void StadiumTree::makeDeletion(stadiumNode *&nodePtr)
         tempNodePtr = nodePtr;
         nodePtr = nodePtr->right;
         delete tempNodePtr;
-        std::cout << "Deleting employee's info.\n";
+        cout << "Deleting employee's info.\n";
     }
     // If the node has two Children
     else
@@ -499,7 +499,7 @@ void StadiumTree::makeDeletion(stadiumNode *&nodePtr)
         // Reattach the right subtree
         nodePtr = nodePtr->right;
         delete tempNodePtr;
-        std::cout << "Deleting employee's info.\n";
+        cout << "Deleting employee's info.\n";
     }
 }
 
@@ -517,9 +517,12 @@ void StadiumTree::makeDeletion(stadiumNode *&nodePtr)
  ***********************************************************/
 int StadiumTree::size()
 {
+    if (root == nullptr)
+    {
+        return 0;
+    }
     return size(root);
 }
-
 /**********************************************************
  *
  * Method operator==: Class StadiumTree

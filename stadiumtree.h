@@ -28,17 +28,14 @@ private:
     void accessInOrder(stadiumNode *, stadium *&, int &) const;
     int size(stadiumNode *);
     bool equal(stadiumNode *target, stadiumNode *otherTree);
-    void copyNode(stadiumNode *target, stadiumNode *otherTree);
+    void copyNode(stadiumNode *&target, stadiumNode *otherNode);
 
 public:
     // Constructor
     StadiumTree(stadiumNode *root = nullptr, char sortCriteria = 's');
     StadiumTree(const StadiumTree &otherTree);
 
-    ~StadiumTree()
-    {
-        destroySubTree(root);
-    }
+    ~StadiumTree() { destroySubTree(root); }
 
     void showNode(stadiumNode *);
 
@@ -54,6 +51,5 @@ public:
     bool operator==(const StadiumTree &otherTree);
     StadiumTree &operator=(const StadiumTree &otherTree);
 };
-
 
 #endif // STADIUMTREE_H

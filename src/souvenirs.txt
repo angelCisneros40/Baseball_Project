@@ -13,3 +13,21 @@ item: Autographed Baseball
 stadium: American Family Field
 item: Autographed Baseball
 
+stadium: Busch Stadium
+item: Baseball Bat
+
+stadium: Citi Field
+item: Baseball Bat
+
+stadium: Oracle Park
+item: Baseball Bat
+
+stadium: Rogers Centre
+item: Baseball Bat
+
+stadium: Oracle Park
+item: Baseball Bat
+
+stadium: American Family Field
+item: Baseball Bat
+

@@ -5,9 +5,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
-    connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
-    connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
+    // connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
+    // connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
+    // connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
     connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->AdminPinLineEdit, &QLineEdit::returnPressed, this, &MainWindow::toggleAdminTools);
@@ -445,8 +445,58 @@ void MainWindow::ChangeTeamToStadium()
     printOutputToTextBrowser();
 }
 
+void MainWindow::loadStadiumsFromFile()
+{
+    fs::path projectRoot = findProjectRoot();
+    fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
+    ifstream inFile(stadiumsPath);
+
+    if (!inFile.is_open())
+    {
+        cerr << "Error: Could not open stadiums.txt for reading.\n";
+        return;
+    }
+
+    string line;
+    while (getline(inFile, line))
+    {
+        string name = line;
+        string team, address, addressLine2, phone, dateStr, league, field;
+        getline(inFile, team);
+        getline(inFile, address);
+        getline(inFile, addressLine2);
+        getline(inFile, phone);
+        getline(inFile, dateStr);
+
+        int capacity;
+        inFile >> capacity;
+        inFile.ignore();
+
+        getline(inFile, league);
+        getline(inFile, field);
+        getline(inFile, line); // skip {
+
+        while (getline(inFile, line) && line != "}")
+        { /* skip adjacents */
+        }
+
+        // Parse date string
+        int month = 0, day = 0, year = 0;
+        sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
+
+        stadium s(name, team, address, addressLine2, phone,
+                  month, day, year, capacity, league, field);
+
+        teamSortedTree.insertNode(s);
+    }
+
+    inFile.close();
+    return;
+}
+
 void MainWindow::sortStadiumsByTeamName()
 {
+    loadStadiumsFromFile();
     clearOutputFile();
 
     fs::path projectRoot = findProjectRoot();
@@ -459,6 +509,18 @@ void MainWindow::sortStadiumsByTeamName()
     }
 
     outFile << "Stadiums sorted by team name:\n";
+    outFile << "=============================\n";
+
+    stadium *teamSortedList = teamSortedTree.compileInOrder();
+    int size = teamSortedTree.size();
+
+    for (int i = size - 1; i > 0; --i)
+    {
+        outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+    }
+
+    delete[] teamSortedList;
+    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
