@@ -35,7 +35,9 @@ private:
         {"Baseball Bat", 35.35},
         {"Team Pennant", 12.99},
         {"Autographed Baseball", 19.99}};
-    StadiumTree teamSortedTree;
+    StadiumTree teamSortedTree{'n'};
+    StadiumTree stadiumSortedTree{'s'};
+    StadiumTree dateSortedTree{'d'};
 
     void printOutputToTextBrowser();
     void printSouvenirToTextBrowser();
@@ -64,5 +66,6 @@ private:
     vector<souvenir> initSouvenirList();
     void printSouvenirReceipt();
     void loadStadiumsFromFile();
+    void loadStadiumsFromFileForStadiumName();
 };
 #endif // MAINWINDOW_H

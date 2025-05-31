@@ -12,6 +12,17 @@ StadiumTree::StadiumTree(stadiumNode *root, char sortCriteria) : root(root), sor
         compare = compDate;
 }
 
+StadiumTree::StadiumTree(char sortCriteria) : sortCriteria(sortCriteria)
+{
+    if (sortCriteria == 's')
+        compare = compName;
+    else if (sortCriteria == 'n')
+        compare = compTeam;
+    else
+        compare = compDate;
+    root = nullptr;
+}
+
 // Copy Constructor
 StadiumTree::StadiumTree(const StadiumTree &otherTree)
 {

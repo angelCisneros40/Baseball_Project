@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->button_StartCustomTrip->setVisible(false);
     ui->button_SubmitTeamToStadiumChanges->setVisible(false);
     clearOutputFile();
+    loadStadiumsFromFile();
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -488,6 +489,8 @@ void MainWindow::loadStadiumsFromFile()
                   month, day, year, capacity, league, field);
 
         teamSortedTree.insertNode(s);
+        stadiumSortedTree.insertNode(s);
+        dateSortedTree.insertNode(s);
     }
 
     inFile.close();
@@ -496,7 +499,6 @@ void MainWindow::loadStadiumsFromFile()
 
 void MainWindow::sortStadiumsByTeamName()
 {
-    loadStadiumsFromFile();
     clearOutputFile();
 
     fs::path projectRoot = findProjectRoot();
@@ -515,9 +517,7 @@ void MainWindow::sortStadiumsByTeamName()
     int size = teamSortedTree.size();
 
     for (int i = size - 1; i > 0; --i)
-    {
         outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
-    }
 
     delete[] teamSortedList;
     outFile << "=============================\n";
@@ -538,8 +538,21 @@ void MainWindow::sortALStadiumsByTeamName()
         return;
     }
 
-    outFile << "American League Stadiums\n"
-            << "sorted by team name:\n";
+    outFile << "American League Stadiums\n";
+    outFile << "sorted by team name:\n";
+    outFile << "=============================\n";
+
+    stadium *teamSortedList = teamSortedTree.compileInOrder();
+    int size = teamSortedTree.size();
+
+    for (int i = size - 1; i >= 0; --i)
+    {
+        if (teamSortedList[i].getLeague() == "American")
+            outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+    }
+
+    delete[] teamSortedList;
+    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -557,8 +570,21 @@ void MainWindow::sortNLStadiumsByTeamName()
         return;
     }
 
-    outFile << "National League Stadiums\n"
-            << "sorted by team name:\n";
+    outFile << "National League Stadiums\n";
+    outFile << "sorted by team name:\n";
+    outFile << "=============================\n";
+
+    stadium *teamSortedList = teamSortedTree.compileInOrder();
+    int size = teamSortedTree.size();
+
+    for (int i = size - 1; i >= 0; --i)
+    {
+        if (teamSortedList[i].getLeague() == "National")
+            outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+    }
+
+    delete[] teamSortedList;
+    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -577,6 +603,16 @@ void MainWindow::sortStadiumsByName()
     }
 
     outFile << "Stadiums sorted by name:\n";
+    outFile << "=============================\n";
+
+    stadium *stadiumSortedList = stadiumSortedTree.compileInOrder();
+    int size = stadiumSortedTree.size();
+
+    for (int i = size - 1; i >= 0; --i)
+        outFile << stadiumSortedList[i].getName() << " - " << stadiumSortedList[i].getTeam() << '\n';
+
+    delete[] stadiumSortedList;
+    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -594,7 +630,18 @@ void MainWindow::sortStadiumsWithGrass()
         return;
     }
 
-    outFile << "Stadiums sorted by name \n(with grass):\n";
+    outFile << "Stadiums sorted by name:\n";
+    outFile << "=============================\n";
+
+    stadium *stadiumSortedList = stadiumSortedTree.compileInOrder();
+    int size = stadiumSortedTree.size();
+
+    for (int i = size - 1; i >= 0; --i)
+        if (stadiumSortedList[i].getField() == "grass")
+            outFile << stadiumSortedList[i].getName() << " - " << stadiumSortedList[i].getTeam() << '\n';
+
+    delete[] stadiumSortedList;
+    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -613,7 +660,25 @@ void MainWindow::sortStadiumsByDateOpened()
     }
 
     outFile << "Stadiums sorted by Date Opened:\n";
+    outFile << "===============================\n";
+
+    stadium *dateSortedList = dateSortedTree.compileInOrder();
+    int size = dateSortedTree.size();
+
+    for (int i = size - 1; i >= 0; --i)
+    {
+        stadium s = dateSortedList[i];
+        outFile << std::setw(2) << std::setfill('0') << s.getMonth() << '/'
+                << std::setw(2) << std::setfill('0') << s.getDay() << '/'
+                << s.getYear() << " - "
+                << s.getName() << " - "
+                << s.getTeam() << '\n';
+    }
+
+    delete[] dateSortedList;
+    outFile << "===============================\n";
     outFile.close();
+
     printOutputToTextBrowser();
 }
 

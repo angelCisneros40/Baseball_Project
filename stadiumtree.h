@@ -34,8 +34,12 @@ public:
     // Constructor
     StadiumTree(stadiumNode *root = nullptr, char sortCriteria = 's');
     StadiumTree(const StadiumTree &otherTree);
+    StadiumTree(char sortCriteria);
 
-    ~StadiumTree() { destroySubTree(root); }
+    ~StadiumTree()
+    {
+        destroySubTree(root);
+    }
 
     void showNode(stadiumNode *);
 
