@@ -622,3 +622,22 @@ void StadiumTree::clear()
         root = nullptr;
     }
 }
+
+stadium *StadiumTree::findStadiumByName(const std::string &name)
+{
+    return findNodeByNameHelper(root, name);
+}
+
+stadium *StadiumTree::findNodeByNameHelper(stadiumNode *node, const std::string &name)
+{
+    if (!node)
+        return nullptr;
+    if (node->value.getName() == name)
+        return &node->value;
+
+    stadium *left = findNodeByNameHelper(node->left, name);
+    if (left)
+        return left;
+
+    return findNodeByNameHelper(node->right, name);
+}

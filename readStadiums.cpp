@@ -22,25 +22,25 @@ void readStadiumFiles(StadiumTree &nameSorted,
         return;
     }
 
-    std::string line, name, team, address, addressLine2, phoneNum, date, capStr, league, field;
+    string line, name, team, address, addressLine2, phoneNum, date, capStr, league, field;
     int day, month, year, capacity;
     bool og30;
 
-    while (std::getline(infile, name))
+    while (getline(infile, name))
     {
-        std::getline(infile, team);
-        std::getline(infile, address);
-        std::getline(infile, addressLine2);
-        std::getline(infile, phoneNum);
-        std::getline(infile, date);
-        std::getline(infile, capStr);
-        std::getline(infile, league);
-        std::getline(infile, field);
+        getline(infile, team);
+        getline(infile, address);
+        getline(infile, addressLine2);
+        getline(infile, phoneNum);
+        getline(infile, date);
+        getline(infile, capStr);
+        getline(infile, league);
+        getline(infile, field);
 
-        capacity = std::stoi(capStr);
+        capacity = stoi(capStr);
 
         char *modifiableCDate = new char[capStr.size() + 1];
-        std::strcpy(modifiableCDate, capStr.c_str());
+        strcpy(modifiableCDate, capStr.c_str());
 
         char *part = strtok(modifiableCDate, "/");
         month = atoi(part);
@@ -50,7 +50,7 @@ void readStadiumFiles(StadiumTree &nameSorted,
         year = atoi(part);
         delete[] part;
 
-        std::getline(infile, line);
+        getline(infile, line);
         if (line == "{")
         {
             og30 = true;
@@ -73,14 +73,14 @@ void readStadiumFiles(StadiumTree &nameSorted,
 
         graph.insert(newStadium);
 
-        std::getline(infile, line);
+        getline(infile, line);
         while (line != "}")
         {
-            std::string newName;
+            string newName;
             int distance;
 
             char *modifiableLine = new char[line.size() + 1];
-            std::strcpy(modifiableLine, line.c_str());
+            strcpy(modifiableLine, line.c_str());
 
             char *halves = strtok(modifiableLine, ",");
             newName = halves;
@@ -89,7 +89,7 @@ void readStadiumFiles(StadiumTree &nameSorted,
 
             graph.insert(newStadium, stadium(newName), distance);
 
-            std::getline(infile, line);
+            getline(infile, line);
         }
 
         infile.close();

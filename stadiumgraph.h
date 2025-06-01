@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include "stadium.h"
+using namespace std;
 
 // Edges can be stored in pairs of 2 nodes, the first one having 0 distance pointing to the 2nd, containing the distance
 struct graphNode
@@ -50,13 +51,16 @@ public:
     graphNode *shortestPathNational();
     graphNode *shortestPathAmerican();
     void expandPath(graphNode *&visited);
+    graphNode *shortestPathBetween(const string &startName, const string &endName);
 
-
-    graphNode* getStadium(int index) {return adjacencyList[index];}
+    graphNode *getStadium(int index) { return adjacencyList[index]; }
     int find(stadium value);
-    int find(std::string name);
+    int find(string name);
 
     stadiumGraph &operator=(const stadiumGraph &otherGraph);
+
+    void printGraph() const;
+    int getVertexCount() const;
 
 private:
     graphNode **adjacencyList;

@@ -23,7 +23,7 @@ set(PROJECT_SOURCES
         fileWriteTest.h
         fileWriteTest.cpp
         stadiumgraph.cpp
-)
+        )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Baseball_Project
@@ -40,7 +40,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         readStadiums.cpp
         stadium.cpp
         stadiumTree.cpp
-    )
+            )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Baseball_Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)

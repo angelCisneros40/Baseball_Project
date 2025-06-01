@@ -55,16 +55,36 @@ void testReadToWriteFile()
         return;
     }
     // outFile << "hello from /src/output.txt!" << "\n";
-    outFile << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n"<< "test" << "\n"
-            << "test" << "\n"<< "test" << "\n" << "blah";
+    outFile << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "test" << "\n"
+            << "blah";
     outFile.close();
 }
 

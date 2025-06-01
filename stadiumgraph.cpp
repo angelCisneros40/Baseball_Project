@@ -57,9 +57,9 @@ void stadiumGraph::insert(stadium target, stadium value, int distance)
 void stadiumGraph::dijkstra(int start, graphNode *&S, int *&C, int *&P)
 {
     int s_size = 0;
-    std::fill(S, S + vertices, graphNode());
-    std::fill(P, P + vertices, -1);
-    std::fill(C, C + vertices, std::numeric_limits<int>::max());
+    fill(S, S + vertices, graphNode());
+    fill(P, P + vertices, -1);
+    fill(C, C + vertices, numeric_limits<int>::max());
     C[start] = 0;
 
     // While all vertices haven't been parsed
@@ -182,7 +182,7 @@ graphNode *stadiumGraph::shortestPathAll()
     {
         // Finds shortest path to another stadium that isn't already visited
         graphNode *smallestNode = nullptr;
-        int smallest = std::numeric_limits<int>::max();
+        int smallest = numeric_limits<int>::max();
         // Loops for all adjacent nodes
         for (; current; current = current->adjacent)
         {
@@ -237,7 +237,7 @@ graphNode *stadiumGraph::shortestPathNational()
     while (true)
     {
         graphNode *smallestNode = nullptr;
-        int smallest = std::numeric_limits<int>::max();
+        int smallest = numeric_limits<int>::max();
         for (; current; current = current->adjacent)
         {
             if (current->distance < smallest && current->value.getLeague() == "National")
@@ -261,7 +261,7 @@ graphNode *stadiumGraph::shortestPathNational()
         }
 
         // If no more national league stadiums to visit
-        if (smallest == std::numeric_limits<int>::max())
+        if (smallest == numeric_limits<int>::max())
             break;
 
         end->adjacent = new graphNode(smallestNode->value);
@@ -291,7 +291,7 @@ graphNode *stadiumGraph::shortestPathAmerican()
     while (true)
     {
         graphNode *smallestNode = nullptr;
-        int smallest = std::numeric_limits<int>::max();
+        int smallest = numeric_limits<int>::max();
         for (; current; current = current->adjacent)
         {
             if (current->distance < smallest && current->value.getLeague() == "American")
@@ -315,7 +315,7 @@ graphNode *stadiumGraph::shortestPathAmerican()
         }
 
         // If no more American league stadiums to visit
-        if (smallest == std::numeric_limits<int>::max())
+        if (smallest == numeric_limits<int>::max())
             break;
 
         end->adjacent = new graphNode(smallestNode->value);
@@ -466,11 +466,83 @@ int stadiumGraph::find(stadium value)
 }
 
 // find and return index of stadium with same name in list
-int stadiumGraph::find(std::string name)
+int stadiumGraph::find(string name)
 {
     for (int i = 0; i < vertices; i++)
         if (name == adjacencyList[i]->value.getName())
             return i;
 
     return -1;
+}
+
+// find and return list of links with the shortest path fron start to end
+graphNode *stadiumGraph::shortestPathBetween(const string &startName, const string &endName)
+{
+    int startIdx = find(startName);
+    int endIdx = find(endName);
+    if (startIdx == -1 || endIdx == -1)
+        return nullptr;
+
+    graphNode *S = new graphNode[vertices];
+    int *C = new int[vertices];
+    int *P = new int[vertices];
+
+    dijkstra(startIdx, S, C, P);
+
+    if (C[endIdx] == numeric_limits<int>::max())
+    {
+        delete[] S;
+        delete[] C;
+        delete[] P;
+        return nullptr;
+    }
+
+    graphNode *head = new graphNode(adjacencyList[endIdx]->value);
+    graphNode *current = head;
+    int currentIdx = endIdx;
+    while (P[currentIdx] != -1)
+    {
+        graphNode *newNode = new graphNode(adjacencyList[P[currentIdx]]->value);
+        newNode->adjacent = current;
+        current = newNode;
+        currentIdx = P[currentIdx];
+    }
+
+    delete[] S;
+    delete[] C;
+    delete[] P;
+
+    return current;
+}
+
+void stadiumGraph::printGraph() const
+{
+    if (!adjacencyList || vertices == 0)
+    {
+        cout << "Graph is empty.\n";
+        return;
+    }
+
+    cout << "===== Stadium Graph =====" << endl;
+    for (int i = 0; i < vertices; ++i)
+    {
+        graphNode *current = adjacencyList[i];
+        if (!current)
+            continue;
+
+        cout << "Stadium: " << current->value.getName() << endl;
+        graphNode *adj = current->adjacent;
+        while (adj)
+        {
+            cout << "  -> " << adj->value.getName()
+                 << " (Distance: " << adj->distance << ")" << endl;
+            adj = adj->adjacent;
+        }
+    }
+    cout << "=========================" << endl;
+}
+
+int stadiumGraph::getVertexCount() const
+{
+    return vertices;
 }

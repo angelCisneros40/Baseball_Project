@@ -7,6 +7,8 @@
 #include "fileWriteTest.h"
 #include "souvenir.h"
 #include "stadiumtree.h"
+#include "stadiumgraph.h"
+#include "readStadiums.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -38,6 +40,9 @@ private:
     StadiumTree teamSortedTree{'n'};
     StadiumTree stadiumSortedTree{'s'};
     StadiumTree dateSortedTree{'d'};
+    QStringList blackEdges;
+    QStringList blueEdges;
+    stadiumGraph stadiumGraphObject;
 
     void printOutputToTextBrowser();
     void printSouvenirToTextBrowser();
@@ -67,5 +72,8 @@ private:
     void printSouvenirReceipt();
     void loadStadiumsFromFile();
     void loadStadiumsFromFileForStadiumName();
+    void toggleEdgeVisibility(const QStringList &edgeLabels, bool visible);
+    void toggleEdgeLabel(const QString &labelName, bool visible);
+    void connectStadiumEdges();
 };
 #endif // MAINWINDOW_H

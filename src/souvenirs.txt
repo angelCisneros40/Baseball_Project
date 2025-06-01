@@ -31,3 +31,9 @@ item: Baseball Bat
 stadium: American Family Field
 item: Baseball Bat
 
+stadium: American Family Field
+item: Autographed Baseball
+
+stadium: Citi Field
+item: Baseball Bat
+

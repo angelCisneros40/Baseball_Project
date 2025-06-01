@@ -3,6 +3,7 @@
 #include "fileWriteTest.h"
 #include "stadiumtree.h"
 #include "stadiumgraph.h"
+using namespace std;
 
 void readStadiumFiles(StadiumTree &nameSorted,
                       StadiumTree &teamSorted,
@@ -11,6 +12,8 @@ void readStadiumFiles(StadiumTree &nameSorted,
                       StadiumTree &nationalTeamSorted,
                       StadiumTree &turfTeamSorted,
                       stadiumGraph &graph);
+
+void readStadiumFiles(stadiumGraph &graph);
 
 void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph);
 

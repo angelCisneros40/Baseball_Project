@@ -54,8 +54,10 @@ public:
 
     bool operator==(const StadiumTree &otherTree);
     StadiumTree &operator=(const StadiumTree &otherTree);
-
     void clear();
+
+    stadium *findStadiumByName(const std::string &name);
+    stadium *findNodeByNameHelper(stadiumNode *node, const std::string &name);
 };
 
 #endif // STADIUMTREE_H

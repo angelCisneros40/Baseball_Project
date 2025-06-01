@@ -728,7 +728,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label_TMobileToRogers_Black">
+   <widget class="QLabel" name="label_TMobileParkToRogersCentre_Black">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -744,7 +744,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileToTarget_Black">
+   <widget class="QLabel" name="label_TMobileParkToTargetField_Black">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -760,7 +760,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileToStutterHealth_Black">
+   <widget class="QLabel" name="label_TMobileParkToStutterHealth_Black">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -776,7 +776,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthToChase_Black">
+   <widget class="QLabel" name="label_StutterHealthParkToChaseField_Black">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -792,7 +792,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DodgerToPetco_Black">
+   <widget class="QLabel" name="label_DodgerStadiumToPetcoPark_Black">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -808,7 +808,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PetcoToChase_Black">
+   <widget class="QLabel" name="label_PetcoParkToChaseField_Black">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -824,7 +824,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToDaikin_Black">
+   <widget class="QLabel" name="label_ChaseFieldToDaikinPark_Black">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -840,7 +840,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToGlobeLife_Black">
+   <widget class="QLabel" name="label_ChaseFieldToGlobeLifeField_Black">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -856,7 +856,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToDaikin_Black">
+   <widget class="QLabel" name="label_GlobeLifeFieldToDaikinPark_Black">
     <property name="geometry">
      <rect>
       <x>810</x>
@@ -872,7 +872,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DodgerToTarget_Black">
+   <widget class="QLabel" name="label_DodgerStadiumToTargetField_Black">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -888,7 +888,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PercoToCoors_Black">
+   <widget class="QLabel" name="label_PetcoParkToCoorsField_Black">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -904,7 +904,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToCoors_Black">
+   <widget class="QLabel" name="label_ChaseFieldToCoorsField_Black">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -920,7 +920,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CoorsToGlobeLife_Black">
+   <widget class="QLabel" name="label_CoorsFieldToGlobeLifeField_Black">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -936,7 +936,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToKauffman_Black">
+   <widget class="QLabel" name="label_GlobeLifeFieldToKauffmanStadium_Black">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -952,7 +952,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CoorsToKauffman_Black">
+   <widget class="QLabel" name="label_CoorsFieldToKauffmanStadium_Black">
     <property name="geometry">
      <rect>
       <x>800</x>
@@ -968,7 +968,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_KauffmanToWrigley_Black">
+   <widget class="QLabel" name="label_KauffmanStadiumToWrigleyField_Black">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -984,7 +984,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TargetToBusch_Black">
+   <widget class="QLabel" name="label_TargetFieldToBuschStadium_Black">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -1000,7 +1000,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_KauffmanToBusch_Black">
+   <widget class="QLabel" name="label_KauffmanStadiumToBuschStadium_Black">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -1016,7 +1016,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToBusch_Black">
+   <widget class="QLabel" name="label_DaikinParkToBuschStadium_Black">
     <property name="geometry">
      <rect>
       <x>840</x>
@@ -1032,7 +1032,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TargetToAmericanFamily_Black">
+   <widget class="QLabel" name="label_TargetFieldToAmericanFamilyField_Black">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -1048,7 +1048,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyToRogers_Black">
+   <widget class="QLabel" name="label_AmericanFamilyFieldToRogersCentre_Black">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1064,7 +1064,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_WrigleyToComerica_Black">
+   <widget class="QLabel" name="label_WrigleyFieldToComericaPark_Black">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1080,7 +1080,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ComericaToRogers_Black">
+   <widget class="QLabel" name="label_ComericaParkToRogersCentre_Black">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -1096,7 +1096,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_RogersToPNC_Black">
+   <widget class="QLabel" name="label_RogersCentreToPNCPark_Black">
     <property name="geometry">
      <rect>
       <x>1070</x>
@@ -1112,7 +1112,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToGeorge_Black">
+   <widget class="QLabel" name="label_DaikinParkToGeorgeMSteinbrennerField_Black">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -1128,7 +1128,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToTruist_Black">
+   <widget class="QLabel" name="label_GlobeLifeFieldToTruistPark_Black">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -1144,7 +1144,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToTruist_Black">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToTruistPark_Black">
     <property name="geometry">
      <rect>
       <x>960</x>
@@ -1160,7 +1160,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_BuschToGreatAmericanBall_Black">
+   <widget class="QLabel" name="label_BuschStadiumToGreatAmericanBallpark_Black">
     <property name="geometry">
      <rect>
       <x>970</x>
@@ -1176,7 +1176,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_WrigleyToGreatAmericanBall_Black">
+   <widget class="QLabel" name="label_WrigleyFieldToGreatAmericanBallpark_Black">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1192,7 +1192,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToProgressive_Black">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToProgressiveField_Black">
     <property name="geometry">
      <rect>
       <x>1040</x>
@@ -1208,7 +1208,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToPNC_Black">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToPNCPark_Black">
     <property name="geometry">
      <rect>
       <x>1030</x>
@@ -1224,7 +1224,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ComericaToProgressive_Black">
+   <widget class="QLabel" name="label_ComericaParkToProgressiveField_Black">
     <property name="geometry">
      <rect>
       <x>1030</x>
@@ -1240,7 +1240,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveToPNC_Black">
+   <widget class="QLabel" name="label_ProgressiveFieldToPNCPark_Black">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -1256,13 +1256,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveToYankee_Black">
+   <widget class="QLabel" name="label_ProgressiveFieldToYankeeStadium_Black">
     <property name="geometry">
      <rect>
       <x>1080</x>
       <y>270</y>
-      <width>71</width>
-      <height>51</height>
+      <width>6</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1272,7 +1272,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_YankeeToFenway_Black">
+   <widget class="QLabel" name="label_YankeeStadiumToFenwayPark_Black">
     <property name="geometry">
      <rect>
       <x>1150</x>
@@ -1288,7 +1288,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_LoanDepotToFenway_Black">
+   <widget class="QLabel" name="label_LoanDepotParkToFenwayPark_Black">
     <property name="geometry">
      <rect>
       <x>1010</x>
@@ -1304,7 +1304,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_LoanDepotToNationals_Black">
+   <widget class="QLabel" name="label_LoanDepotParkToNationalsPark_Black">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1320,7 +1320,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TruistToNationals_Black">
+   <widget class="QLabel" name="label_TruistParkToNationalsPark_Black">
     <property name="geometry">
      <rect>
       <x>990</x>
@@ -1336,7 +1336,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TruistToLoanDepot_Black">
+   <widget class="QLabel" name="label_TruistParkToLoanDepotPark_Black">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -1352,7 +1352,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToGeorge_Black">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Black">
     <property name="geometry">
      <rect>
       <x>950</x>
@@ -1368,7 +1368,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToLoanDepot_Black">
+   <widget class="QLabel" name="label_DaikinParkToLoanDepotPark_Black">
     <property name="geometry">
      <rect>
       <x>940</x>
@@ -1384,7 +1384,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GeorgeToLoanDepot_Black">
+   <widget class="QLabel" name="label_GeorgeMSteinbrennerFieldToLoanDepotPark_Black">
     <property name="geometry">
      <rect>
       <x>1090</x>
@@ -1400,7 +1400,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_RogersToFenway_Black">
+   <widget class="QLabel" name="label_RogersCentreToFenwayPark_Black">
     <property name="geometry">
      <rect>
       <x>1100</x>
@@ -1416,7 +1416,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PNCToNationals_Black">
+   <widget class="QLabel" name="label_PNCParkToNationalsPark_Black">
     <property name="geometry">
      <rect>
       <x>1070</x>
@@ -1432,7 +1432,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_NationalsToCitizensBank_Black">
+   <widget class="QLabel" name="label_NationalsParkToCitizensBankPark_Black">
     <property name="geometry">
      <rect>
       <x>1120</x>
@@ -1448,7 +1448,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CitizensBankToYankee_Black">
+   <widget class="QLabel" name="label_CitizensBankParkBankToYankeeStadium_Black">
     <property name="geometry">
      <rect>
       <x>1140</x>
@@ -1464,7 +1464,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyToWrigley_Black">
+   <widget class="QLabel" name="label_AmericanFamilyFieldToWrigleyField_Black">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -1480,7 +1480,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileToStutterHealth_Blue">
+   <widget class="QLabel" name="label_TMobileParkToStutterHealthPark_Blue">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -1496,7 +1496,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileToTarget_Blue">
+   <widget class="QLabel" name="label_TMobileParkToTargetField_Blue">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -1512,7 +1512,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileToRogers_Blue">
+   <widget class="QLabel" name="label_TMobileParkToRogersCentre_Blue">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -1528,7 +1528,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_RogersToFenway_Blue">
+   <widget class="QLabel" name="label_RogersCentreToFenwayPark_Blue">
     <property name="geometry">
      <rect>
       <x>1100</x>
@@ -1544,7 +1544,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthToDodger_Blue">
+   <widget class="QLabel" name="label_StutterHealthParkToDodgerStadium_Blue">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -1560,7 +1560,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToCoors_Blue">
+   <widget class="QLabel" name="label_ChaseFieldToCoorsField_Blue">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -1576,7 +1576,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PetcoToCoors_Blue">
+   <widget class="QLabel" name="label_PetcoParkToCoorsField_Blue">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -1592,7 +1592,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DodgerToPetco_Blue">
+   <widget class="QLabel" name="label_DodgerStadiumToPetcoPark_Blue">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -1608,7 +1608,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthToChase_Blue">
+   <widget class="QLabel" name="label_StutterHealthParkToChaseField_Blue">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -1624,7 +1624,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PetcoToChase_Blue">
+   <widget class="QLabel" name="label_PetcoParkToChaseField_Blue">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -1640,7 +1640,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_PetcoToTarget_Blue">
+   <widget class="QLabel" name="label_PetcoParkToTargetField_Blue">
     <property name="geometry">
      <rect>
       <x>640</x>
@@ -1656,7 +1656,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CoorsToGlobeLife_Blue">
+   <widget class="QLabel" name="label_CoorsFieldToGlobeLifeField_Blue">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -1672,7 +1672,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_NationalsToCitizensBank_Blue">
+   <widget class="QLabel" name="label_NationalsParkToCitizensBank_Blue">
     <property name="geometry">
      <rect>
       <x>1120</x>
@@ -1688,7 +1688,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CitizensBankToYankee_Blue">
+   <widget class="QLabel" name="label_CitizensBankParkToYankeeStadium_Blue">
     <property name="geometry">
      <rect>
       <x>1140</x>
@@ -1704,7 +1704,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_YankeeToFenway_Blue">
+   <widget class="QLabel" name="label_YankeeStadiumToFenwayPark_Blue">
     <property name="geometry">
      <rect>
       <x>1150</x>
@@ -1720,7 +1720,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_FenwayToLoanDepot_Blue">
+   <widget class="QLabel" name="label_FenwayParkToLoanDepotPark_Blue">
     <property name="geometry">
      <rect>
       <x>1010</x>
@@ -1736,7 +1736,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToDaikin_Blue">
+   <widget class="QLabel" name="label_ChaseFieldToDaikinPark_Blue">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -1752,7 +1752,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ChaseToGlobeLife_Blue">
+   <widget class="QLabel" name="label_ChaseFieldToGlobeLifeField_Blue">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -1768,7 +1768,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToDaikin_Blue">
+   <widget class="QLabel" name="label_GlobeLifeFieldToDaikinPark_Blue">
     <property name="geometry">
      <rect>
       <x>810</x>
@@ -1784,7 +1784,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_KauffmanToWrigley_Blue">
+   <widget class="QLabel" name="label_KauffmanStadiumToWrigley_Blue">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -1800,7 +1800,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToBusch_Blue">
+   <widget class="QLabel" name="label_DaikinParkToBuschStadium_Blue">
     <property name="geometry">
      <rect>
       <x>840</x>
@@ -1816,7 +1816,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToKauffman_Blue">
+   <widget class="QLabel" name="label_GlobeLifeFieldToKauffmanStadium_Blue">
     <property name="geometry">
      <rect>
       <x>850</x>
@@ -1832,7 +1832,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_CoorsToKauffman_Blue">
+   <widget class="QLabel" name="label_CoorsFieldToKauffmanStadium_Blue">
     <property name="geometry">
      <rect>
       <x>800</x>
@@ -1848,7 +1848,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TruistToNationals_Blue">
+   <widget class="QLabel" name="label_TruistParkToNationalsPark_Blue">
     <property name="geometry">
      <rect>
       <x>990</x>
@@ -1864,7 +1864,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TargetToBusch_Blue">
+   <widget class="QLabel" name="label_TargetFieldToBuschStadium_Blue">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -1880,7 +1880,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_KauffmanToBusch_Blue">
+   <widget class="QLabel" name="label_KauffmanStadiumToBuschStadium_Blue">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -1896,7 +1896,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TargetToAmericanFamily_Blue">
+   <widget class="QLabel" name="label_TargetFieldToAmericanFamilyField_Blue">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -1912,7 +1912,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyToComerica_Blue">
+   <widget class="QLabel" name="label_AmericanFamilyFieldToComericaPark_Blue">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1928,7 +1928,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ComericaToRogers_Blue">
+   <widget class="QLabel" name="label_ComericaParkToRogersCentre_Blue">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -1944,7 +1944,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyToRogers_Blue">
+   <widget class="QLabel" name="label_AmericanFamilyFieldToRogersCentre_Blue">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -1960,7 +1960,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToLoanDepot_Blue">
+   <widget class="QLabel" name="label_DaikinParkToLoanDepotPark_Blue">
     <property name="geometry">
      <rect>
       <x>940</x>
@@ -1976,7 +1976,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_RogersToPNC_Blue">
+   <widget class="QLabel" name="label_RogersCentreToPNC_Blue">
     <property name="geometry">
      <rect>
       <x>1070</x>
@@ -1992,7 +1992,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_BuschToGreatAmericanBall_Blue">
+   <widget class="QLabel" name="label_BuschStadiumToGreatAmericanBallpark_Blue">
     <property name="geometry">
      <rect>
       <x>970</x>
@@ -2008,7 +2008,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveToNationals_Blue">
+   <widget class="QLabel" name="label_ProgressiveFieldToNationalsPark_Blue">
     <property name="geometry">
      <rect>
       <x>1070</x>
@@ -2024,7 +2024,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyToWrigley_Blue">
+   <widget class="QLabel" name="label_AmericanFamilyFieldToWrigleyField_Blue">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -2040,7 +2040,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GlobeLifeToTruist_Blue">
+   <widget class="QLabel" name="label_GlobeLifeFieldToTruistPark_Blue">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -2056,13 +2056,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveToYankee_Blue">
+   <widget class="QLabel" name="label_ProgressiveFieldToYankeeStadium_Blue">
     <property name="geometry">
      <rect>
       <x>1080</x>
       <y>270</y>
-      <width>71</width>
-      <height>51</height>
+      <width>6</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2072,7 +2072,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToGeorge_Blue">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Blue">
     <property name="geometry">
      <rect>
       <x>950</x>
@@ -2088,7 +2088,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TruistToLoanDepot_Blue">
+   <widget class="QLabel" name="label_TruistParkToLoanDepotPark_Blue">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -2104,7 +2104,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_WrigleyToGreatBallAmerican_Blue">
+   <widget class="QLabel" name="label_WrigleyFieldToGreatBallAmericanBallpark_Blue">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -2120,7 +2120,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GeorgeToLoanDepot_Blue">
+   <widget class="QLabel" name="label_GeorgeMSteinbrennerFieldToLoanDepotPark_Blue">
     <property name="geometry">
      <rect>
       <x>1090</x>
@@ -2136,7 +2136,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToPNC_Blue">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToPNCPark_Blue">
     <property name="geometry">
      <rect>
       <x>1030</x>
@@ -2152,7 +2152,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_NationalsToGeorge_Blue">
+   <widget class="QLabel" name="label_NationalsParkToGeorge_Blue">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -2168,7 +2168,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveToPNC_Blue">
+   <widget class="QLabel" name="label_ProgressiveFieldToPNCPark_Blue">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -2184,7 +2184,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ComericaToProgressive_Blue">
+   <widget class="QLabel" name="label_ComericaParkToProgressiveField_Blue">
     <property name="geometry">
      <rect>
       <x>1030</x>
@@ -2200,7 +2200,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToProgressive_Blue">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToProgressiveField_Blue">
     <property name="geometry">
      <rect>
       <x>1040</x>
@@ -2216,7 +2216,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_GreatAmericanBallToTruist_Blue">
+   <widget class="QLabel" name="label_GreatAmericanBallparkToTruistPark_Blue">
     <property name="geometry">
      <rect>
       <x>960</x>
@@ -2232,7 +2232,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_DaikinToGeorge_Blue">
+   <widget class="QLabel" name="label_DaikinParkToGeorgeMSteinbrennerField_Blue">
     <property name="geometry">
      <rect>
       <x>980</x>
@@ -2248,7 +2248,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthToDodger_Black">
+   <widget class="QLabel" name="label_StutterHealthParkToDodgerStadium_Black">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -4343,107 +4343,141 @@ Team Name (with grass)</string>
      <string>Submit</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_AmericanFamilyFieldToComericaPark_Black">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>250</y>
+      <width>41</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/src/src/Layer 24.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_FenwayParkToLoanDepotPark_Black">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>260</y>
+      <width>281</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/src/src/Layer 38.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>backgroundWidget</zorder>
    <zorder>label_map</zorder>
-   <zorder>label_StutterHealthToDodger_Black</zorder>
-   <zorder>label_DaikinToBusch_Black</zorder>
+   <zorder>label_FenwayParkToLoanDepotPark_Black</zorder>
+   <zorder>label_AmericanFamilyFieldToComericaPark_Black</zorder>
+   <zorder>label_StutterHealthParkToDodgerStadium_Black</zorder>
+   <zorder>label_DaikinParkToBuschStadium_Black</zorder>
    <zorder>textBrowser</zorder>
    <zorder>outputLabel</zorder>
    <zorder>combobox_stadiumA</zorder>
-   <zorder>label_TMobileToRogers_Black</zorder>
-   <zorder>label_TMobileToTarget_Black</zorder>
-   <zorder>label_TMobileToStutterHealth_Black</zorder>
-   <zorder>label_StutterHealthToChase_Black</zorder>
-   <zorder>label_DodgerToPetco_Black</zorder>
-   <zorder>label_PetcoToChase_Black</zorder>
-   <zorder>label_ChaseToDaikin_Black</zorder>
-   <zorder>label_ChaseToGlobeLife_Black</zorder>
-   <zorder>label_GlobeLifeToDaikin_Black</zorder>
-   <zorder>label_DodgerToTarget_Black</zorder>
-   <zorder>label_PercoToCoors_Black</zorder>
-   <zorder>label_ChaseToCoors_Black</zorder>
-   <zorder>label_CoorsToGlobeLife_Black</zorder>
-   <zorder>label_GlobeLifeToKauffman_Black</zorder>
-   <zorder>label_CoorsToKauffman_Black</zorder>
-   <zorder>label_KauffmanToWrigley_Black</zorder>
-   <zorder>label_TargetToBusch_Black</zorder>
-   <zorder>label_KauffmanToBusch_Black</zorder>
-   <zorder>label_TargetToAmericanFamily_Black</zorder>
-   <zorder>label_AmericanFamilyToRogers_Black</zorder>
-   <zorder>label_WrigleyToComerica_Black</zorder>
-   <zorder>label_ComericaToRogers_Black</zorder>
-   <zorder>label_RogersToPNC_Black</zorder>
-   <zorder>label_DaikinToGeorge_Black</zorder>
-   <zorder>label_GlobeLifeToTruist_Black</zorder>
-   <zorder>label_GreatAmericanBallToTruist_Black</zorder>
-   <zorder>label_BuschToGreatAmericanBall_Black</zorder>
-   <zorder>label_WrigleyToGreatAmericanBall_Black</zorder>
-   <zorder>label_GreatAmericanBallToProgressive_Black</zorder>
-   <zorder>label_GreatAmericanBallToPNC_Black</zorder>
-   <zorder>label_ComericaToProgressive_Black</zorder>
-   <zorder>label_ProgressiveToPNC_Black</zorder>
-   <zorder>label_ProgressiveToYankee_Black</zorder>
-   <zorder>label_YankeeToFenway_Black</zorder>
-   <zorder>label_LoanDepotToFenway_Black</zorder>
-   <zorder>label_LoanDepotToNationals_Black</zorder>
-   <zorder>label_TruistToNationals_Black</zorder>
-   <zorder>label_TruistToLoanDepot_Black</zorder>
-   <zorder>label_GreatAmericanBallToGeorge_Black</zorder>
-   <zorder>label_DaikinToLoanDepot_Black</zorder>
-   <zorder>label_GeorgeToLoanDepot_Black</zorder>
-   <zorder>label_RogersToFenway_Black</zorder>
-   <zorder>label_PNCToNationals_Black</zorder>
-   <zorder>label_NationalsToCitizensBank_Black</zorder>
-   <zorder>label_CitizensBankToYankee_Black</zorder>
-   <zorder>label_AmericanFamilyToWrigley_Black</zorder>
-   <zorder>label_TMobileToStutterHealth_Blue</zorder>
-   <zorder>label_TMobileToTarget_Blue</zorder>
-   <zorder>label_TMobileToRogers_Blue</zorder>
-   <zorder>label_RogersToFenway_Blue</zorder>
-   <zorder>label_StutterHealthToDodger_Blue</zorder>
-   <zorder>label_ChaseToCoors_Blue</zorder>
-   <zorder>label_PetcoToCoors_Blue</zorder>
-   <zorder>label_DodgerToPetco_Blue</zorder>
-   <zorder>label_StutterHealthToChase_Blue</zorder>
-   <zorder>label_PetcoToChase_Blue</zorder>
-   <zorder>label_PetcoToTarget_Blue</zorder>
-   <zorder>label_CoorsToGlobeLife_Blue</zorder>
-   <zorder>label_NationalsToCitizensBank_Blue</zorder>
-   <zorder>label_CitizensBankToYankee_Blue</zorder>
-   <zorder>label_YankeeToFenway_Blue</zorder>
-   <zorder>label_FenwayToLoanDepot_Blue</zorder>
-   <zorder>label_ChaseToDaikin_Blue</zorder>
-   <zorder>label_ChaseToGlobeLife_Blue</zorder>
-   <zorder>label_GlobeLifeToDaikin_Blue</zorder>
-   <zorder>label_KauffmanToWrigley_Blue</zorder>
-   <zorder>label_DaikinToBusch_Blue</zorder>
-   <zorder>label_GlobeLifeToKauffman_Blue</zorder>
-   <zorder>label_CoorsToKauffman_Blue</zorder>
-   <zorder>label_TruistToNationals_Blue</zorder>
-   <zorder>label_TargetToBusch_Blue</zorder>
-   <zorder>label_KauffmanToBusch_Blue</zorder>
-   <zorder>label_TargetToAmericanFamily_Blue</zorder>
-   <zorder>label_AmericanFamilyToComerica_Blue</zorder>
-   <zorder>label_ComericaToRogers_Blue</zorder>
-   <zorder>label_AmericanFamilyToRogers_Blue</zorder>
-   <zorder>label_DaikinToLoanDepot_Blue</zorder>
-   <zorder>label_RogersToPNC_Blue</zorder>
-   <zorder>label_BuschToGreatAmericanBall_Blue</zorder>
-   <zorder>label_ProgressiveToNationals_Blue</zorder>
-   <zorder>label_AmericanFamilyToWrigley_Blue</zorder>
-   <zorder>label_GlobeLifeToTruist_Blue</zorder>
-   <zorder>label_ProgressiveToYankee_Blue</zorder>
-   <zorder>label_GreatAmericanBallToGeorge_Blue</zorder>
-   <zorder>label_TruistToLoanDepot_Blue</zorder>
-   <zorder>label_WrigleyToGreatBallAmerican_Blue</zorder>
-   <zorder>label_GeorgeToLoanDepot_Blue</zorder>
-   <zorder>label_GreatAmericanBallToPNC_Blue</zorder>
-   <zorder>label_NationalsToGeorge_Blue</zorder>
-   <zorder>label_ProgressiveToPNC_Blue</zorder>
-   <zorder>label_ComericaToProgressive_Blue</zorder>
-   <zorder>label_GreatAmericanBallToProgressive_Blue</zorder>
-   <zorder>label_GreatAmericanBallToTruist_Blue</zorder>
-   <zorder>label_DaikinToGeorge_Blue</zorder>
+   <zorder>label_TMobileParkToRogersCentre_Black</zorder>
+   <zorder>label_TMobileParkToTargetField_Black</zorder>
+   <zorder>label_TMobileParkToStutterHealth_Black</zorder>
+   <zorder>label_StutterHealthParkToChaseField_Black</zorder>
+   <zorder>label_DodgerStadiumToPetcoPark_Black</zorder>
+   <zorder>label_PetcoParkToChaseField_Black</zorder>
+   <zorder>label_ChaseFieldToDaikinPark_Black</zorder>
+   <zorder>label_ChaseFieldToGlobeLifeField_Black</zorder>
+   <zorder>label_GlobeLifeFieldToDaikinPark_Black</zorder>
+   <zorder>label_DodgerStadiumToTargetField_Black</zorder>
+   <zorder>label_PetcoParkToCoorsField_Black</zorder>
+   <zorder>label_ChaseFieldToCoorsField_Black</zorder>
+   <zorder>label_CoorsFieldToGlobeLifeField_Black</zorder>
+   <zorder>label_GlobeLifeFieldToKauffmanStadium_Black</zorder>
+   <zorder>label_CoorsFieldToKauffmanStadium_Black</zorder>
+   <zorder>label_KauffmanStadiumToWrigleyField_Black</zorder>
+   <zorder>label_TargetFieldToBuschStadium_Black</zorder>
+   <zorder>label_KauffmanStadiumToBuschStadium_Black</zorder>
+   <zorder>label_TargetFieldToAmericanFamilyField_Black</zorder>
+   <zorder>label_AmericanFamilyFieldToRogersCentre_Black</zorder>
+   <zorder>label_WrigleyFieldToComericaPark_Black</zorder>
+   <zorder>label_ComericaParkToRogersCentre_Black</zorder>
+   <zorder>label_RogersCentreToPNCPark_Black</zorder>
+   <zorder>label_DaikinParkToGeorgeMSteinbrennerField_Black</zorder>
+   <zorder>label_GlobeLifeFieldToTruistPark_Black</zorder>
+   <zorder>label_GreatAmericanBallparkToTruistPark_Black</zorder>
+   <zorder>label_BuschStadiumToGreatAmericanBallpark_Black</zorder>
+   <zorder>label_WrigleyFieldToGreatAmericanBallpark_Black</zorder>
+   <zorder>label_GreatAmericanBallparkToProgressiveField_Black</zorder>
+   <zorder>label_GreatAmericanBallparkToPNCPark_Black</zorder>
+   <zorder>label_ComericaParkToProgressiveField_Black</zorder>
+   <zorder>label_ProgressiveFieldToPNCPark_Black</zorder>
+   <zorder>label_ProgressiveFieldToYankeeStadium_Black</zorder>
+   <zorder>label_YankeeStadiumToFenwayPark_Black</zorder>
+   <zorder>label_LoanDepotParkToFenwayPark_Black</zorder>
+   <zorder>label_LoanDepotParkToNationalsPark_Black</zorder>
+   <zorder>label_TruistParkToNationalsPark_Black</zorder>
+   <zorder>label_TruistParkToLoanDepotPark_Black</zorder>
+   <zorder>label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Black</zorder>
+   <zorder>label_DaikinParkToLoanDepotPark_Black</zorder>
+   <zorder>label_GeorgeMSteinbrennerFieldToLoanDepotPark_Black</zorder>
+   <zorder>label_RogersCentreToFenwayPark_Black</zorder>
+   <zorder>label_PNCParkToNationalsPark_Black</zorder>
+   <zorder>label_NationalsParkToCitizensBankPark_Black</zorder>
+   <zorder>label_CitizensBankParkBankToYankeeStadium_Black</zorder>
+   <zorder>label_AmericanFamilyFieldToWrigleyField_Black</zorder>
+   <zorder>label_TMobileParkToStutterHealthPark_Blue</zorder>
+   <zorder>label_TMobileParkToTargetField_Blue</zorder>
+   <zorder>label_TMobileParkToRogersCentre_Blue</zorder>
+   <zorder>label_RogersCentreToFenwayPark_Blue</zorder>
+   <zorder>label_StutterHealthParkToDodgerStadium_Blue</zorder>
+   <zorder>label_ChaseFieldToCoorsField_Blue</zorder>
+   <zorder>label_PetcoParkToCoorsField_Blue</zorder>
+   <zorder>label_DodgerStadiumToPetcoPark_Blue</zorder>
+   <zorder>label_StutterHealthParkToChaseField_Blue</zorder>
+   <zorder>label_PetcoParkToChaseField_Blue</zorder>
+   <zorder>label_PetcoParkToTargetField_Blue</zorder>
+   <zorder>label_CoorsFieldToGlobeLifeField_Blue</zorder>
+   <zorder>label_NationalsParkToCitizensBank_Blue</zorder>
+   <zorder>label_CitizensBankParkToYankeeStadium_Blue</zorder>
+   <zorder>label_YankeeStadiumToFenwayPark_Blue</zorder>
+   <zorder>label_FenwayParkToLoanDepotPark_Blue</zorder>
+   <zorder>label_ChaseFieldToDaikinPark_Blue</zorder>
+   <zorder>label_ChaseFieldToGlobeLifeField_Blue</zorder>
+   <zorder>label_GlobeLifeFieldToDaikinPark_Blue</zorder>
+   <zorder>label_KauffmanStadiumToWrigley_Blue</zorder>
+   <zorder>label_DaikinParkToBuschStadium_Blue</zorder>
+   <zorder>label_GlobeLifeFieldToKauffmanStadium_Blue</zorder>
+   <zorder>label_CoorsFieldToKauffmanStadium_Blue</zorder>
+   <zorder>label_TruistParkToNationalsPark_Blue</zorder>
+   <zorder>label_TargetFieldToBuschStadium_Blue</zorder>
+   <zorder>label_KauffmanStadiumToBuschStadium_Blue</zorder>
+   <zorder>label_TargetFieldToAmericanFamilyField_Blue</zorder>
+   <zorder>label_AmericanFamilyFieldToComericaPark_Blue</zorder>
+   <zorder>label_ComericaParkToRogersCentre_Blue</zorder>
+   <zorder>label_AmericanFamilyFieldToRogersCentre_Blue</zorder>
+   <zorder>label_DaikinParkToLoanDepotPark_Blue</zorder>
+   <zorder>label_RogersCentreToPNC_Blue</zorder>
+   <zorder>label_BuschStadiumToGreatAmericanBallpark_Blue</zorder>
+   <zorder>label_ProgressiveFieldToNationalsPark_Blue</zorder>
+   <zorder>label_AmericanFamilyFieldToWrigleyField_Blue</zorder>
+   <zorder>label_GlobeLifeFieldToTruistPark_Blue</zorder>
+   <zorder>label_ProgressiveFieldToYankeeStadium_Blue</zorder>
+   <zorder>label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Blue</zorder>
+   <zorder>label_TruistParkToLoanDepotPark_Blue</zorder>
+   <zorder>label_WrigleyFieldToGreatBallAmericanBallpark_Blue</zorder>
+   <zorder>label_GeorgeMSteinbrennerFieldToLoanDepotPark_Blue</zorder>
+   <zorder>label_GreatAmericanBallparkToPNCPark_Blue</zorder>
+   <zorder>label_NationalsParkToGeorge_Blue</zorder>
+   <zorder>label_ProgressiveFieldToPNCPark_Blue</zorder>
+   <zorder>label_ComericaParkToProgressiveField_Blue</zorder>
+   <zorder>label_GreatAmericanBallparkToProgressiveField_Blue</zorder>
+   <zorder>label_GreatAmericanBallparkToTruistPark_Blue</zorder>
+   <zorder>label_DaikinParkToGeorgeMSteinbrennerField_Blue</zorder>
    <zorder>combobox_stadiumB</zorder>
    <zorder>button_PlanFullLeagueTrip</zorder>
    <zorder>button_PlanAmericanLeaugeTrip</zorder>
