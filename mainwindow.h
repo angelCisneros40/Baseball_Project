@@ -27,8 +27,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
-    bool showBlackEdges = false;
+    bool showBlackEdges = true;
     bool showBlueEdges = true;
     bool showFakeRoute = false;
     bool intiCustomTrip = true;
@@ -73,7 +72,6 @@ private:
         {"TruistPark", {"TruistPark", "Truist Park"}},
         {"WrigleyField", {"WrigleyField", "Wrigley Field", "Wrigley"}},
         {"YankeeStadium", {"YankeeStadium", "Yankee Stadium"}}};
-
     QStringList blackEdges = {
         "label_AmericanFamilyFieldToComericaPark_Black",
         "label_AmericanFamilyFieldToRogers Centre_Black",
@@ -128,7 +126,6 @@ private:
         "label_ComericaParkToRogersCentre_Black",
         "label_AmericanFamilyFieldToRogersCentre_Black",
         "label_DaikinParkToGeorgeMSteinbrennerField_Black"};
-
     QStringList blueEdges = {
         "label_AmericanFamilyFieldToComericaPark_Blue",
         "label_AmericanFamilyFieldToRogersCentre_Blue",
@@ -161,7 +158,7 @@ private:
         "label_NationalsParkToGeorge_Blue",
         "label_PetcoParkToChaseField_Blue",
         "label_PetcoParkToCoorsField_Blue",
-        "label_PetcoParkToTargetField_Blue",
+        "label_DodgerStadiumToTargetField_Blue",
         "label_PNCParkToNationalsPark_Blue",
         "label_ProgressiveFieldToPNCPark_Blue",
         "label_ProgressiveFieldToYankeeStadium_Blue",
@@ -178,8 +175,8 @@ private:
         "label_TruistParkToNationalsPark_Blue",
         "label_WrigleyFieldToGreatBallAmericanBallpark_Blue",
         "label_YankeeStadiumToFenwayPark_Blue",
+        "label_OracleParkParkToChaseField_Blue",
         "label_ProgressiveFieldToNationalsPark_Blue"};
-
     stadiumGraph stadiumGraphObject;
 
     void printOutputToTextBrowser();
@@ -213,7 +210,7 @@ private:
     void toggleEdgeVisibility(const QStringList &edgeLabels, bool visible);
     void toggleEdgeLabel(const QString &labelName, bool visible);
     void connectStadiumEdges();
-    stadium parseStadium(std::ifstream &inFile);
+    stadium parseStadium(ifstream &inFile);
     void loadStadiums(stadiumGraph &graph, const fs::path &filePath);
 };
 #endif // MAINWINDOW_H

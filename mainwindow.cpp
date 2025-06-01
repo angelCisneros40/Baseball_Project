@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
 
     connect(ui->button_showAllBlackLines, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
-    // connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
+
     connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->AdminPinLineEdit, &QLineEdit::returnPressed, this, &MainWindow::toggleAdminTools);
@@ -39,7 +39,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->button_SubmitTeamToStadiumChanges->setVisible(false);
     for (const QString &edge : blueEdges)
         toggleEdgeLabel(edge, false);
-
+    for (const QString &edge : blackEdges)
+        toggleEdgeLabel(edge, false);
     clearOutputFile();
     loadStadiumsFromFile();
 }
@@ -320,7 +321,6 @@ void MainWindow::stadiumAToStadiumB()
         QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
         QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
 
-        // Check aliases for both nodes
         QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
         QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
 
@@ -329,11 +329,10 @@ void MainWindow::stadiumAToStadiumB()
         {
             for (const QString &to : toAliases)
             {
-                // Try forward direction
+
                 QString labelName = QString("label_%1To%2_Blue").arg(from, to);
                 QLabel *label = findChild<QLabel *>(labelName);
 
-                // Try reverse direction if forward not found
                 if (!label)
                 {
                     labelName = QString("label_%1To%2_Blue").arg(to, from);
@@ -367,7 +366,6 @@ void MainWindow::stadiumAToStadiumB()
         node = node->adjacent;
     }
 
-    // Write to output file
     fs::path outputPath = findProjectRoot() / "src" / "output.txt";
     ofstream outFile(outputPath, ios::out | ios::trunc);
     if (outFile.is_open())
@@ -380,10 +378,8 @@ void MainWindow::stadiumAToStadiumB()
         outFile.close();
     }
 
-    // Display results in UI
     printOutputToTextBrowser();
 
-    // Cleanup path memory
     while (path)
     {
         graphNode *toDelete = path;
@@ -394,9 +390,6 @@ void MainWindow::stadiumAToStadiumB()
 
 void MainWindow::runCustomTrip()
 {
-    // parse txt file
-    // plug in parsed stadium list
-    // into back end algorithm
 
     clearOutputFile();
 
@@ -634,19 +627,6 @@ void MainWindow::loadStadiumsFromFile()
     }
 
     inFile.close();
-
-    // // STEP 2: Connect stadiums using edges
-    // for (size_t i = 0; i < allStadiums.size(); ++i)
-    // {
-    //     const stadium &from = allStadiums[i];
-    //     for (const auto &entry : adjacencyLists[i])
-    //     {
-    //         stadium to(entry.first); // lightweight by name
-    //         int distance = entry.second;
-
-    //         stadiumGraphObject.insert(from, to, distance);
-    //     }
-    // }
 }
 
 void MainWindow::sortStadiumsByTeamName()
@@ -933,11 +913,10 @@ stadium MainWindow::parseStadium(ifstream &inFile)
     getline(inFile, phoneNum);
     getline(inFile, dateStr);
 
-    // Parse date MM/DD/YYYY
     sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
 
     inFile >> capacity;
-    inFile.ignore(); // discard newline
+    inFile.ignore();
     getline(inFile, league);
     getline(inFile, field);
 
@@ -960,12 +939,12 @@ void MainWindow::loadStadiums(stadiumGraph &graph, const fs::path &filePath)
     {
         stadium s = parseStadium(inFile);
         if (s.getName().empty())
-            break; // End of file or bad read
+            break;
 
         stadiums.push_back(s);
 
         string line;
-        getline(inFile, line); // should be '{'
+        getline(inFile, line);
         while (getline(inFile, line) && line != "}")
         {
             stringstream ss(line);
