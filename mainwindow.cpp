@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->button_SortStadiumsByName, &QPushButton::clicked, this, &MainWindow::sortStadiumsByName);
     connect(ui->button_SortStadiumsWithGrass, &QPushButton::clicked, this, &MainWindow::sortStadiumsWithGrass);
     connect(ui->button_SortStadiumsByDateOpened, &QPushButton::clicked, this, &MainWindow::sortStadiumsByDateOpened);
+    connect(ui->button_AddTeamToStadium, &QPushButton::clicked, this, &MainWindow::addTeamToStadium);
+    connect(ui->button_DeleteSouvenir, &QPushButton::clicked, this, &MainWindow::souvenirToDelete);
 
     ui->label_moveThisTeamText->setVisible(false);
     ui->label_moveToThisStadiumText->setVisible(false);
@@ -37,6 +39,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->comboBox_CustomTrip->setVisible(false);
     ui->button_StartCustomTrip->setVisible(false);
     ui->button_SubmitTeamToStadiumChanges->setVisible(false);
+    ui->button_AddTeamToStadium->setVisible(false);
+    ui->lineEdit_AddTeam->setVisible(false);
+    ui->lineEdit_AddStadium->setVisible(false);
+    ui->button_DeleteSouvenir->setVisible(false);
+    ui->souvenirToDeleteComboBox->setVisible(false);
+    ui->button_ChangeSouvenirPrice->setVisible(false);
+    ui->lineEdit_ChangePriceTo->setVisible(false);
+    ui->souvenirToChangePriceComboBox->setVisible(false);
+
     for (const QString &edge : blueEdges)
         toggleEdgeLabel(edge, false);
     for (const QString &edge : blackEdges)
@@ -214,6 +225,14 @@ void MainWindow::toggleAdminTools()
     ui->comboBox_moveThisTeam->setVisible(isCorrectPin);
     ui->comboBox_moveToThisStadium->setVisible(isCorrectPin);
     ui->button_SubmitTeamToStadiumChanges->setVisible(isCorrectPin);
+    ui->button_AddTeamToStadium->setVisible(isCorrectPin);
+    ui->lineEdit_AddTeam->setVisible(isCorrectPin);
+    ui->lineEdit_AddStadium->setVisible(isCorrectPin);
+    ui->button_DeleteSouvenir->setVisible(isCorrectPin);
+    ui->souvenirToDeleteComboBox->setVisible(isCorrectPin);
+    ui->button_ChangeSouvenirPrice->setVisible(isCorrectPin);
+    ui->lineEdit_ChangePriceTo->setVisible(isCorrectPin);
+    ui->souvenirToChangePriceComboBox->setVisible(isCorrectPin);
     ui->AdminPinLineEdit->clear();
     printOutputToTextBrowser();
 }
@@ -969,4 +988,81 @@ void MainWindow::loadStadiums(stadiumGraph &graph, const fs::path &filePath)
                 graph.insert(s, graph.getStadium(neighborIdx)->value, dist);
         }
     }
+}
+
+void MainWindow::addTeamToStadium()
+{
+    clearOutputFile();
+
+    QString addTeam = ui->lineEdit_AddTeam->text().trimmed();
+    QString addStadium = ui->lineEdit_AddStadium->text().trimmed();
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
+
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    if (!addTeam.isEmpty() && !addStadium.isEmpty())
+    {
+        outFile << "Added Team " << addTeam.toStdString()
+                << " to Stadium " << addStadium.toStdString() << "\n";
+        ui->lineEdit_AddTeam->clear();
+        ui->lineEdit_AddStadium->clear();
+    }
+    else
+    {
+        outFile << "Please complete selection." << "\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+    outFile.close();
+
+    ofstream stadiumFile(stadiumsPath, ios::app);
+    if (!stadiumFile.is_open())
+    {
+        cerr << "Error: Could not open stadiums.txt for appending\n";
+        return;
+    }
+
+    stadiumFile << addStadium.toStdString() << "\n"
+                << addTeam.toStdString() << "\n"
+                << "1570 E Colorado Blvd.\n"
+                << "Pasadena City, CA 00000\n"
+                << "(000)000-0000\n"
+                << "06/01/2025\n"
+                << "00000\n"
+                << "American\n"
+                << "grass\n"
+                << "{\n}\n";
+
+    stadiumFile.close();
+
+    stadium newStadium;
+    newStadium.setName(addStadium.toStdString());
+    newStadium.setTeam(addTeam.toStdString());
+    newStadium.setAddress("1234 Placeholder St.");
+    newStadium.setAddressLine2("Fictional City, ZZ 99999");
+    newStadium.setPhone("(000)000-0000");
+    newStadium.setDate(06, 01, 2025);
+    newStadium.setCapacity(42000);
+    newStadium.setLeague("American");
+    newStadium.setField("grass");
+    newStadium.setOG(false);
+
+    teamSortedTree.insertNode(newStadium);
+    stadiumSortedTree.insertNode(newStadium);
+    dateSortedTree.insertNode(newStadium);
+
+    printOutputToTextBrowser();
+}
+
+void MainWindow::souvenirToDelete()
+{
 }

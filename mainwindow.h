@@ -215,5 +215,7 @@ private:
     void connectStadiumEdges();
     stadium parseStadium(ifstream &inFile);
     void loadStadiums(stadiumGraph &graph, const fs::path &filePath);
+    void addTeamToStadium();
+    void souvenirToDelete();
 };
 #endif // MAINWINDOW_H

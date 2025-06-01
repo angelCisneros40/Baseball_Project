@@ -11,7 +11,7 @@ public:
     /******************************
     ** CONSTRUCTORS & DESTRUCTOR **
     ******************************/
-    stadium(                                // default constructor
+    stadium( // default constructor
         string name = "",
         string team = "",
         string address = "",
@@ -24,7 +24,7 @@ public:
         string league = "National",
         string field = "grass",
         bool og30 = true);
-    stadium(const stadium &otherStadium);   // copy constructor
+    stadium(const stadium &otherStadium); // copy constructor
 
     /***************
     ** ACCESSORS **
@@ -85,11 +85,11 @@ int compDate(const stadium &stadium1, const stadium &stadium2);
 #endif // STADIUM_H
 
 /****************************************************************
-* class stadium
-* This class represents a stadium object. It manages 10 attributes,
-* name, team, address, addressLine2, phoneNum, dateOpened, capaciity,
-* league, og30, and field.
-***************************************************************/
+ * class stadium
+ * This class represents a stadium object. It manages 10 attributes,
+ * name, team, address, addressLine2, phoneNum, dateOpened, capaciity,
+ * league, og30, and field.
+ ***************************************************************/
 
 /******************************
 ** CONSTRUCTORS & DESTRUCTOR **
@@ -118,270 +118,269 @@ int compDate(const stadium &stadium1, const stadium &stadium2);
 * Return: none
 ***************************************************************/
 
-
 /****************************************************************
-* stadium(const stadium& otherStadium);
-* Constructor; Copy constructor, copies attributes of otherStadium.
-* Parameters: otherStadium (const stadium&)
-* Return: none
-***************************************************************/
+ * stadium(const stadium& otherStadium);
+ * Constructor; Copy constructor, copies attributes of otherStadium.
+ * Parameters: otherStadium (const stadium&)
+ * Return: none
+ ***************************************************************/
 
 /***************
 ** ACCESSORS **
 ***************/
 
 /*******************************************************************
-* string getName()
-*
-* Accessor; This method returns the name attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: name attribute
-*******************************************************************/
+ * string getName()
+ *
+ * Accessor; This method returns the name attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: name attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getTeam()
-*
-* Accessor; This method returns the team attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: team attribute
-*******************************************************************/
+ * string getTeam()
+ *
+ * Accessor; This method returns the team attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: team attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getAddress()
-*
-* Accessor; This method returns the address attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: address attribute
-*******************************************************************/
+ * string getAddress()
+ *
+ * Accessor; This method returns the address attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: address attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getAddressLine2()
-*
-* Accessor; This method returns the addressLine2 attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: addressLine2 attribute
-*******************************************************************/
+ * string getAddressLine2()
+ *
+ * Accessor; This method returns the addressLine2 attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: addressLine2 attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getPhone()
-*
-* Accessor; This method returns the phoneNum attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: phoneNum attribute
-*******************************************************************/
+ * string getPhone()
+ *
+ * Accessor; This method returns the phoneNum attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: phoneNum attribute
+ *******************************************************************/
 
 /*******************************************************************
-* int getMonth()
-*
-* Accessor; This method returns the month attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: month attribute
-*******************************************************************/
+ * int getMonth()
+ *
+ * Accessor; This method returns the month attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: month attribute
+ *******************************************************************/
 
 /*******************************************************************
-* int getDay()
-*
-* Accessor; This method returns the day attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: day attribute
-*******************************************************************/
+ * int getDay()
+ *
+ * Accessor; This method returns the day attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: day attribute
+ *******************************************************************/
 
 /*******************************************************************
-* int getYear()
-*
-* Accessor; This method returns the year attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: year attribute
-*******************************************************************/
+ * int getYear()
+ *
+ * Accessor; This method returns the year attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: year attribute
+ *******************************************************************/
 
 /*******************************************************************
-* int getCapacity()
-*
-* Accessor; This method returns the capacity attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: capacity attribute
-*******************************************************************/
+ * int getCapacity()
+ *
+ * Accessor; This method returns the capacity attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: capacity attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getLeague()
-*
-* Accessor; This method returns the league attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: league attribute
-*******************************************************************/
+ * string getLeague()
+ *
+ * Accessor; This method returns the league attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: league attribute
+ *******************************************************************/
 
 /*******************************************************************
-* bool isOg()
-*
-* Accessor; This method returns the og30 attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: og30 attribute
-*******************************************************************/
+ * bool isOg()
+ *
+ * Accessor; This method returns the og30 attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: og30 attribute
+ *******************************************************************/
 
 /*******************************************************************
-* string getField()
-*
-* Accessor; This method returns the field attribute
-*------------------------------------------------------------------
-* Parameter: none
-*------------------------------------------------------------------
-* Return: field attribute
-*******************************************************************/
+ * string getField()
+ *
+ * Accessor; This method returns the field attribute
+ *------------------------------------------------------------------
+ * Parameter: none
+ *------------------------------------------------------------------
+ * Return: field attribute
+ *******************************************************************/
 
 /*******************************************************************
-* friend bool operator==(const stadium& stadium1, const stadium& stadium2)
-*
-* Accessor; This method overloads the equality operaotr, comparing
-* using the name attributes of the stadiums.
-*------------------------------------------------------------------
-* Parameter: stadium1 (const stadium&), stadium2 (const stadium&)
-*------------------------------------------------------------------
-* Return: true if equal, otherwise false
-*******************************************************************/
+ * friend bool operator==(const stadium& stadium1, const stadium& stadium2)
+ *
+ * Accessor; This method overloads the equality operaotr, comparing
+ * using the name attributes of the stadiums.
+ *------------------------------------------------------------------
+ * Parameter: stadium1 (const stadium&), stadium2 (const stadium&)
+ *------------------------------------------------------------------
+ * Return: true if equal, otherwise false
+ *******************************************************************/
 
 /*******************************************************************
-* friend bool operator!=(const stadium& stadium1, const stadium& stadium2)
-*
-* Accessor; This method overloads the inequality operaotr, comparing
-* using the name attributes of the stadiums.
-*------------------------------------------------------------------
-* Parameter: stadium1 (const stadium&), stadium2 (const stadium&)
-*------------------------------------------------------------------
-* Return: true if inequal, otherwise false
-*******************************************************************/
+ * friend bool operator!=(const stadium& stadium1, const stadium& stadium2)
+ *
+ * Accessor; This method overloads the inequality operaotr, comparing
+ * using the name attributes of the stadiums.
+ *------------------------------------------------------------------
+ * Parameter: stadium1 (const stadium&), stadium2 (const stadium&)
+ *------------------------------------------------------------------
+ * Return: true if inequal, otherwise false
+ *******************************************************************/
 
 /***************
 **  MUTATORS  **
 ***************/
 
 /*******************************************************************
-* void setName(string name)
-*
-* Mutator; This method sets the name attribute to the given string
-*------------------------------------------------------------------
-* Parameter: name (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setName(string name)
+ *
+ * Mutator; This method sets the name attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: name (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setTeam(string team)
-*
-* Mutator; This method sets the team attribute to the given string
-*------------------------------------------------------------------
-* Parameter: team (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setTeam(string team)
+ *
+ * Mutator; This method sets the team attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: team (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setAddress(string address)
-*
-* Mutator; This method sets the address attribute to the given string
-*------------------------------------------------------------------
-* Parameter: address (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setAddress(string address)
+ *
+ * Mutator; This method sets the address attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: address (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setAddressLine2(string addressLine2)
-*
-* Mutator; This method sets the addressLine2 attribute to the given string
-*------------------------------------------------------------------
-* Parameter: addressLine2 (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setAddressLine2(string addressLine2)
+ *
+ * Mutator; This method sets the addressLine2 attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: addressLine2 (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setPhone(string phone)
-*
-* Mutator; This method sets the phoneNum attribute to the given string
-*------------------------------------------------------------------
-* Parameter: phone (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setPhone(string phone)
+ *
+ * Mutator; This method sets the phoneNum attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: phone (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setDate(int month, int day, int year)
-*
-* Mutator; This method sets the dateOpened attribute to the given integers
-*------------------------------------------------------------------
-* Parameter: month (int), day (int), year (int)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setDate(int month, int day, int year)
+ *
+ * Mutator; This method sets the dateOpened attribute to the given integers
+ *------------------------------------------------------------------
+ * Parameter: month (int), day (int), year (int)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setCapacity(string capacity)
-*
-* Mutator; This method sets the capacity attribute to the given integer
-*------------------------------------------------------------------
-* Parameter: capacity (int)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setCapacity(string capacity)
+ *
+ * Mutator; This method sets the capacity attribute to the given integer
+ *------------------------------------------------------------------
+ * Parameter: capacity (int)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setLeague(string league)
-*
-* Mutator; This method sets the league attribute to the given string
-*------------------------------------------------------------------
-* Parameter: league (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setLeague(string league)
+ *
+ * Mutator; This method sets the league attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: league (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setOG(bool og30)
-*
-* Mutator; This method sets the og30 attribute to the given boolean
-*------------------------------------------------------------------
-* Parameter: og30 (bool)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setOG(bool og30)
+ *
+ * Mutator; This method sets the og30 attribute to the given boolean
+ *------------------------------------------------------------------
+ * Parameter: og30 (bool)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* void setField(string field)
-*
-* Mutator; This method sets the field attribute to the given string
-*------------------------------------------------------------------
-* Parameter: field (string)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void setField(string field)
+ *
+ * Mutator; This method sets the field attribute to the given string
+ *------------------------------------------------------------------
+ * Parameter: field (string)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/
 
 /*******************************************************************
-* stadium& operator= (const stadium& otherStadium)
-*
-* Mutator; overloads assignment operator, copies all attributes over.
-*------------------------------------------------------------------
-* Parameter: otherStadiium (const stadium&)
-*------------------------------------------------------------------
-* Return: this object
-*******************************************************************/
+ * stadium& operator= (const stadium& otherStadium)
+ *
+ * Mutator; overloads assignment operator, copies all attributes over.
+ *------------------------------------------------------------------
+ * Parameter: otherStadiium (const stadium&)
+ *------------------------------------------------------------------
+ * Return: this object
+ *******************************************************************/
