@@ -62,6 +62,8 @@ public:
 
     void printGraph() const;
     int getVertexCount() const;
+    bool isEmpty() const;
+
 
 private:
     graphNode **adjacencyList;

@@ -9,6 +9,7 @@
 #include "stadiumtree.h"
 #include "stadiumgraph.h"
 #include "readStadiums.h"
+#include <sstream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui

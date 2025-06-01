@@ -1,7 +1,1 @@
-Stadium A: 
-Yankee Stadium
-
-Stadium B: 
-Kauffman Stadium
-
-Total Distance: 1120
+H

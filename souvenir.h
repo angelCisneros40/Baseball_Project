@@ -16,8 +16,8 @@ public:
     double getPrice() { return price; }
 
     // Mutators
-    void setStadiumName(string name) { this->stadium = stadium; }
-    void setItemName(string name) { this->item = item; }
+    void setStadiumName(string name) { this->stadium = name; }
+    void setItemName(string name) { this->item = name; }
     void setPrice(double price) { this->price = price; }
 
 private:
