@@ -154,7 +154,7 @@ private:
         "label_GreatAmericanBallparkToProgressiveField_Blue",
         "label_GreatAmericanBallparkToTruistPark_Blue",
         "label_KauffmanStadiumToBuschStadium_Blue",
-        "label_KauffmanStadiumToWrigley_Blue",
+        "label_KauffmanStadiumToWrigleyField_Blue",
         "label_NationalsParkToCitizensBank_Blue",
         "label_NationalsParkToGeorge_Blue",
         "label_PetcoParkToChaseField_Blue",

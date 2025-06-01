@@ -1779,7 +1779,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_KauffmanStadiumToWrigley_Blue">
+   <widget class="QLabel" name="label_KauffmanStadiumToWrigleyField_Blue">
     <property name="geometry">
      <rect>
       <x>910</x>
@@ -4388,8 +4388,7 @@ Team Name (with grass)</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -4469,7 +4468,7 @@ Team Name (with grass)</string>
    <zorder>label_ChaseFieldToDaikinPark_Blue</zorder>
    <zorder>label_ChaseFieldToGlobeLifeField_Blue</zorder>
    <zorder>label_GlobeLifeFieldToDaikinPark_Blue</zorder>
-   <zorder>label_KauffmanStadiumToWrigley_Blue</zorder>
+   <zorder>label_KauffmanStadiumToWrigleyField_Blue</zorder>
    <zorder>label_DaikinParkToBuschStadium_Blue</zorder>
    <zorder>label_GlobeLifeFieldToKauffmanStadium_Blue</zorder>
    <zorder>label_CoorsFieldToKauffmanStadium_Blue</zorder>
