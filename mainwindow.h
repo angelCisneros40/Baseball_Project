@@ -54,24 +54,24 @@ private:
         {"FenwayPark", {"FenwayPark", "Fenway Park"}},
         {"GeorgeMSteinbrennerField", {"GeorgeMSteinbrennerField", "George M Steinbrenner Field", "George MSteinbrennerField", "George"}},
         {"GlobeLifeField", {"GlobeLifeField", "Globe Life Field"}},
-        {"StutterHealthPark", {"OraclePark"}},
-        {"OraclePark", {"StutterHealthPark"}},
+        {"SutterHealthPark", {"OraclePark"}},
+        {"OraclePark", {"SutterHealthPark"}},
         {"GreatAmericanBallpark", {"GreatAmericanBallpark", "Great American Ballpark", "GreatBallAmericanBallpark", "GreatBallpark"}},
         {"KauffmanStadium", {"KauffmanStadium", "Kauffman Stadium"}},
         {"LoanDepotPark", {"LoanDepotPark", "Loan Depot Park"}},
         {"NationalsPark", {"NationalsPark", "Nationals Park", "NationalsParks"}},
         {"OraclePark", {"OraclePark", "Oracle Park"}},
         {"PetcoPark", {"PetcoPark", "Petco Park", "PercoPark"}},
-        {"PNCPark", {"PNCPark", "PNC Park", "PNC"}},
+        {"PNCPark", {"PNCPark", "PNC Park", "PNC", "ProgressiveField"}},
         {"ProgressiveField", {"ProgressiveField", "Progressive Field"}},
-        {"RateField", {"RateField", "Guaranteed Rate Field", "Rate Field"}},
+        {"RateField", {"RateField", "Guaranteed Rate Field", "Rate Field", "WrigleyField"}},
         {"RogersCentre", {"RogersCentre", "Rogers Centre"}},
-        {"StutterHealthPark", {"StutterHealthPark", "Sutter Health Park", "StutterHealth", "SutterHealthPark"}},
+        {"SutterHealthPark", {"SutterHealthPark", "Sutter Health Park", "StutterHealth", "SutterHealthPark", "OraclePark"}},
         {"TargetField", {"TargetField", "Target Field"}},
         {"TMobilePark", {"TMobilePark", "T-Mobile Park"}},
         {"TruistPark", {"TruistPark", "Truist Park"}},
         {"WrigleyField", {"WrigleyField", "Wrigley Field", "Wrigley"}},
-        {"YankeeStadium", {"YankeeStadium", "Yankee Stadium"}}};
+        {"YankeeStadium", {"YankeeStadium", "Yankee Stadium", "CitiField"}}};
     QStringList blackEdges = {
         "label_AmericanFamilyFieldToComericaPark_Black",
         "label_AmericanFamilyFieldToRogers Centre_Black",
@@ -127,6 +127,7 @@ private:
         "label_AmericanFamilyFieldToRogersCentre_Black",
         "label_DaikinParkToGeorgeMSteinbrennerField_Black"};
     QStringList blueEdges = {
+        "label_WrigleyFieldToComericaPark_Blue",
         "label_AmericanFamilyFieldToComericaPark_Blue",
         "label_AmericanFamilyFieldToRogersCentre_Blue",
         "label_AmericanFamilyFieldToWrigleyField_Blue",
@@ -160,8 +161,8 @@ private:
         "label_PetcoParkToCoorsField_Blue",
         "label_DodgerStadiumToTargetField_Blue",
         "label_PNCParkToNationalsPark_Blue",
-        "label_ProgressiveFieldToPNCPark_Blue",
-        "label_ProgressiveFieldToYankeeStadium_Blue",
+        "label_ComericaParkToPNCPark_Blue",
+        "label_PNCParkToCitiField_Blue",
         "label_RogersCentreToFenwayPark_Blue",
         "label_RogersCentreToPNC_Blue",
         "label_OracleParkToChaseField_Blue",
@@ -176,7 +177,9 @@ private:
         "label_WrigleyFieldToGreatBallAmericanBallpark_Blue",
         "label_YankeeStadiumToFenwayPark_Blue",
         "label_OracleParkParkToChaseField_Blue",
-        "label_ProgressiveFieldToNationalsPark_Blue"};
+        "label_ProgressiveFieldToPNCPark_Blue",
+        "label_ProgressiveFieldToNationalsPark_Blue",
+        "label_WrigleyFieldToRateField_Blue"};
     stadiumGraph stadiumGraphObject;
 
     void printOutputToTextBrowser();

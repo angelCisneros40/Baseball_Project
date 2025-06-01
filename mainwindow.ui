@@ -634,7 +634,7 @@
     </item>
     <item>
      <property name="text">
-      <string>George M. Steinbrenner Field</string>
+      <string>George M Steinbrenner Field</string>
      </property>
     </item>
     <item>
@@ -644,7 +644,7 @@
     </item>
     <item>
      <property name="text">
-      <string>Great American Ball Park</string>
+      <string>Great American Ballpark</string>
      </property>
     </item>
     <item>
@@ -1254,10 +1254,10 @@
    <widget class="QLabel" name="label_ProgressiveFieldToYankeeStadium_Black">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>270</y>
-      <width>6</width>
-      <height>16</height>
+      <x>1060</x>
+      <y>250</y>
+      <width>111</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1603,7 +1603,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_OracleParkParkToChaseField_Blue">
+   <widget class="QLabel" name="label_OracleParkToChaseField_Blue">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -1907,7 +1907,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_AmericanFamilyFieldToComericaPark_Blue">
+   <widget class="QLabel" name="label_WrigleyFieldToComericaPark_Blue">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -2051,13 +2051,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_ProgressiveFieldToYankeeStadium_Blue">
+   <widget class="QLabel" name="label_PNCParkToCitiField_Blue">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>270</y>
-      <width>6</width>
-      <height>16</height>
+      <x>1050</x>
+      <y>260</y>
+      <width>131</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -2333,7 +2333,7 @@
     </item>
     <item>
      <property name="text">
-      <string>George M. Steinbrenner Field</string>
+      <string>George M Steinbrenner Field</string>
      </property>
     </item>
     <item>
@@ -2343,7 +2343,7 @@
     </item>
     <item>
      <property name="text">
-      <string>Great American Ball Park</string>
+      <string>Great American Ballpark</string>
      </property>
     </item>
     <item>
@@ -4378,6 +4378,23 @@ Team Name (with grass)</string>
      <string>toggle all possible edges</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_WrigleyFieldToRateField_Blue">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>400</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>backgroundWidget</zorder>
    <zorder>label_map</zorder>
    <zorder>label_FenwayParkToLoanDepotPark_Black</zorder>
@@ -4441,7 +4458,7 @@ Team Name (with grass)</string>
    <zorder>label_ChaseFieldToCoorsField_Blue</zorder>
    <zorder>label_PetcoParkToCoorsField_Blue</zorder>
    <zorder>label_DodgerStadiumToPetcoPark_Blue</zorder>
-   <zorder>label_OracleParkParkToChaseField_Blue</zorder>
+   <zorder>label_OracleParkToChaseField_Blue</zorder>
    <zorder>label_PetcoParkToChaseField_Blue</zorder>
    <zorder>label_DodgerStadiumToTargetField_Blue</zorder>
    <zorder>label_CoorsFieldToGlobeLifeField_Blue</zorder>
@@ -4460,7 +4477,7 @@ Team Name (with grass)</string>
    <zorder>label_TargetFieldToBuschStadium_Blue</zorder>
    <zorder>label_KauffmanStadiumToBuschStadium_Blue</zorder>
    <zorder>label_TargetFieldToAmericanFamilyField_Blue</zorder>
-   <zorder>label_AmericanFamilyFieldToComericaPark_Blue</zorder>
+   <zorder>label_WrigleyFieldToComericaPark_Blue</zorder>
    <zorder>label_ComericaParkToRogersCentre_Blue</zorder>
    <zorder>label_AmericanFamilyFieldToRogersCentre_Blue</zorder>
    <zorder>label_DaikinParkToLoanDepotPark_Blue</zorder>
@@ -4469,7 +4486,7 @@ Team Name (with grass)</string>
    <zorder>label_ProgressiveFieldToNationalsPark_Blue</zorder>
    <zorder>label_AmericanFamilyFieldToWrigleyField_Blue</zorder>
    <zorder>label_GlobeLifeFieldToTruistPark_Blue</zorder>
-   <zorder>label_ProgressiveFieldToYankeeStadium_Blue</zorder>
+   <zorder>label_PNCParkToCitiField_Blue</zorder>
    <zorder>label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Blue</zorder>
    <zorder>label_TruistParkToLoanDepotPark_Blue</zorder>
    <zorder>label_WrigleyFieldToGreatBallAmericanBallpark_Blue</zorder>
@@ -4507,6 +4524,7 @@ Team Name (with grass)</string>
    <zorder>button_StartCustomTrip</zorder>
    <zorder>button_SubmitTeamToStadiumChanges</zorder>
    <zorder>button_showAllBlackLines</zorder>
+   <zorder>label_WrigleyFieldToRateField_Blue</zorder>
   </widget>
  </widget>
  <resources>
