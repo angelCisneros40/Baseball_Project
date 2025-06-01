@@ -328,6 +328,73 @@ graphNode *stadiumGraph::shortestPathAmerican()
     return visited;
 }
 
+//Same as others before, but now only explicitly travel to stadiums in given linked list.
+graphNode *stadiumGraph::shortestPathSpecified(graphNode* specifiedList)
+{
+    stadiumGraph compGraph = completeGraph();
+
+    graphNode *visited, *end;
+    visited = end = nullptr;
+
+    //Path/trip starts at the first stadium in the specifiedList
+    visited = new graphNode(adjacencyList[find(specifiedList->value)]->value);
+    end = visited;
+    graphNode *current = compGraph.adjacencyList[compGraph.find(specifiedList->value)];
+
+    // Loops until no more stadiums to visit from specifiedList, everything else the same
+    while (true)
+    {
+        graphNode *smallestNode = nullptr;
+        int smallest = numeric_limits<int>::max();
+        for (; current; current = current->adjacent)
+        {
+            if (current->distance < smallest)
+            {
+                bool inList = false;
+                for (graphNode* ptr = specifiedList; ptr; ptr = ptr->adjacent)
+                {
+                    if (ptr->value == current->value)
+                    {
+                        inList = true;
+                        break;
+                    }
+                }
+
+                if (!inList)
+                    continue;
+
+                bool alreadyVisited = false;
+                for (graphNode *ptr = visited; ptr; ptr = ptr->adjacent)
+                {
+                    if (ptr->value == current->value)
+                    {
+                        alreadyVisited = true;
+                        break;
+                    }
+                }
+
+                if (alreadyVisited)
+                    continue;
+
+                smallestNode = current;
+                smallest = current->distance;
+            }
+        }
+
+        // If no more stadiums in specifiedList to visit
+        if (smallest == numeric_limits<int>::max())
+            break;
+
+        end->adjacent = new graphNode(smallestNode->value);
+        end = end->adjacent;
+        current = compGraph.adjacencyList[compGraph.find(smallestNode->value)];
+    }
+
+    expandPath(visited);
+
+    return visited;
+}
+
 // Uses the dijkstra algorithm arrays to determine the intermediate stadiums visited between the edge pairing
 // in the complete graph, and editing the linked list accordingly
 void stadiumGraph::expandPath(graphNode *&visited)
@@ -346,8 +413,8 @@ void stadiumGraph::expandPath(graphNode *&visited)
         // If the two stadiums actually directly connected, move to next
         if (P[find(current->adjacent->value)] == find(current->value))
         {
-            continue;
             current = current->adjacent;
+            continue;
         }
 
         // path chain that gets update from end to start, save end node in end
@@ -377,7 +444,8 @@ void stadiumGraph::expandPath(graphNode *&visited)
         // Connect newChain to original linked list
         end->adjacent = current->adjacent->adjacent;
 
-        // Remove back end of 2-stadium edge, connects the current node to beginning of newChain
+        // Remove back end of 2-stadium edge, connects the current node to beginning of newChain,
+        //effectively replacing the first node we deleted just previously
         delete current->adjacent;
         current->adjacent = newChain;
         current = end; // Change current to start at the next 2-stadium edge

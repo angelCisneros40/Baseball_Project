@@ -37,9 +37,28 @@ stadium::stadium(const stadium &otherStadium)
     field = otherStadium.field;
 }
 
+//Assignment operator
+stadium &stadium::operator=(const stadium &otherStadium)
+{
+    name = otherStadium.name;
+    team = otherStadium.team;
+    address = otherStadium.address;
+    addressLine2 = otherStadium.addressLine2;
+    phoneNum = otherStadium.phoneNum;
+    dateOpened[0] = otherStadium.dateOpened[0];
+    dateOpened[1] = otherStadium.dateOpened[1];
+    dateOpened[2] = otherStadium.dateOpened[2];
+    capacity = otherStadium.capacity;
+    league = otherStadium.league;
+    og30 = otherStadium.og30;
+    field = otherStadium.field;
+
+    return *this;
+}
+
 /**********************************************************
  *
- * Friend function compName: Class Stadium
+ * Function compName: Class Stadium
  *_________________________________________________________
  * This function compares two stadium objects based on the
  * name of the stadium, -1 meaning stadium1.name is before
@@ -68,7 +87,7 @@ int compName(const stadium &stadium1, const stadium &stadium2)
 
 /**********************************************************
  *
- * Friend function compTeam: Class Stadium
+ * Function compTeam: Class Stadium
  *_________________________________________________________
  * This function compares two stadium objects based on the
  * team of the stadium, -1 meaning stadium1.team is before
@@ -97,7 +116,7 @@ int compTeam(const stadium &stadium1, const stadium &stadium2)
 
 /**********************************************************
  *
- * Friend function compDate: Class Stadium
+ * Function compDate: Class Stadium
  *_________________________________________________________
  * This function compares two stadium objects based on the
  * opening date of the stadium, -1 meaning stadium1.date is
@@ -139,22 +158,4 @@ int compDate(const stadium &stadium1, const stadium &stadium2)
 
     // They are the same
     return 0;
-}
-
-stadium &stadium::operator=(const stadium &otherStadium)
-{
-    name = otherStadium.name;
-    team = otherStadium.team;
-    address = otherStadium.address;
-    addressLine2 = otherStadium.addressLine2;
-    phoneNum = otherStadium.phoneNum;
-    dateOpened[0] = otherStadium.dateOpened[0];
-    dateOpened[1] = otherStadium.dateOpened[1];
-    dateOpened[2] = otherStadium.dateOpened[2];
-    capacity = otherStadium.capacity;
-    league = otherStadium.league;
-    og30 = otherStadium.og30;
-    field = otherStadium.field;
-
-    return *this;
 }

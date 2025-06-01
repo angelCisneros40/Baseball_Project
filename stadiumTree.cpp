@@ -623,21 +623,59 @@ void StadiumTree::clear()
     }
 }
 
+/**********************************************************
+ *
+ * Method findStadiumByName: Class StadiumTree
+ *_________________________________________________________
+ * This method finds node with stadium with given name,
+ * returning pointer to that stadium if found, otherwise
+ * nullptr.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   name - name of stadium being searched for.
+ *
+ * POST-CONDITIONS
+ * This function returns pointer to stadium with given name
+ * or nullptr if not found.
+ ***********************************************************/
 stadium *StadiumTree::findStadiumByName(const std::string &name)
 {
     return findNodeByNameHelper(root, name);
 }
 
+/**********************************************************
+ *
+ * Method findStadiumByNameHelper: Class StadiumTree
+ *_________________________________________________________
+ * This method recursively searches through the tree for
+ * node with stadium with given name, and either returns
+ * a pointer to that stadium, or nullptr if not found.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   node - The current node being checked if has stadium
+ *      w/given name.
+ *   name - name of stadium being searched for.
+ *
+ * POST-CONDITIONS
+ * This function returns pointer to stadium with given name
+ * or nullptr if not found.
+ ***********************************************************/
 stadium *StadiumTree::findNodeByNameHelper(stadiumNode *node, const std::string &name)
 {
+    //Tried to branch off from a leaf
     if (!node)
         return nullptr;
+    //Node found with stadium with matching name
     if (node->value.getName() == name)
         return &node->value;
 
+    //Check left branch, and return result if it isn't nullptr
     stadium *left = findNodeByNameHelper(node->left, name);
     if (left)
         return left;
 
+    //Check right branch, either returning a valid pointer, or nullptr if not found.
     return findNodeByNameHelper(node->right, name);
 }

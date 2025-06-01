@@ -50,6 +50,7 @@ public:
     graphNode *shortestPathAll();
     graphNode *shortestPathNational();
     graphNode *shortestPathAmerican();
+    graphNode *shortestPathSpecified(graphNode* specifiedList);
     void expandPath(graphNode *&visited);
     graphNode *shortestPathBetween(const string &startName, const string &endName);
 
