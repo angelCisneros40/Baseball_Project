@@ -130,7 +130,7 @@ American
 grass
 {
 Globe Life Field,230
-George M. Steinbrenner Field,790
+George M Steinbrenner Field,790
 LoanDepot Park,965
 Chase Field,1115
 }
@@ -165,7 +165,7 @@ Citi Field,195
 Rogers Centre,430
 LoanDepot Park,1255
 }
-George M. Steinbrenner Field
+George M Steinbrenner Field
 Tampa Bay Rays
 1 Steinbrenner Dr.
 Tampa, FL 33614
@@ -211,7 +211,7 @@ Rate Field,250
 PNC Park,260
 Busch Stadium,310
 Truist Park,375
-George M. Steinbrenner Field,790
+George M Steinbrenner Field,790
 }
 Kauffman Stadium
 Kansas City Royals
@@ -239,7 +239,7 @@ Miami, FL 33125
 National
 turf
 {
-George M. Steinbrenner Field,210
+George M Steinbrenner Field,210
 Camden Yards,930
 Nationals Park,930
 Daikin Park,965
@@ -275,7 +275,7 @@ Sutter Health Park,0
 Angel Stadium,340
 Dodger Stadium,340
 Chase Field,650
-T-Mobile Park,680
+TMobile Park,680
 }
 Camden Yards
 Baltimore Orioles
@@ -370,7 +370,7 @@ Comerica Park,210
 PNC Park,225
 American Family Field,430
 Fenway Park,430
-T-Mobile Park,2070
+TMobile Park,2070
 }
 Sutter Health Park
 Athletics
@@ -386,9 +386,9 @@ Oracle Park,0
 Angel Stadium,340
 Dodger Stadium,340
 Chase Field,650
-T-Mobile Park,680
+TMobile Park,680
 }
-T-Mobile Park
+TMobile Park
 Seattle Mariners
 1250 First Ave. S
 Seattle, WA 98134
@@ -415,7 +415,7 @@ grass
 {
 American Family Field,300
 Busch Stadium,465
-T-Mobile Park,1390
+TMobile Park,1390
 Angel Stadium,1500
 Dodger Stadium,1500
 }

@@ -1,0 +1,7 @@
+Stadium A: 
+Dodger Stadium
+
+Stadium B: 
+Progressive Field
+
+Total Distance: 2210

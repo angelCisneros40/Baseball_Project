@@ -669,11 +669,6 @@
     </item>
     <item>
      <property name="text">
-      <string>Oriole Park at Camden Yards</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>Petco Park</string>
      </property>
     </item>
@@ -2369,11 +2364,6 @@
     <item>
      <property name="text">
       <string>Oracle Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Oriole Park at Camden Yards</string>
      </property>
     </item>
     <item>

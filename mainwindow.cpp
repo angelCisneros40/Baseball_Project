@@ -4,112 +4,6 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QStringList blackEdges = {
-        "label_AmericanFamilyFieldToComericaPark_Black",
-        "label_AmericanFamilyFieldToRogers Centre_Black",
-        "label_AmericanFamilyFieldToWrigleyField_Black",
-        "label_BuschStadiumToGreatAmericanBallpark_Black",
-        "label_ChaseFieldToCoorsField_Black",
-        "label_ChaseFieldToDaikinPark_Black",
-        "label_ChaseFieldToGlobeLifeField_Black",
-        "label_CitizensBankParkBankToYankeeStadium_Black",
-        "label_ComericaParkToProgressiveField_Black",
-        "label_ComericaParkToRogers Centre_Black",
-        "label_CoorsFieldToGlobeLifeField_Black",
-        "label_CoorsFieldToKauffmanStadium_Black",
-        "label_DaikinParkToBuschStadium_Black",
-        "label_DaikinParkToGeorge MSteinbrennerField_Black",
-        "label_DaikinParkToLoanDepotPark_Black",
-        "label_DodgerStadiumToPetcoPark_Black",
-        "label_DodgerStadiumToTargetField_Black",
-        "label_FenwayParkToLoanDepotPark_Black",
-        "label_GeorgeMSteinbrennerFieldToLoanDepotPark_Black",
-        "label_GlobeLifeFieldToDaikinPark_Black",
-        "label_GlobeLifeFieldToKauffmanStadium_Black",
-        "label_GlobeLifeFieldToTruistPark_Black",
-        "label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Black",
-        "label_GreatAmericanBallparkToPNCPark_Black",
-        "label_GreatAmericanBallparkToProgressiveField_Black",
-        "label_GreatAmericanBallparkToTruistPark_Black",
-        "label_KauffmanStadiumToBuschStadium_Black",
-        "label_KauffmanStadiumToWrigleyField_Black",
-        "label_LoanDepotParkToFenwayPark_Black",
-        "label_LoanDepotParkToNationalsPark_Black",
-        "label_NationalsParkToCitizensBankPark_Black",
-        "label_PNCParkToNationalsPark_Black",
-        "label_PetcoParkToChaseField_Black",
-        "label_PetcoParkToCoorsField_Black",
-        "label_ProgressiveFieldToPNCPark_Black",
-        "label_ProgressiveFieldToYankeeStadium_Black",
-        "label_RogersCentreToFenwayPark_Black",
-        "label_RogersCentreToPNCPark_Black",
-        "label_StutterHealthParkToChaseField_Black",
-        "label_StutterHealthParkToDodgerStadium_Black",
-        "label_TMobileParkToRogersCentre_Black",
-        "label_TMobileParkToStutterHealth_Black",
-        "label_TMobileParkToTargetField_Black",
-        "label_TargetFieldToAmericanFamilyField_Black",
-        "label_TargetFieldToBuschStadium_Black",
-        "label_TruistParkToLoanDepotPark_Black",
-        "label_TruistParkToNationalsPark_Black",
-        "label_WrigleyFieldToComericaPark_Black",
-        "label_WrigleyFieldToGreatAmericanBallpark_Black",
-        "label_YankeeStadiumToFenwayPark_Black",
-        "label_ComericaParkToRogersCentre_Black",
-        "label_AmericanFamilyFieldToRogersCentre_Black",
-        "label_DaikinParkToGeorgeMSteinbrennerField_Black"};
-
-    QStringList blueEdges = {
-        "label_AmericanFamilyFieldToComericaPark_Blue",
-        "label_AmericanFamilyFieldToRogersCentre_Blue",
-        "label_AmericanFamilyFieldToWrigleyField_Blue",
-        "label_BuschStadiumToGreatAmericanBallpark_Blue",
-        "label_ChaseFieldToCoorsField_Blue",
-        "label_ChaseFieldToDaikinPark_Blue",
-        "label_ChaseFieldToGlobeLifeField_Blue",
-        "label_CitizensBankParkToYankeeStadium_Blue",
-        "label_ComericaParkToProgressiveField_Blue",
-        "label_ComericaParkToRogersCentre_Blue",
-        "label_CoorsFieldToGlobeLifeField_Blue",
-        "label_CoorsFieldToKauffmanStadium_Blue",
-        "label_DaikinParkToBuschStadium_Blue",
-        "label_DaikinParkToGeorgeMSteinbrennerField_Blue",
-        "label_DaikinParkToLoanDepotPark_Blue",
-        "label_DodgerStadiumToPetcoPark_Blue",
-        "label_FenwayParkToLoanDepotPark_Blue",
-        "label_GeorgeMSteinbrennerFieldToLoanDepotPark_Blue",
-        "label_GlobeLifeFieldToDaikinPark_Blue",
-        "label_GlobeLifeFieldToKauffmanStadium_Blue",
-        "label_GlobeLifeFieldToTruistPark_Blue",
-        "label_GreatAmericanBallparkToGeorgeMSteinbrennerField_Blue",
-        "label_GreatAmericanBallparkToPNCPark_Blue",
-        "label_GreatAmericanBallparkToProgressiveField_Blue",
-        "label_GreatAmericanBallparkToTruistPark_Blue",
-        "label_KauffmanStadiumToBuschStadium_Blue",
-        "label_KauffmanStadiumToWrigley_Blue",
-        "label_NationalsParkToCitizensBank_Blue",
-        "label_NationalsParkToGeorge_Blue",
-        "label_PetcoParkToChaseField_Blue",
-        "label_PetcoParkToCoorsField_Blue",
-        "label_PetcoParkToTargetField_Blue",
-        "label_PNCParkToNationalsPark_Blue",
-        "label_ProgressiveFieldToPNCPark_Blue",
-        "label_ProgressiveFieldToYankeeStadium_Blue",
-        "label_RogersCentreToFenwayPark_Blue",
-        "label_RogersCentreToPNC_Blue",
-        "labelStutterHealthParkToChaseField_Blue",
-        "label_StutterHealthParkToDodgerStadium_Blue",
-        "label_TMobileParkToRogersCentre_Blue",
-        "label_TMobileParkToStutterHealthPark_Blue",
-        "label_TMobileParkToTargetField_Blue",
-        "label_TargetFieldToAmericanFamilyField_Blue",
-        "label_TargetFieldToBuschStadium_Blue",
-        "label_TruistParkToLoanDepotPark_Blue",
-        "label_TruistParkToNationalsPark_Blue",
-        "label_WrigleyFieldToGreatBallAmericanBallpark_Blue",
-        "label_YankeeStadiumToFenwayPark_Blue",
-        "label_StutterHealthParkToChaseField_Blue",
-        "label_ProgressiveFieldToNationalsPark_Blue"};
 
     // connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
     // connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
@@ -399,29 +293,23 @@ void MainWindow::itemPurchased()
 void MainWindow::stadiumAToStadiumB()
 {
     clearOutputFile();
+    for (const QString &edge : blackEdges)
+        toggleEdgeLabel(edge, false);
+    for (const QString &edge : blueEdges)
+        toggleEdgeLabel(edge, false);
 
     QString stadiumA = ui->combobox_stadiumA->currentText();
     QString stadiumB = ui->combobox_stadiumB->currentText();
-
-    if (stadiumA == "Select Stadium A" || stadiumA.isEmpty() ||
-        stadiumB == "Select Stadium B" || stadiumB.isEmpty())
-    {
-        return;
-    }
-
-    std::string startName = stadiumA.toStdString();
-    std::string endName = stadiumB.toStdString();
-
+    string startName = stadiumA.toStdString();
+    string endName = stadiumB.toStdString();
     int startIdx = stadiumGraphObject.find(startName);
     int endIdx = stadiumGraphObject.find(endName);
-
     if (startIdx == -1 || endIdx == -1)
     {
         cerr << "One or both stadiums not found in the graph.\n";
         return;
     }
 
-    cout << "Calling stadiumGraphObject.shortestPathBetween(startName, endName)" << endl;
     graphNode *path = stadiumGraphObject.shortestPathBetween(startName, endName);
     if (!path)
     {
@@ -677,11 +565,12 @@ void MainWindow::loadStadiumsFromFile()
         return;
     }
 
-    string line;
-    vector<stadium> allStadiums;                      // To allow deferred edge creation
-    vector<vector<pair<string, int>>> adjacencyLists; // To store edges temporarily
+    loadStadiums(stadiumGraphObject, stadiumsPath);
 
-    // STEP 1: Read all stadiums and store them
+    string line;
+    vector<stadium> allStadiums;
+    vector<vector<pair<string, int>>> adjacencyLists;
+
     while (getline(inFile, line))
     {
         string name = line;
@@ -698,7 +587,7 @@ void MainWindow::loadStadiumsFromFile()
 
         getline(inFile, league);
         getline(inFile, field);
-        getline(inFile, line); // Should be '{'
+        getline(inFile, line);
 
         int month = 0, day = 0, year = 0;
         sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
@@ -706,48 +595,32 @@ void MainWindow::loadStadiumsFromFile()
         stadium s(name, team, address, addressLine2, phone,
                   month, day, year, capacity, league, field);
 
-        // Add to trees
         teamSortedTree.insertNode(s);
         stadiumSortedTree.insertNode(s);
         dateSortedTree.insertNode(s);
 
-        // Add to graph
-        stadiumGraphObject.insert(s);
-
-        // Store this stadium and its future edges
         allStadiums.push_back(s);
         vector<pair<string, int>> edges;
 
         while (getline(inFile, line) && line != "}")
         {
-            line.erase(remove(line.begin(), line.end(), '\r'), line.end());
-            size_t commaPos = line.find(',');
-            if (commaPos == string::npos)
-                continue;
-
-            string neighbor = line.substr(0, commaPos);
-            int distance = stoi(line.substr(commaPos + 1));
-
-            edges.emplace_back(neighbor, distance);
         }
-
-        adjacencyLists.push_back(edges);
     }
 
     inFile.close();
 
-    // STEP 2: Connect stadiums using edges
-    for (size_t i = 0; i < allStadiums.size(); ++i)
-    {
-        const stadium &from = allStadiums[i];
-        for (const auto &entry : adjacencyLists[i])
-        {
-            stadium to(entry.first); // lightweight by name
-            int distance = entry.second;
+    // // STEP 2: Connect stadiums using edges
+    // for (size_t i = 0; i < allStadiums.size(); ++i)
+    // {
+    //     const stadium &from = allStadiums[i];
+    //     for (const auto &entry : adjacencyLists[i])
+    //     {
+    //         stadium to(entry.first); // lightweight by name
+    //         int distance = entry.second;
 
-            stadiumGraphObject.insert(from, to, distance);
-        }
-    }
+    //         stadiumGraphObject.insert(from, to, distance);
+    //     }
+    // }
 }
 
 void MainWindow::sortStadiumsByTeamName()
@@ -921,8 +794,8 @@ void MainWindow::sortStadiumsByDateOpened()
     for (int i = size - 1; i >= 0; --i)
     {
         stadium s = dateSortedList[i];
-        outFile << std::setw(2) << std::setfill('0') << s.getMonth() << '/'
-                << std::setw(2) << std::setfill('0') << s.getDay() << '/'
+        outFile << setw(2) << setfill('0') << s.getMonth() << '/'
+                << setw(2) << setfill('0') << s.getDay() << '/'
                 << s.getYear() << " - "
                 << s.getName() << " - "
                 << s.getTeam() << '\n';
@@ -1019,4 +892,76 @@ void MainWindow::toggleEdgeLabel(const QString &labelName, bool visible)
     QLabel *label = findChild<QLabel *>(labelName);
     if (label)
         label->setVisible(visible);
+}
+
+stadium MainWindow::parseStadium(ifstream &inFile)
+{
+    string name, team, address, addressLine2, phoneNum, dateStr, league, field;
+    int capacity;
+    int month = 0, day = 0, year = 0;
+
+    getline(inFile, name);
+    getline(inFile, team);
+    getline(inFile, address);
+    getline(inFile, addressLine2);
+    getline(inFile, phoneNum);
+    getline(inFile, dateStr);
+
+    // Parse date MM/DD/YYYY
+    sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
+
+    inFile >> capacity;
+    inFile.ignore(); // discard newline
+    getline(inFile, league);
+    getline(inFile, field);
+
+    return stadium(name, team, address, addressLine2, phoneNum, month, day, year, capacity, league, field, true);
+}
+
+void MainWindow::loadStadiums(stadiumGraph &graph, const fs::path &filePath)
+{
+    ifstream inFile(filePath);
+    if (!inFile.is_open())
+    {
+        cerr << "Error: Could not open file.\n";
+        return;
+    }
+
+    vector<stadium> stadiums;
+    unordered_map<string, vector<pair<string, int>>> adjacencyMap;
+
+    while (inFile)
+    {
+        stadium s = parseStadium(inFile);
+        if (s.getName().empty())
+            break; // End of file or bad read
+
+        stadiums.push_back(s);
+
+        string line;
+        getline(inFile, line); // should be '{'
+        while (getline(inFile, line) && line != "}")
+        {
+            stringstream ss(line);
+            string neighbor;
+            int dist;
+            if (getline(ss, neighbor, ',') && ss >> dist)
+            {
+                adjacencyMap[s.getName()].emplace_back(neighbor, dist);
+            }
+        }
+    }
+
+    for (const auto &s : stadiums)
+        graph.insert(s);
+
+    for (const auto &s : stadiums)
+    {
+        for (const auto &[neighborName, dist] : adjacencyMap[s.getName()])
+        {
+            int neighborIdx = graph.find(neighborName);
+            if (neighborIdx != -1)
+                graph.insert(s, graph.getStadium(neighborIdx)->value, dist);
+        }
+    }
 }
