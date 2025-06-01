@@ -1,33 +1,47 @@
-Stadiums sorted by Date Opened:
-===============================
-04/20/1912 - Fenway Park - Boston Red Sox
-04/23/1914 - Wrigley Field - Chicago Cubs
-04/10/1962 - Dodger Stadium - Los Angeles Dodgers
-04/10/1973 - Kauffman Stadium - Kansas City Royals
-06/03/1989 - Rogers Centre - Toronto Blue Jays
-04/18/1991 - Rate Field - Chicago White Sox
-04/06/1992 - Camden Yards - Baltimore Orioles
-04/02/1994 - Progressive Field - Cleveland Guardians
-04/26/1995 - Coors Field - Colorado Rockies
-03/01/1996 - George M Steinbrenner Field - Tampa Bay Rays
-04/19/1996 - Angel Stadium - Los Angeles Angels
-03/31/1998 - Chase Field - Arizona Diamondbacks
-07/15/1999 - TMobile Park - Seattle Mariners
-03/30/2000 - Daikin Park - Houston Astros
-04/11/2000 - Oracle Park - San Francisco Giants
-04/11/2000 - Comerica Park - Detroit Tigers
-05/15/2000 - Sutter Health Park - Athletics
-03/31/2001 - PNC Park - Pittsburgh Pirates
-04/06/2001 - American Family Field - Milwaukee Brewers
-03/31/2003 - Great American Ballpark - Cincinnati Reds
-04/03/2004 - Citizens Bank Park - Philadelphia Phillies
-04/08/2004 - Petco Park - San Diego Padres
-04/10/2006 - Busch Stadium - St. Louis Cardinals
-03/30/2008 - Nationals Park - Washington Nationals
-04/13/2009 - Citi Field - New York Mets
-04/16/2009 - Yankee Stadium - New York Yankees
-04/12/2010 - Target Field - Minnesota Twins
-04/04/2012 - LoanDepot Park - Miami Marlins
-04/14/2017 - Truist Park - Texas Rangers
-06/24/2020 - Globe Life Field - Atlanta Braves
-===============================
+stadium: American Family Field
+item: Baseball Cap
+ - $1009.99
+stadium: American Family Field
+item: Baseball Bat
+ - $35.35
+stadium: American Family Field
+item: Team Pennant
+ - $12.99
+stadium: American Family Field
+item: Autographed Baseball
+ - $19.99
+stadium: American Family Field
+item: Autographed Baseball
+ - $19.99
+stadium: Busch Stadium
+item: Baseball Bat
+ - $35.35
+stadium: Citi Field
+item: Baseball Bat
+ - $35.35
+stadium: Oracle Park
+item: Baseball Bat
+ - $35.35
+stadium: Rogers Centre
+item: Baseball Bat
+ - $35.35
+stadium: Oracle Park
+item: Baseball Bat
+ - $35.35
+stadium: American Family Field
+item: Baseball Bat
+ - $35.35
+stadium: American Family Field
+item: Autographed Baseball
+ - $19.99
+stadium: Citi Field
+item: Baseball Bat
+ - $35.35
+stadium: Busch Stadium
+item: Team Pennant
+ - $12.99
+stadium: Busch Stadium
+item: Autographed Baseball
+ - $19.99
+========================
+Total: $1398.73

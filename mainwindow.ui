@@ -4317,7 +4317,7 @@ Team Name (with grass)</string>
      </rect>
     </property>
     <property name="text">
-     <string>Start Custom Trip!</string>
+     <string>Start Custom Trip</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SubmitTeamToStadiumChanges">
