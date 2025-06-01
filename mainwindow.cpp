@@ -5,8 +5,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    // connect(ui->testBlueLineToggle, &QPushButton::clicked, this, &MainWindow::testBlueLinebutton);
-    // connect(ui->testBlackLineToggle, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
+    connect(ui->button_showAllBlackLines, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
     // connect(ui->highlightRouteToggle, &QPushButton::clicked, this, &MainWindow::testFakeRoute);
     connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
     connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
@@ -38,8 +37,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->comboBox_CustomTrip->setVisible(false);
     ui->button_StartCustomTrip->setVisible(false);
     ui->button_SubmitTeamToStadiumChanges->setVisible(false);
-    for (const QString &edge : blackEdges)
-        toggleEdgeLabel(edge, false);
     for (const QString &edge : blueEdges)
         toggleEdgeLabel(edge, false);
 
@@ -115,12 +112,12 @@ void MainWindow::printSouvenirToTextBrowser()
 
 void MainWindow::testBlackLinebutton()
 {
-    showBlackEdges = !showBlackEdges;
-
     QList<QLabel *> labels = findChildren<QLabel *>();
     for (QLabel *label : labels)
         if (label->objectName().endsWith("_Black"))
             label->setVisible(showBlackEdges);
+
+    showBlackEdges = !showBlackEdges;
 }
 
 void MainWindow::testBlueLinebutton()
@@ -293,8 +290,6 @@ void MainWindow::itemPurchased()
 void MainWindow::stadiumAToStadiumB()
 {
     clearOutputFile();
-    for (const QString &edge : blackEdges)
-        toggleEdgeLabel(edge, false);
     for (const QString &edge : blueEdges)
         toggleEdgeLabel(edge, false);
 
@@ -322,14 +317,45 @@ void MainWindow::stadiumAToStadiumB()
 
     while (node && node->adjacent)
     {
-        QString from = QString::fromStdString(node->value.getName()).remove(" ");
-        QString to = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
-        QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+        QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
+        QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
 
-        cout << "Toggling: " << labelName.toStdString() << endl;
-        toggleEdgeLabel(labelName, true);
+        // Check aliases for both nodes
+        QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
+        QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
 
-        // Safely find the actual distance
+        bool found = false;
+        for (const QString &from : fromAliases)
+        {
+            for (const QString &to : toAliases)
+            {
+                // Try forward direction
+                QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+                QLabel *label = findChild<QLabel *>(labelName);
+
+                // Try reverse direction if forward not found
+                if (!label)
+                {
+                    labelName = QString("label_%1To%2_Blue").arg(to, from);
+                    label = findChild<QLabel *>(labelName);
+                }
+
+                if (label)
+                {
+                    toggleEdgeLabel(labelName, true);
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+
+        if (!found)
+        {
+            qDebug() << "Could not find edge label for " << baseFrom << " to " << baseTo;
+        }
+
         int fromIndex = stadiumGraphObject.find(node->value);
         graphNode *adj = stadiumGraphObject.getStadium(fromIndex);
         while (adj && adj->value != node->adjacent->value)

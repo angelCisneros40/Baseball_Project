@@ -1,7 +1,7 @@
 Stadium A: 
-Dodger Stadium
+Petco Park
 
 Stadium B: 
-Progressive Field
+Daikin Park
 
-Total Distance: 2210
+Total Distance: 1400

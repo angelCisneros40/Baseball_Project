@@ -1475,7 +1475,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_TMobileParkToStutterHealthPark_Blue">
+   <widget class="QLabel" name="label_TMobileParkToOraclePark_Blue">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -1539,7 +1539,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthParkToDodgerStadium_Blue">
+   <widget class="QLabel" name="label_OracleParkToDodgerStadium_Blue">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -1603,7 +1603,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_StutterHealthParkToChaseField_Blue">
+   <widget class="QLabel" name="label_OracleParkParkToChaseField_Blue">
     <property name="geometry">
      <rect>
       <x>610</x>
@@ -4365,6 +4365,19 @@ Team Name (with grass)</string>
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="button_showAllBlackLines">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>50</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>toggle all possible edges</string>
+    </property>
+   </widget>
    <zorder>backgroundWidget</zorder>
    <zorder>label_map</zorder>
    <zorder>label_FenwayParkToLoanDepotPark_Black</zorder>
@@ -4420,15 +4433,15 @@ Team Name (with grass)</string>
    <zorder>label_NationalsParkToCitizensBankPark_Black</zorder>
    <zorder>label_CitizensBankParkBankToYankeeStadium_Black</zorder>
    <zorder>label_AmericanFamilyFieldToWrigleyField_Black</zorder>
-   <zorder>label_TMobileParkToStutterHealthPark_Blue</zorder>
+   <zorder>label_TMobileParkToOraclePark_Blue</zorder>
    <zorder>label_TMobileParkToTargetField_Blue</zorder>
    <zorder>label_TMobileParkToRogersCentre_Blue</zorder>
    <zorder>label_RogersCentreToFenwayPark_Blue</zorder>
-   <zorder>label_StutterHealthParkToDodgerStadium_Blue</zorder>
+   <zorder>label_OracleParkToDodgerStadium_Blue</zorder>
    <zorder>label_ChaseFieldToCoorsField_Blue</zorder>
    <zorder>label_PetcoParkToCoorsField_Blue</zorder>
    <zorder>label_DodgerStadiumToPetcoPark_Blue</zorder>
-   <zorder>label_StutterHealthParkToChaseField_Blue</zorder>
+   <zorder>label_OracleParkParkToChaseField_Blue</zorder>
    <zorder>label_PetcoParkToChaseField_Blue</zorder>
    <zorder>label_PetcoParkToTargetField_Blue</zorder>
    <zorder>label_CoorsFieldToGlobeLifeField_Blue</zorder>
@@ -4493,6 +4506,7 @@ Team Name (with grass)</string>
    <zorder>button_PlanCustomTrip</zorder>
    <zorder>button_StartCustomTrip</zorder>
    <zorder>button_SubmitTeamToStadiumChanges</zorder>
+   <zorder>button_showAllBlackLines</zorder>
   </widget>
  </widget>
  <resources>
