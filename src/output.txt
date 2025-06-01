@@ -28,7 +28,6 @@ Stadiums sorted by Date Opened:
 04/16/2009 - Yankee Stadium - New York Yankees
 04/12/2010 - Target Field - Minnesota Twins
 04/04/2012 - LoanDepot Park - Miami Marlins
-04/14/2017 - Truist Park - Atlanta Braves
-06/24/2020 - Globe Life Field - Texas Rangers
-06/01/2025 - Leon - Juan
+04/14/2017 - Truist Park - Texas Rangers
+06/24/2020 - Globe Life Field - Atlanta Braves
 ===============================

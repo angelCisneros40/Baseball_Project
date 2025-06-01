@@ -512,8 +512,8 @@ void MainWindow::ChangeTeamToStadiumOutput()
 void MainWindow::ChangeTeamToStadium()
 {
     clearOutputFile();
-    QString selectedTeam = ui->comboBox_moveThisTeam->currentText();
-    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText();
+    QString selectedTeam = ui->comboBox_moveThisTeam->currentText().trimmed();
+    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText().trimmed();
 
     fs::path projectRoot = findProjectRoot();
     fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
@@ -567,7 +567,11 @@ void MainWindow::ChangeTeamToStadium()
         cerr << "Error: Could not find matching team or stadium\n";
         return;
     }
+
+    // Swap teams
     swap(blocks[indexTeam][1], blocks[indexStadium][1]);
+
+    // Rewrite stadiums.txt
     for (const auto &block : blocks)
     {
         for (const auto &l : block)
@@ -575,7 +579,6 @@ void MainWindow::ChangeTeamToStadium()
     }
 
     tempFile.close();
-
     fs::remove(stadiumsPath);
     fs::rename(tempPath, stadiumsPath);
 
@@ -583,12 +586,39 @@ void MainWindow::ChangeTeamToStadium()
             << "\" moved to \"" << selectedStadium.toStdString() << "\"!\n";
     outFile.close();
 
-    printOutputToTextBrowser();
-
+    // Clear and reinsert into the trees
     teamSortedTree.clear();
     stadiumSortedTree.clear();
     dateSortedTree.clear();
-    loadStadiumsFromFile();
+
+    for (const auto &block : blocks)
+    {
+        if (block.size() >= 9)
+        {
+            stadium s;
+            s.setName(block[0]);
+            s.setTeam(block[1]);
+            s.setAddress(block[2]);
+            s.setAddressLine2(block[3]);
+            s.setPhone(block[4]);
+
+            int month = 0, day = 0, year = 0;
+            sscanf(block[5].c_str(), "%d/%d/%d", &month, &day, &year);
+            s.setDate(month, day, year);
+
+            int capacity = std::stoi(block[6]);
+            s.setCapacity(capacity);
+            s.setLeague(block[7]);
+            s.setField(block[8]);
+            s.setOG(false);
+
+            teamSortedTree.insertNode(s);
+            stadiumSortedTree.insertNode(s);
+            dateSortedTree.insertNode(s);
+        }
+    }
+
+    printOutputToTextBrowser();
 }
 
 void MainWindow::loadStadiumsFromFile()
