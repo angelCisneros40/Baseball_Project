@@ -44,7 +44,7 @@ private:
         {"AmericanFamilyField", {"AmericanFamilyField", "American Family Field"}},
         {"AngelStadium", {"AngelStadium", "Angel Stadium", "DodgerStadium", "Dodger Stadium"}},
         {"BuschStadium", {"BuschStadium", "Busch Stadium"}},
-        {"CamdenYards", {"CamdenYards", "Camden Yards"}},
+        {"CamdenYards", {"CamdenYards", "Camden Yards", "NationalsPark"}},
         {"ChaseField", {"ChaseField", "Chase Field"}},
         {"CitizensBankPark", {"CitizensBankPark", "Citizens Bank Park", "CitizensBank", "CitizensBankParkBank"}},
         {"CitiField", {"CitiField", "Citi Field"}},
@@ -216,5 +216,6 @@ private:
     void connectStadiumEdges();
     stadium parseStadium(ifstream &inFile);
     void loadStadiums(stadiumGraph &graph, const fs::path &filePath);
+    void highlightTripEdges(graphNode* path);
 };
 #endif // MAINWINDOW_H

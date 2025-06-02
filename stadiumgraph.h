@@ -4,6 +4,8 @@
 #include <iostream>
 #include <limits>
 #include "stadium.h"
+#include <unordered_set>
+
 using namespace std;
 
 // Edges can be stored in pairs of 2 nodes, the first one having 0 distance pointing to the 2nd, containing the distance
@@ -63,6 +65,7 @@ public:
     void printGraph() const;
     int getVertexCount() const;
     bool isEmpty() const;
+    graphNode* shortestPathAllFrom(const std::string& startName);
 
 
 private:

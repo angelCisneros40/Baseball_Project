@@ -407,22 +407,61 @@ void MainWindow::runCustomTrip()
     printOutputToTextBrowser();
 }
 
+void MainWindow::highlightTripEdges(graphNode* path)
+{
+    for (const QString &edge : blueEdges)
+        toggleEdgeLabel(edge, false);  // Clear previous highlights
+
+    graphNode* node = path;
+
+    while (node && node->adjacent)
+    {
+        QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
+        QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+
+        QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
+        QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
+
+        bool found = false;
+        for (const QString &from : fromAliases)
+        {
+            for (const QString &to : toAliases)
+            {
+                QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+                QLabel *label = findChild<QLabel *>(labelName);
+
+                if (!label)
+                {
+                    labelName = QString("label_%1To%2_Blue").arg(to, from);
+                    label = findChild<QLabel *>(labelName);
+                }
+
+                if (label)
+                {
+                    toggleEdgeLabel(labelName, true);
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+
+        if (!found)
+        {
+            qDebug() << "⚠️ Could not find edge label for" << baseFrom << "to" << baseTo;
+        }
+
+        node = node->adjacent;
+    }
+}
+
+
 void MainWindow::startFullLeagueTrip()
 {
     clearOutputFile();
 
-    // Step 1: File setup
-    fs::path projectRoot = findProjectRoot();
-    fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-
-    std::ifstream inFile(stadiumsPath);
-    if (!inFile.is_open())
-    {
-        std::cerr << "Error: Could not open stadiums.txt\n";
-        return;
-    }
-
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
     std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
     if (!outFile.is_open())
     {
@@ -430,96 +469,43 @@ void MainWindow::startFullLeagueTrip()
         return;
     }
 
-    // Step 2: Declare a new local graph
-    stadiumGraph localGraph;
+    outFile << "Full League Trip\n";
+    outFile << "Starting from a stadium in California (Dodger Stadium)\n\n";
 
-    std::vector<stadium> stadiums;
-    std::unordered_map<std::string, std::vector<std::pair<std::string, int>>> adjacencyMap;
-    std::string line;
-
-    // Step 3: Parse file and build local graph
-    while (std::getline(inFile, line))
-    {
-        std::string name = line;
-        std::string team, address, addressLine2, phone, dateStr, league, field;
-        int capacity, month = 0, day = 0, year = 0;
-
-        std::getline(inFile, team);
-        std::getline(inFile, address);
-        std::getline(inFile, addressLine2);
-        std::getline(inFile, phone);
-        std::getline(inFile, dateStr);
-        inFile >> capacity;
-        inFile.ignore();
-        std::getline(inFile, league);
-        std::getline(inFile, field);
-        std::getline(inFile, line); // consume '{'
-
-        sscanf(dateStr.c_str(), "%d/%d/%d", &month, &day, &year);
-
-        stadium s(name, team, address, addressLine2, phone,
-                  month, day, year, capacity, league, field, true);
-
-        stadiums.push_back(s);
-
-        std::vector<std::pair<std::string, int>> edges;
-        while (std::getline(inFile, line) && line != "}")
-        {
-            std::stringstream ss(line);
-            std::string neighbor;
-            int dist;
-            if (std::getline(ss, neighbor, ',') && ss >> dist)
-            {
-                edges.emplace_back(neighbor, dist);
-            }
-        }
-
-        adjacencyMap[name] = edges;
-    }
-
-    inFile.close();
-
-    for (const auto &s : stadiums)
-        localGraph.insert(s);
-
-    for (const auto &s : stadiums)
-    {
-        for (const auto &[neighborName, dist] : adjacencyMap[s.getName()])
-        {
-            int idx = localGraph.find(neighborName);
-            if (idx != -1)
-                localGraph.insert(s, localGraph.getStadium(idx)->value, dist);
-        }
-    }
-
-    // Step 4: Compute and output trip
-    outFile << "Here is your Full League Trip\n";
-    outFile << "Starting from Dodgers Stadium!\n\n";
-
-    graphNode *trip = localGraph.shortestPathAll();
+    // Use the already-built graph to get the trip
+    graphNode *trip = stadiumGraphObject.shortestPathAll();
     if (!trip)
     {
-        outFile << "Could not compute the trip.\n";
+        outFile << "Error: No trip could be planned.\n";
         outFile.close();
         printOutputToTextBrowser();
         return;
     }
 
-    int stadiumCount = 0, totalDistance = 0;
+    int stadiumCount = 0;
+    int totalDistance = 0;
     for (graphNode *current = trip; current; current = current->adjacent)
     {
         outFile << ++stadiumCount << ". " << current->value.getName() << "\n";
         if (current->adjacent)
             totalDistance += current->adjacent->distance;
     }
+    highlightTripEdges(trip);
+    graphNode* toDelete = trip;
+    while (toDelete)
+    {
+        graphNode* next = toDelete->adjacent;
+        delete toDelete;
+        toDelete = next;
+    }
 
     outFile << "\nTotal stadiums visited: " << stadiumCount << "\n";
     outFile << "Total distance traveled: " << totalDistance << " miles\n";
     outFile.close();
 
-    // Step 5: Display output in GUI
     printOutputToTextBrowser();
 }
+
 
 
 
@@ -527,19 +513,104 @@ void MainWindow::startAmericanLeaugeTrip()
 {
     clearOutputFile();
 
-    fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
     if (!outFile.is_open())
     {
-        cerr << "Error: Could not open output.txt for writing\n";
+        std::cerr << "Error: Could not open output.txt for writing\n";
         return;
     }
 
-    outFile << "Here is your American League Trip\nstarting from Dodgers Stadium!\n";
+    outFile << "Here is your American League Trip\n";
+
+    // Step 1: Collect American League stadiums
+    std::vector<stadium> americanStadiums;
+    for (int i = 0; i < stadiumGraphObject.getVertexCount(); ++i)
+    {
+        graphNode* node = stadiumGraphObject.getStadium(i);
+        if (node && node->value.getLeague() == "American")
+        {
+            americanStadiums.push_back(node->value);
+        }
+    }
+
+    // Step 2: Build a subgraph with only American League stadiums
+    stadiumGraph americanGraph;
+    for (const stadium& s : americanStadiums)
+        americanGraph.insert(s);
+
+    for (const stadium& s : americanStadiums)
+    {
+        int idx = stadiumGraphObject.find(s);
+        graphNode* original = stadiumGraphObject.getStadium(idx);
+        for (graphNode* adj = original->adjacent; adj; adj = adj->adjacent)
+        {
+            if (adj->value.getLeague() == "American")
+                americanGraph.insert(s, adj->value, adj->distance);
+        }
+    }
+
+    // Step 3: Plan trip using shortest path from Dodger Stadium
+    stadium startStadium;
+    bool foundStart = false;
+
+    for (const stadium& s : americanStadiums)
+    {
+        std::string addr = s.getAddress();
+        if (addr.find("CA") != std::string::npos)
+        {
+            startStadium = s;
+            foundStart = true;
+            break;
+        }
+    }
+
+    if (!foundStart)
+    {
+        outFile << "Error: No California stadium found in the American League.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    outFile << "Starting from " << startStadium.getName() << "!\n\n";
+
+    graphNode* trip = americanGraph.shortestPathAllFrom(startStadium.getName());
+    if (!trip)
+    {
+        outFile << "Error: No trip could be planned.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    // Step 4: Output trip details
+    int count = 0;
+    int totalDistance = 0;
+    for (graphNode* current = trip; current; current = current->adjacent)
+    {
+        outFile << ++count << ". " << current->value.getName() << "\n";
+        if (current->adjacent)
+            totalDistance += current->adjacent->distance;
+    }
+
+    outFile << "\nTotal stadiums visited: " << count << "\n";
+    outFile << "Total distance traveled: " << totalDistance << " miles\n";
     outFile.close();
+
     printOutputToTextBrowser();
+
+    // Optional: clean up allocated trip path
+    while (trip)
+    {
+        graphNode* toDelete = trip;
+        trip = trip->adjacent;
+        delete toDelete;
+    }
 }
+
+
+
 
 void MainWindow::startNationalLeaugeTrip()
 {

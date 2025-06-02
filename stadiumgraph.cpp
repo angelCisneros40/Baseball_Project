@@ -126,33 +126,37 @@ stadiumGraph stadiumGraph::completeGraph()
 {
     stadiumGraph compGraph;
 
-    graphNode *S;
-    int *C;
-    ;
-    int *P;
-
-    // Run for each vertex
     for (int i = 0; i < vertices; i++)
     {
-        S = new graphNode[vertices];
-        C = new int[vertices];
-        P = new int[vertices];
+        graphNode *S = new graphNode[vertices];
+        int *C = new int[vertices];
+        int *P = new int[vertices];
 
-        // Obtain dijkstra arrays
         dijkstra(i, S, C, P);
 
+        // Insert the starting node into the complete graph
         compGraph.insert(adjacencyList[i]->value);
 
-        // Add adjacent nodes by using shortest distances between given node and all other nodes
         for (int n = 0; n < vertices; n++)
         {
             if (i == n)
                 continue;
 
-            compGraph.insert(adjacencyList[i]->value, adjacencyList[n]->value, C[n]);
+            // Make sure destination node exists in the graph
+            compGraph.insert(adjacencyList[n]->value);
+
+            int fromIdx = compGraph.find(adjacencyList[i]->value.getName());
+            int toIdx = compGraph.find(adjacencyList[n]->value.getName());
+
+            if (fromIdx != -1 && toIdx != -1)
+            {
+                compGraph.insert(
+                    compGraph.adjacencyList[fromIdx]->value,
+                    compGraph.adjacencyList[toIdx]->value,
+                    C[n]);
+            }
         }
 
-        // Reset dijkstra arrays
         delete[] S;
         delete[] C;
         delete[] P;
@@ -161,65 +165,98 @@ stadiumGraph stadiumGraph::completeGraph()
     return compGraph;
 }
 
+
 // Best algorithm for best path I could think of right now, kinda just Kruskal's algorithm, but goes along a
 // single path, which is possible with complete graph
-graphNode *stadiumGraph::shortestPathAll()
+graphNode* stadiumGraph::shortestPathAll()
 {
-    stadiumGraph compGraph = completeGraph();
-
-    int numVisited = 0;
-    graphNode *visited, *end;
-    visited = end = nullptr;
-
-    // Start at dodger stadium
-    visited = new graphNode(adjacencyList[find("Dodger Stadium")]->value);
-    end = visited;
-    numVisited++;
-    graphNode *current = compGraph.adjacencyList[compGraph.find("Dodger Stadium")];
-
-    // Until all stadiums are visited
-    while (numVisited < vertices)
+    int startIdx = find("Dodger Stadium");
+    if (startIdx == -1)
     {
-        // Finds shortest path to another stadium that isn't already visited
-        graphNode *smallestNode = nullptr;
-        int smallest = numeric_limits<int>::max();
-        // Loops for all adjacent nodes
-        for (; current; current = current->adjacent)
+        std::cerr << "Error: Dodger Stadium not found.\n";
+        return nullptr;
+    }
+
+    std::unordered_set<std::string> visited;
+    graphNode* head = nullptr;
+    graphNode* tail = nullptr;
+
+    int currentIdx = startIdx;
+    visited.insert(adjacencyList[currentIdx]->value.getName());
+
+    while (visited.size() < vertices)
+    {
+        // Run Dijkstra from current stadium
+        graphNode* S = new graphNode[vertices];
+        int* C = new int[vertices];
+        int* P = new int[vertices];
+        dijkstra(currentIdx, S, C, P);
+
+        // Find closest unvisited stadium
+        int closestIdx = -1;
+        int minDist = std::numeric_limits<int>::max();
+        for (int i = 0; i < vertices; ++i)
         {
-            // If smaller cost found
-            if (current->distance < smallest)
+            std::string name = adjacencyList[i]->value.getName();
+            if (visited.count(name) == 0 && C[i] < minDist)
             {
-                // Check if already visited
-                bool alreadyVisited = false;
-                for (graphNode *ptr = visited; ptr; ptr = ptr->adjacent)
-                {
-                    if (ptr->value == current->value)
-                    {
-                        alreadyVisited = true;
-                        break;
-                    }
-                }
-
-                if (alreadyVisited)
-                    continue;
-
-                smallestNode = current;
-                smallest = current->distance;
+                minDist = C[i];
+                closestIdx = i;
             }
         }
 
-        // Add next closest stadium to current stadium, change current stadium to added stadium
-        end->adjacent = new graphNode(smallestNode->value);
-        end = end->adjacent;
-        numVisited++;
-        current = compGraph.adjacencyList[compGraph.find(smallestNode->value)];
+        if (closestIdx == -1)
+        {
+            std::cerr << "No reachable unvisited stadium from " << adjacencyList[currentIdx]->value.getName() << "\n";
+            delete[] S;
+            delete[] C;
+            delete[] P;
+            break;
+        }
+
+        // Reconstruct path from currentIdx to closestIdx
+        std::vector<int> path;
+        for (int at = closestIdx; at != -1; at = P[at])
+            path.push_back(at);
+        std::reverse(path.begin(), path.end());
+
+        for (size_t i = 1; i < path.size(); ++i)
+        {
+            graphNode* node = new graphNode(adjacencyList[path[i]]->value);
+            node->distance = C[path[i]] - C[path[i - 1]];
+
+            if (!head)
+                head = tail = node;
+            else
+            {
+                tail->adjacent = node;
+                tail = tail->adjacent;
+            }
+
+            visited.insert(node->value.getName());
+        }
+
+        currentIdx = closestIdx;
+        delete[] S;
+        delete[] C;
+        delete[] P;
     }
 
-    // Expand the paired paths to include the in-between stadiums needed to travel between stadiums.
-    expandPath(visited);
+    // Prepend start stadium if head is null
+    if (!head)
+        head = new graphNode(adjacencyList[startIdx]->value);
+    else
+    {
+        graphNode* startNode = new graphNode(adjacencyList[startIdx]->value);
+        startNode->adjacent = head;
+        head = startNode;
+    }
 
-    return visited;
+    return head;
 }
+
+
+
 
 // Same algorithm as above, but only intentionally travels to national league stadiums
 graphNode *stadiumGraph::shortestPathNational()
@@ -395,67 +432,69 @@ graphNode *stadiumGraph::shortestPathSpecified(graphNode* specifiedList)
     return visited;
 }
 
-// Uses the dijkstra algorithm arrays to determine the intermediate stadiums visited between the edge pairing
-// in the complete graph, and editing the linked list accordingly
 void stadiumGraph::expandPath(graphNode *&visited)
 {
-    graphNode *S;
-    int *C;
-    int *P;
     graphNode *current = visited;
 
     // While not at the end of the linked list
     while (current->adjacent)
     {
-        // obtain dijkstra arrays
+        // Allocate memory BEFORE calling dijkstra
+        graphNode *S = new graphNode[vertices];
+        int *C = new int[vertices];
+        int *P = new int[vertices];
+
         dijkstra(find(current->value), S, C, P);
 
-        // If the two stadiums actually directly connected, move to next
+        // If directly connected, skip to next
         if (P[find(current->adjacent->value)] == find(current->value))
         {
+            delete[] S;
+            delete[] C;
+            delete[] P;
             current = current->adjacent;
             continue;
         }
 
-        // path chain that gets update from end to start, save end node in end
+        // Build new path
         graphNode *newChain = new graphNode(current->adjacent->value);
         graphNode *end = newChain;
 
-        // Loops until the stadium at current is added to newChain
         while (newChain->value != current->value)
         {
-            // Obtain cost between this stadium and its source stadium
             int spot = find(newChain->value);
             newChain->distance = C[spot];
 
-            // Add source stadium to front of newChain
-            graphNode *newNode = nullptr;
-            newNode = new graphNode(adjacencyList[P[spot]]->value);
+            int predIndex = P[spot];
+            if (predIndex == -1)
+            {
+                std::cerr << "Invalid path: No predecessor found for node.\n";
+                break;
+            }
+
+            graphNode *newNode = new graphNode(adjacencyList[predIndex]->value);
             newNode->adjacent = newChain;
             newChain = newNode;
         }
 
-        // Remove first node in newChain, since This value will either just be 0, or will have been
-        // assigned in previous cycle
+        // Delete first node in newChain (duplicate of current)
         graphNode *placehold = newChain->adjacent;
         delete newChain;
         newChain = placehold;
 
-        // Connect newChain to original linked list
+        // Connect path
         end->adjacent = current->adjacent->adjacent;
-
-        // Remove back end of 2-stadium edge, connects the current node to beginning of newChain,
-        //effectively replacing the first node we deleted just previously
         delete current->adjacent;
         current->adjacent = newChain;
-        current = end; // Change current to start at the next 2-stadium edge
+        current = end;
 
-        // reset dijkstra arrays
+        // Clean up
         delete[] S;
         delete[] C;
         delete[] P;
     }
 }
+
 
 stadiumGraph &stadiumGraph::operator=(const stadiumGraph &otherGraph)
 {
@@ -618,3 +657,52 @@ int stadiumGraph::getVertexCount() const
 bool stadiumGraph::isEmpty() const {
     return vertices == 0 || adjacencyList == nullptr;
 }
+
+graphNode* stadiumGraph::shortestPathAllFrom(const std::string& startName)
+{
+    int startIdx = find(startName);
+    if (startIdx == -1)
+    {
+        std::cerr << "Error: Starting stadium not found.\n";
+        return nullptr;
+    }
+
+    std::unordered_set<std::string> visited;
+    graphNode* head = new graphNode(adjacencyList[startIdx]->value);
+    graphNode* tail = head;
+    visited.insert(head->value.getName());
+
+    graphNode* current = adjacencyList[startIdx];
+
+    while (visited.size() < getVertexCount())
+    {
+        graphNode* next = nullptr;
+        int minDist = std::numeric_limits<int>::max();
+
+        for (graphNode* adj = current->adjacent; adj; adj = adj->adjacent)
+        {
+            std::string neighbor = adj->value.getName();
+            if (visited.count(neighbor) == 0 && adj->distance < minDist)
+            {
+                minDist = adj->distance;
+                next = adj;
+            }
+        }
+
+        if (!next)
+        {
+            std::cerr << "Error: No unvisited neighbor found from " << current->value.getName() << "\n";
+            break;
+        }
+
+        tail->adjacent = new graphNode(next->value);
+        tail->adjacent->distance = minDist;
+        tail = tail->adjacent;
+        visited.insert(tail->value.getName());
+
+        current = adjacencyList[find(next->value)];
+    }
+
+    return head;
+}
+

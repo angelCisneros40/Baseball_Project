@@ -1,1 +1,2 @@
-H
+Here is your American League Trip
+Error: No California stadium found in the American League.
