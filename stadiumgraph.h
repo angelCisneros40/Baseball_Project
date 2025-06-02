@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <limits>
+#include <sstream>
+#include <algorithm>
+#include <unordered_set>
+#include <vector>
 #include "stadium.h"
 using namespace std;
 
@@ -69,7 +73,7 @@ public:
     graphNode *shortestPathAll();
     graphNode *shortestPathNational();
     graphNode *shortestPathAmerican();
-    graphNode *shortestPathSpecified(graphNode* specifiedList);
+    graphNode *shortestPathSpecified(graphNode *specifiedList);
     void expandPath(graphNode *&visited);
     graphNode *shortestPathBetween(const string &startName, const string &endName);
 
@@ -79,6 +83,7 @@ public:
 
     void printGraph() const;
     int getVertexCount() const;
+    bool isEmpty() const;
 
 private:
     graphNode **adjacencyList;                                  //CALC/OUT - adjacency list containing all nodes and the nodes they're adjacent to

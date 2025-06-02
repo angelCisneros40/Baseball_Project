@@ -159,10 +159,16 @@ void MainWindow::testFakeRoute()
     QList<QLabel *> labels = findChildren<QLabel *>();
     for (QLabel *label : labels)
         if (label->objectName().endsWith("_Blue"))
+        {
             if (showFakeRoute && fakeRoute.contains(label->objectName()))
+            {
                 label->setVisible(true);
+            }
             else
+            {
                 label->setVisible(false);
+            }
+        }
 }
 
 void MainWindow::outputSouvenirPurchase()
@@ -425,24 +431,6 @@ void MainWindow::runCustomTrip()
     }
 
     outFile << "Here is your Custom Trip!\n";
-    outFile.close();
-    printOutputToTextBrowser();
-}
-
-void MainWindow::startFullLeagueTrip()
-{
-    clearOutputFile();
-
-    fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
-    if (!outFile.is_open())
-    {
-        cerr << "Error: Could not open output.txt for writing\n";
-        return;
-    }
-
-    outFile << "Here is your Full League Trip\nstarting from Dodgers Stadium!\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -1315,4 +1303,102 @@ void MainWindow::changeSouvenirPrice()
 
     outFile.close();
     printOutputToTextBrowser();
+}
+
+void MainWindow::startFullLeagueTrip()
+{
+    clearOutputFile();
+
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
+    if (!outFile.is_open())
+    {
+        std::cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << "Full League Trip\n";
+    outFile << "Starting from a stadium in California (Dodger Stadium)\n\n";
+
+    // Use the already-built graph to get the trip
+    graphNode *trip = stadiumGraphObject.shortestPathAll();
+    if (!trip)
+    {
+        outFile << "Error: No trip could be planned.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    int stadiumCount = 0;
+    int totalDistance = 0;
+    for (graphNode *current = trip; current; current = current->adjacent)
+    {
+        outFile << ++stadiumCount << ". " << current->value.getName() << "\n";
+        if (current->adjacent)
+            totalDistance += current->adjacent->distance;
+    }
+    highlightTripEdges(trip);
+    graphNode *toDelete = trip;
+    while (toDelete)
+    {
+        graphNode *next = toDelete->adjacent;
+        delete toDelete;
+        toDelete = next;
+    }
+
+    outFile << "\nTotal stadiums visited: " << stadiumCount << "\n";
+    outFile << "Total distance traveled: " << totalDistance << " miles\n";
+    outFile.close();
+
+    printOutputToTextBrowser();
+}
+
+void MainWindow::highlightTripEdges(graphNode *path)
+{
+    for (const QString &edge : blueEdges)
+        toggleEdgeLabel(edge, false);
+
+    graphNode *node = path;
+
+    while (node && node->adjacent)
+    {
+        QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
+        QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+
+        QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
+        QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
+
+        bool found = false;
+        for (const QString &from : fromAliases)
+        {
+            for (const QString &to : toAliases)
+            {
+                QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+                QLabel *label = findChild<QLabel *>(labelName);
+
+                if (!label)
+                {
+                    labelName = QString("label_%1To%2_Blue").arg(to, from);
+                    label = findChild<QLabel *>(labelName);
+                }
+
+                if (label)
+                {
+                    toggleEdgeLabel(labelName, true);
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+
+        if (!found)
+        {
+            qDebug() << "Could not find edge label for" << baseFrom << "to" << baseTo;
+        }
+
+        node = node->adjacent;
+    }
 }
