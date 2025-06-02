@@ -221,5 +221,6 @@ private:
     void initSouvenirToDeleteComboBox();
     void selectedSouvenirToDeleteOutput();
     void changeSouvenirPrice();
+    void highlightTripEdges(graphNode *path);
 };
 #endif // MAINWINDOW_H
