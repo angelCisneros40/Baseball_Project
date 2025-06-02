@@ -164,7 +164,7 @@ private:
         "label_ComericaParkToPNCPark_Blue",
         "label_PNCParkToCitiField_Blue",
         "label_RogersCentreToFenwayPark_Blue",
-        "label_RogersCentreToPNC_Blue",
+        "label_RogersCentreToPNCPark_Blue",
         "label_OracleParkToChaseField_Blue",
         "label_OracleParkToDodgerStadium_Blue",
         "label_TMobileParkToRogersCentre_Blue",

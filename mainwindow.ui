@@ -1976,7 +1976,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_RogersCentreToPNC_Blue">
+   <widget class="QLabel" name="label_RogersCentreToPNCPark_Blue">
     <property name="geometry">
      <rect>
       <x>1070</x>
@@ -4653,7 +4653,7 @@ Team Name (with grass)</string>
    <zorder>label_ComericaParkToRogersCentre_Blue</zorder>
    <zorder>label_AmericanFamilyFieldToRogersCentre_Blue</zorder>
    <zorder>label_DaikinParkToLoanDepotPark_Blue</zorder>
-   <zorder>label_RogersCentreToPNC_Blue</zorder>
+   <zorder>label_RogersCentreToPNCPark_Blue</zorder>
    <zorder>label_BuschStadiumToGreatAmericanBallpark_Blue</zorder>
    <zorder>label_PNCParkToNationalsPark_Blue</zorder>
    <zorder>label_AmericanFamilyFieldToWrigleyField_Blue</zorder>

@@ -1,7 +1,7 @@
 Stadium A: 
-Comerica Park
+Rogers Centre
 
 Stadium B: 
-LoanDepot Park
+PNC Park
 
-Total Distance: 1290
+Total Distance: 225
