@@ -1,0 +1,7 @@
+Stadium A: 
+Comerica Park
+
+Stadium B: 
+LoanDepot Park
+
+Total Distance: 1290

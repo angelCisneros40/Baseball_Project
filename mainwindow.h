@@ -155,8 +155,8 @@ private:
         "label_GreatAmericanBallparkToTruistPark_Blue",
         "label_KauffmanStadiumToBuschStadium_Blue",
         "label_KauffmanStadiumToWrigleyField_Blue",
-        "label_NationalsParkToCitizensBank_Blue",
-        "label_NationalsParkToGeorge_Blue",
+        "label_NationalsParkToCitizensBankPark_Blue",
+        "label_NationalsParkToLoanDepotPark_Blue",
         "label_PetcoParkToChaseField_Blue",
         "label_PetcoParkToCoorsField_Blue",
         "label_DodgerStadiumToTargetField_Blue",
@@ -178,7 +178,6 @@ private:
         "label_YankeeStadiumToFenwayPark_Blue",
         "label_OracleParkParkToChaseField_Blue",
         "label_ProgressiveFieldToPNCPark_Blue",
-        "label_ProgressiveFieldToNationalsPark_Blue",
         "label_WrigleyFieldToRateField_Blue"};
     stadiumGraph stadiumGraphObject;
 
