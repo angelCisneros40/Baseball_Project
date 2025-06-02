@@ -4317,7 +4317,7 @@ Team Name (with grass)</string>
      </rect>
     </property>
     <property name="text">
-     <string>Start Custom Trip!</string>
+     <string>Start Custom Trip</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_SubmitTeamToStadiumChanges">
@@ -4392,6 +4392,169 @@ Team Name (with grass)</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_AddTeam">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>630</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Add Team</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_AddStadium">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>630</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Add Stadium</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_AddTeamToStadium">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>670</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Submit</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="souvenirToDeleteComboBox">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>630</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Delete Souvenir</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Delete Souvenir</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Cap</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Bat</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Team Pennant</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Autographed Baseball</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="button_DeleteSouvenir">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>670</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="souvenirToChangePriceComboBox">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>630</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Change Souvenir Price</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Change Souvenir Price</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Cap</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Baseball Bat</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Team Pennant</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Autographed Baseball</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="button_ChangeSouvenirPrice">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>710</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Souvenir Price</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_ChangePriceTo">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>670</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>19.99</string>
     </property>
    </widget>
    <zorder>backgroundWidget</zorder>
@@ -4524,6 +4687,14 @@ Team Name (with grass)</string>
    <zorder>button_SubmitTeamToStadiumChanges</zorder>
    <zorder>button_showAllBlackLines</zorder>
    <zorder>label_WrigleyFieldToRateField_Blue</zorder>
+   <zorder>lineEdit_AddTeam</zorder>
+   <zorder>lineEdit_AddStadium</zorder>
+   <zorder>button_AddTeamToStadium</zorder>
+   <zorder>souvenirToDeleteComboBox</zorder>
+   <zorder>button_DeleteSouvenir</zorder>
+   <zorder>souvenirToChangePriceComboBox</zorder>
+   <zorder>button_ChangeSouvenirPrice</zorder>
+   <zorder>lineEdit_ChangePriceTo</zorder>
   </widget>
  </widget>
  <resources>

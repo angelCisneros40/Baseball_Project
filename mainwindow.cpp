@@ -28,6 +28,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->button_SortStadiumsByName, &QPushButton::clicked, this, &MainWindow::sortStadiumsByName);
     connect(ui->button_SortStadiumsWithGrass, &QPushButton::clicked, this, &MainWindow::sortStadiumsWithGrass);
     connect(ui->button_SortStadiumsByDateOpened, &QPushButton::clicked, this, &MainWindow::sortStadiumsByDateOpened);
+    connect(ui->button_AddTeamToStadium, &QPushButton::clicked, this, &MainWindow::addTeamToStadium);
+    connect(ui->button_DeleteSouvenir, &QPushButton::clicked, this, &MainWindow::souvenirToDelete);
+    connect(ui->souvenirToDeleteComboBox, &QComboBox::currentTextChanged, this, &MainWindow::selectedSouvenirToDeleteOutput);
+    connect(ui->button_ChangeSouvenirPrice, &QPushButton::clicked, this, &MainWindow::changeSouvenirPrice);
 
     ui->label_moveThisTeamText->setVisible(false);
     ui->label_moveToThisStadiumText->setVisible(false);
@@ -37,6 +41,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->comboBox_CustomTrip->setVisible(false);
     ui->button_StartCustomTrip->setVisible(false);
     ui->button_SubmitTeamToStadiumChanges->setVisible(false);
+    ui->button_AddTeamToStadium->setVisible(false);
+    ui->lineEdit_AddTeam->setVisible(false);
+    ui->lineEdit_AddStadium->setVisible(false);
+    ui->button_DeleteSouvenir->setVisible(false);
+    ui->souvenirToDeleteComboBox->setVisible(false);
+    ui->button_ChangeSouvenirPrice->setVisible(false);
+    ui->lineEdit_ChangePriceTo->setVisible(false);
+    ui->souvenirToChangePriceComboBox->setVisible(false);
+
     for (const QString &edge : blueEdges)
         toggleEdgeLabel(edge, false);
     for (const QString &edge : blackEdges)
@@ -214,7 +227,16 @@ void MainWindow::toggleAdminTools()
     ui->comboBox_moveThisTeam->setVisible(isCorrectPin);
     ui->comboBox_moveToThisStadium->setVisible(isCorrectPin);
     ui->button_SubmitTeamToStadiumChanges->setVisible(isCorrectPin);
+    ui->button_AddTeamToStadium->setVisible(isCorrectPin);
+    ui->lineEdit_AddTeam->setVisible(isCorrectPin);
+    ui->lineEdit_AddStadium->setVisible(isCorrectPin);
+    ui->button_DeleteSouvenir->setVisible(isCorrectPin);
+    ui->souvenirToDeleteComboBox->setVisible(isCorrectPin);
+    ui->button_ChangeSouvenirPrice->setVisible(isCorrectPin);
+    ui->lineEdit_ChangePriceTo->setVisible(isCorrectPin);
+    ui->souvenirToChangePriceComboBox->setVisible(isCorrectPin);
     ui->AdminPinLineEdit->clear();
+    initSouvenirToDeleteComboBox();
     printOutputToTextBrowser();
 }
 
@@ -591,8 +613,8 @@ void MainWindow::ChangeTeamToStadiumOutput()
 void MainWindow::ChangeTeamToStadium()
 {
     clearOutputFile();
-    QString selectedTeam = ui->comboBox_moveThisTeam->currentText();
-    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText();
+    QString selectedTeam = ui->comboBox_moveThisTeam->currentText().trimmed();
+    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText().trimmed();
 
     fs::path projectRoot = findProjectRoot();
     fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
@@ -646,7 +668,11 @@ void MainWindow::ChangeTeamToStadium()
         cerr << "Error: Could not find matching team or stadium\n";
         return;
     }
+
+    // Swap teams
     swap(blocks[indexTeam][1], blocks[indexStadium][1]);
+
+    // Rewrite stadiums.txt
     for (const auto &block : blocks)
     {
         for (const auto &l : block)
@@ -654,7 +680,6 @@ void MainWindow::ChangeTeamToStadium()
     }
 
     tempFile.close();
-
     fs::remove(stadiumsPath);
     fs::rename(tempPath, stadiumsPath);
 
@@ -662,12 +687,39 @@ void MainWindow::ChangeTeamToStadium()
             << "\" moved to \"" << selectedStadium.toStdString() << "\"!\n";
     outFile.close();
 
-    printOutputToTextBrowser();
-
+    // Clear and reinsert into the trees
     teamSortedTree.clear();
     stadiumSortedTree.clear();
     dateSortedTree.clear();
-    loadStadiumsFromFile();
+
+    for (const auto &block : blocks)
+    {
+        if (block.size() >= 9)
+        {
+            stadium s;
+            s.setName(block[0]);
+            s.setTeam(block[1]);
+            s.setAddress(block[2]);
+            s.setAddressLine2(block[3]);
+            s.setPhone(block[4]);
+
+            int month = 0, day = 0, year = 0;
+            sscanf(block[5].c_str(), "%d/%d/%d", &month, &day, &year);
+            s.setDate(month, day, year);
+
+            int capacity = std::stoi(block[6]);
+            s.setCapacity(capacity);
+            s.setLeague(block[7]);
+            s.setField(block[8]);
+            s.setOG(false);
+
+            teamSortedTree.insertNode(s);
+            stadiumSortedTree.insertNode(s);
+            dateSortedTree.insertNode(s);
+        }
+    }
+
+    printOutputToTextBrowser();
 }
 
 void MainWindow::loadStadiumsFromFile()
@@ -1067,4 +1119,298 @@ void MainWindow::loadStadiums(stadiumGraph &graph, const fs::path &filePath)
                 graph.insert(s, graph.getStadium(neighborIdx)->value, dist);
         }
     }
+}
+
+void MainWindow::addTeamToStadium()
+{
+    clearOutputFile();
+
+    QString addTeam = ui->lineEdit_AddTeam->text().trimmed();
+    QString addStadium = ui->lineEdit_AddStadium->text().trimmed();
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
+
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    if (!addTeam.isEmpty() && !addStadium.isEmpty())
+    {
+        outFile << "Added Team " << addTeam.toStdString()
+                << " to Stadium " << addStadium.toStdString() << "\n";
+        ui->lineEdit_AddTeam->clear();
+        ui->lineEdit_AddStadium->clear();
+    }
+    else
+    {
+        outFile << "Please complete selection." << "\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+    outFile.close();
+
+    ofstream stadiumFile(stadiumsPath, ios::app);
+    if (!stadiumFile.is_open())
+    {
+        cerr << "Error: Could not open stadiums.txt for appending\n";
+        return;
+    }
+
+    stadiumFile << addStadium.toStdString() << "\n"
+                << addTeam.toStdString() << "\n"
+                << "1570 E Colorado Blvd.\n"
+                << "Pasadena City, CA 00000\n"
+                << "(000)000-0000\n"
+                << "06/01/2025\n"
+                << "00000\n"
+                << "American\n"
+                << "grass\n"
+                << "{\n}\n";
+
+    stadiumFile.close();
+
+    stadium newStadium;
+    newStadium.setName(addStadium.toStdString());
+    newStadium.setTeam(addTeam.toStdString());
+    newStadium.setAddress("1234 Placeholder St.");
+    newStadium.setAddressLine2("Fictional City, ZZ 99999");
+    newStadium.setPhone("(000)000-0000");
+    newStadium.setDate(06, 01, 2025);
+    newStadium.setCapacity(42000);
+    newStadium.setLeague("American");
+    newStadium.setField("grass");
+    newStadium.setOG(false);
+
+    teamSortedTree.insertNode(newStadium);
+    stadiumSortedTree.insertNode(newStadium);
+    dateSortedTree.insertNode(newStadium);
+
+    printOutputToTextBrowser();
+}
+
+void MainWindow::souvenirToDelete()
+{
+    QString selected = ui->souvenirToDeleteComboBox->currentText().trimmed();
+    if (selected.isEmpty())
+        return;
+
+    QStringList parts = selected.split(" - ");
+    if (parts.size() != 2)
+        return;
+
+    QString stadiumName = parts[0].trimmed();
+    QString itemName = parts[1].trimmed();
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path souvenirPath = projectRoot / "src" / "souvenirs.txt";
+    fs::path tempPath = projectRoot / "src" / "souvenirs_temp.txt";
+
+    ifstream inFile(souvenirPath);
+    ofstream tempFile(tempPath);
+
+    if (!inFile.is_open() || !tempFile.is_open())
+    {
+        cerr << "Error: Could not open souvenir files for processing.\n";
+        return;
+    }
+
+    string line;
+    bool skipNext = false;
+    bool deleted = false;
+
+    while (getline(inFile, line))
+    {
+        QString currentLine = QString::fromStdString(line).trimmed();
+
+        if (!skipNext && currentLine.startsWith("stadium:"))
+        {
+            QString currentStadium = currentLine.mid(8).trimmed();
+
+            // Peek at the next line without advancing
+            std::streampos pos = inFile.tellg();
+            string nextLine;
+            if (getline(inFile, nextLine))
+            {
+                QString nextLineStr = QString::fromStdString(nextLine).trimmed();
+                if (nextLineStr.startsWith("item:"))
+                {
+                    QString currentItem = nextLineStr.mid(5).trimmed();
+                    if (currentStadium == stadiumName && currentItem == itemName && !deleted)
+                    {
+                        // Skip this pair once
+                        skipNext = true;
+                        deleted = true;
+                        continue;
+                    }
+                    else
+                    {
+                        // Write both lines back
+                        tempFile << line << '\n'
+                                 << nextLine << '\n';
+                    }
+                }
+                else
+                {
+                    // Not a valid item line; write both lines
+                    tempFile << line << '\n'
+                             << nextLine << '\n';
+                }
+            }
+            else
+            {
+                tempFile << line << '\n';
+            }
+
+            // Reposition stream if needed
+            inFile.clear();
+            inFile.seekg(pos);
+        }
+        else if (skipNext)
+        {
+            skipNext = false;
+            continue;
+        }
+        else
+        {
+            tempFile << line << '\n';
+        }
+    }
+
+    inFile.close();
+    tempFile.close();
+
+    fs::remove(souvenirPath);
+    fs::rename(tempPath, souvenirPath);
+
+    // Refresh combo box
+    initSouvenirToDeleteComboBox();
+
+    // Update output
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+    if (outFile.is_open())
+    {
+        outFile << "Deleted Souvenir:\n"
+                << selected.toStdString() << "\n";
+        outFile.close();
+    }
+
+    printOutputToTextBrowser();
+}
+
+void MainWindow::initSouvenirToDeleteComboBox()
+{
+    ui->souvenirToDeleteComboBox->clear();
+
+    fs::path projectRoot = findProjectRoot();
+    fs::path souvenirPath = projectRoot / "src" / "souvenirs.txt";
+    ifstream inFile(souvenirPath);
+
+    if (!inFile.is_open())
+    {
+        cerr << "Error: Could not open souvenirs.txt\n";
+        return;
+    }
+
+    string line;
+    QString currentStadium;
+    while (getline(inFile, line))
+    {
+        if (line.rfind("stadium:", 0) == 0)
+        {
+            currentStadium = QString::fromStdString(line.substr(8)).trimmed();
+        }
+        else if (line.rfind("item:", 0) == 0)
+        {
+            QString item = QString::fromStdString(line.substr(5)).trimmed();
+            if (!currentStadium.isEmpty() && !item.isEmpty())
+            {
+                ui->souvenirToDeleteComboBox->addItem(currentStadium + " - " + item);
+            }
+        }
+    }
+
+    inFile.close();
+}
+
+void MainWindow::selectedSouvenirToDeleteOutput()
+{
+    QString selected = ui->souvenirToDeleteComboBox->currentText().trimmed();
+
+    if (selected.isEmpty())
+        return;
+
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << "Souvenir selected for deletion:\n"
+            << selected.toStdString() << "\n";
+    outFile.close();
+
+    printOutputToTextBrowser();
+}
+
+void MainWindow::changeSouvenirPrice()
+{
+    QString selected = ui->souvenirToChangePriceComboBox->currentText().trimmed();
+    QString newPriceStr = ui->lineEdit_ChangePriceTo->text().trimmed();
+
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    if (selected.isEmpty())
+    {
+        outFile << "No souvenir item selected.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    QRegularExpression re("^\\d+(\\.\\d{1,2})?$");
+    if (newPriceStr.isEmpty() || !re.match(newPriceStr).hasMatch())
+    {
+        outFile << "Invalid price entered. Must be a numeric value.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    double newPrice = newPriceStr.toDouble();
+    std::string itemKey = selected.toStdString();
+
+    if (priceMap.find(itemKey) != priceMap.end())
+    {
+        double oldPrice = priceMap[itemKey];
+        priceMap[itemKey] = newPrice;
+
+        outFile << "Souvenir price updated:\n"
+                << "Item: " << itemKey << "\n"
+                << "Old Price: $" << std::fixed << std::setprecision(2) << oldPrice << "\n"
+                << "New Price: $" << std::fixed << std::setprecision(2) << newPrice << "\n";
+    }
+    else
+    {
+        outFile << "Item \"" << itemKey << "\" not found in price map.\n";
+    }
+
+    outFile.close();
+    printOutputToTextBrowser();
 }

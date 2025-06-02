@@ -216,5 +216,10 @@ private:
     void connectStadiumEdges();
     stadium parseStadium(ifstream &inFile);
     void loadStadiums(stadiumGraph &graph, const fs::path &filePath);
+    void addTeamToStadium();
+    void souvenirToDelete();
+    void initSouvenirToDeleteComboBox();
+    void selectedSouvenirToDeleteOutput();
+    void changeSouvenirPrice();
 };
 #endif // MAINWINDOW_H
