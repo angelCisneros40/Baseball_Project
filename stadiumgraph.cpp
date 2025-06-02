@@ -32,7 +32,23 @@ stadiumGraph::~stadiumGraph()
     clear();
 }
 
-// Insert new stadium into graph
+/**********************************************************
+ *
+ * Method insert: Class stadiumGraph
+ *_________________________________________________________
+ * This method increases the size of the adjacencyList and
+ * assigns the last index of the adjacencyList to being
+ * a graphNode with the given value. Adding a new stadium
+ * to graph.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   value - the value of the node being inserted
+ *
+ * POST-CONDITIONS
+ * This function will size up the adjacency list and insert
+ * a node with the given value at the last index.
+ ***********************************************************/
 void stadiumGraph::insert(stadium value)
 {
     sizeUp();
@@ -40,20 +56,68 @@ void stadiumGraph::insert(stadium value)
     adjacencyList[vertices - 1] = new graphNode(value);
 }
 
-// add adjacent stadium to existing stadium (add edge)
+/**********************************************************
+ *
+ * Method insert: Class stadiumGraph
+ *_________________________________________________________
+ * This method inserts a graphNode with the given value
+ * and distance at the end of the linked list whose first
+ * graphNode has the given target value in adjacencyList.
+ * Adding an edge/adjacent vertex to the graph.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   target - the value of the node whose linked list is being
+ *      inserted into
+ *   value - the value of the node being inserted
+ *   distance - the distance of the node being inserted
+ *
+ * POST-CONDITIONS
+ * This function will add an adjacent stadium to the target
+ * stadium.
+ ***********************************************************/
 void stadiumGraph::insert(stadium target, stadium value, int distance)
 {
+    //Find index of target node in adjacencyList
     int spot = find(target);
 
+    //Reach the end of the target linked list
     graphNode *end = adjacencyList[spot];
-    for (; end->adjacent != nullptr; end = end->adjacent)
-        ;
+    for (; end->adjacent != nullptr; end = end->adjacent);
 
+    //Add adjacent stadium at end
     end->adjacent = new graphNode(value, distance);
     end = nullptr;
 }
 
-// dijkstra's algorithm, alters the dynamic arrays that hold the parsed nodes and the costs and paths
+/**********************************************************
+ *
+ * Method dijkstra: Class stadiumGraph
+ *_________________________________________________________
+ * This method applies dijkstra's algorithm to this graph
+ * starting at the stadium at the start index of adjacencyList,
+ * The corresponding dijkstra algorithm arrays (S holding the vetices
+ * as they are added according to shortest distance from the start node,
+ * C holding the shortest distances from the start node to all other
+ * nodes, and P holding the path from which the shortest path to the
+ * node with the corresponding index came from. indexes of C and P
+ * correspond with indexes of adjacencyList) are altered by reference
+ * to reflect the shortest paths from the start node and all other
+ * nodes.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   start - the index of stadium that dijkstra's algorithm
+ *      will expand/originate from in adjacencyList.
+ *   S - the array holding the vertices as they are added in the algorithm
+ *   C - the array holding the costs to move from the start stadium to the
+ *      other stadiums.
+ *   P - the array holding the indexes of the graphNodes whose path leads
+ *      to the corresponding graphNode
+ *
+ * POST-CONDITIONS
+ * This function will fill the dijkstra arrays.
+ ***********************************************************/
 void stadiumGraph::dijkstra(int start, graphNode *&S, int *&C, int *&P)
 {
     int s_size = 0;
@@ -121,14 +185,27 @@ void stadiumGraph::dijkstra(int start, graphNode *&S, int *&C, int *&P)
     }
 }
 
-// Creates and returns complete graph of current graph object (each node connected to each other node)
+/**********************************************************
+ *
+ * Method completeGraph: Class stadiumGraph
+ *_________________________________________________________
+ * This method applies dijkstra's algorithm at each vertex,
+ * using those arrays to create a complete graph based off
+ * of this graph.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will return a complete graph based off of
+ * this graph.
+ ***********************************************************/
 stadiumGraph stadiumGraph::completeGraph()
 {
     stadiumGraph compGraph;
 
     graphNode *S;
     int *C;
-    ;
     int *P;
 
     // Run for each vertex
@@ -161,8 +238,26 @@ stadiumGraph stadiumGraph::completeGraph()
     return compGraph;
 }
 
-// Best algorithm for best path I could think of right now, kinda just Kruskal's algorithm, but goes along a
-// single path, which is possible with complete graph
+/**********************************************************
+ *
+ * Method shortestPathAll: Class stadiumGraph
+ *_________________________________________________________
+ * This method creates a complete graph based on this graph,
+ * and then uses a greedy algorithm starting at Dodger stadium
+ * to travel along and add the next closest stadium that
+ * has not already been visitied to a linked list. This
+ * process stops once all major league stadiums have been
+ * visited. Then, the visited linked list is expanded to
+ * include each intermediate stadium traveled to bridge two
+ * stadiums. Then, the list of visited stadiums is returned.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will return a linked list containing the
+ * shortest path to pass through all major league stadiums.
+ ***********************************************************/
 graphNode *stadiumGraph::shortestPathAll()
 {
     stadiumGraph compGraph = completeGraph();
@@ -221,7 +316,26 @@ graphNode *stadiumGraph::shortestPathAll()
     return visited;
 }
 
-// Same algorithm as above, but only intentionally travels to national league stadiums
+/**********************************************************
+ *
+ * Method shortestPathNational: Class stadiumGraph
+ *_________________________________________________________
+ * This method creates a complete graph based on this graph,
+ * and then uses a greedy algorithm starting at Dodger stadium
+ * to travel along and add the next closest stadium that
+ * has not already been visitied to a linked list. This
+ * process stops once all national league stadiums have been
+ * visited. Then, the visited linked list is expanded to
+ * include each intermediate stadium traveled to bridge two
+ * stadiums. Then, the list of visited stadiums is returned.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will return a linked list containing the
+ * shortest path to pass through all national league stadiums.
+ ***********************************************************/
 graphNode *stadiumGraph::shortestPathNational()
 {
     stadiumGraph compGraph = completeGraph();
@@ -274,7 +388,26 @@ graphNode *stadiumGraph::shortestPathNational()
     return visited;
 }
 
-// Same as above but for american league stadiums
+/**********************************************************
+ *
+ * Method shortestPathAmerican: Class stadiumGraph
+ *_________________________________________________________
+ * This method creates a complete graph based on this graph,
+ * and then uses a greedy algorithm starting at Angels stadium
+ * to travel along and add the next closest stadium that
+ * has not already been visitied to a linked list. This
+ * process stops once all american league stadiums have been
+ * visited. Then, the visited linked list is expanded to
+ * include each intermediate stadium traveled to bridge two
+ * stadiums. Then, the list of visited stadiums is returned.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will return a linked list containing the
+ * shortest path to pass through all american league stadiums.
+ ***********************************************************/
 graphNode *stadiumGraph::shortestPathAmerican()
 {
     stadiumGraph compGraph = completeGraph();
@@ -328,7 +461,29 @@ graphNode *stadiumGraph::shortestPathAmerican()
     return visited;
 }
 
-//Same as others before, but now only explicitly travel to stadiums in given linked list.
+/**********************************************************
+ *
+ * Method shortestPathSpecified: Class stadiumGraph
+ *_________________________________________________________
+ * This method creates a complete graph based on this graph,
+ * and then uses a greedy algorithm starting at the first
+ * stadium in specifiedList to travel along and add the next
+ * closest stadium that has not already been visitied to a
+ * linked list. This process stops once all stadiums in
+ * specifiedList have been visited. Then, the visited linked list
+ * is expanded to include each intermediate stadium traveled
+ * to bridge two stadiums. Then, the list of visited stadiums
+ * is returned.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   specifiedList - the linked list of graphNodes that contains
+ *      the stadiums to be visited.
+ *
+ * POST-CONDITIONS
+ * This function will return a linked list containing the
+ * shortest path to pass through all stadiums in specifiedList.
+ ***********************************************************/
 graphNode *stadiumGraph::shortestPathSpecified(graphNode* specifiedList)
 {
     stadiumGraph compGraph = completeGraph();
@@ -395,8 +550,24 @@ graphNode *stadiumGraph::shortestPathSpecified(graphNode* specifiedList)
     return visited;
 }
 
-// Uses the dijkstra algorithm arrays to determine the intermediate stadiums visited between the edge pairing
-// in the complete graph, and editing the linked list accordingly
+/**********************************************************
+ *
+ * Method expandPath: Class stadiumGraph
+ *_________________________________________________________
+ * This method takes the linked list of vertices visited
+ * and expands each 2-stadium edge to include each intermediate
+ * stadium needed to bridge the two stadiums into visited
+ * based on this graph.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   visited - the linked list containing a path to stadiums
+ *      based off of a complete graph.
+ *
+ * POST-CONDITIONS
+ * This function will expand visited to include all intermediate
+ * stadiums that were traveled through.
+ ***********************************************************/
 void stadiumGraph::expandPath(graphNode *&visited)
 {
     graphNode *S;
@@ -457,13 +628,31 @@ void stadiumGraph::expandPath(graphNode *&visited)
     }
 }
 
+/**********************************************************
+ *
+ * Method operator=: Class stadiumGraph
+ *_________________________________________________________
+ * This method overloads the assignment operator, copying the
+ * contents of otherGraph's adjacencyList and the vertices
+ * attribute.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   otherGraph - the other stadiumGraph being copied from
+ *
+ * POST-CONDITIONS
+ * This function will copy the contents of otherGraph into
+ * this stadiumGraph object.
+ ***********************************************************/
 stadiumGraph &stadiumGraph::operator=(const stadiumGraph &otherGraph)
 {
     clear();
 
+    //Copy over size/vertices
     vertices = otherGraph.vertices;
     adjacencyList = new graphNode *[vertices];
 
+    //Copy the linked list of each index in the adjacencyList of otherGraph
     for (int i = 0; i < vertices; i++)
     {
         adjacencyList[i] = new graphNode(otherGraph.adjacencyList[i]->value);
@@ -478,7 +667,21 @@ stadiumGraph &stadiumGraph::operator=(const stadiumGraph &otherGraph)
     return *this;
 }
 
-// Copy and increase size of graph adjacency list
+/**********************************************************
+ *
+ * Method sizeUp: Class stadiumGraph
+ *_________________________________________________________
+ * This method increases the size of adjacencyList by 1
+ * and increments vertices. All contents in adjacencyList
+ * are maintained.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will add one more empty index to the end
+ * of adjacencyList and increment vertices.
+ ***********************************************************/
 void stadiumGraph::sizeUp()
 {
     int newSize = vertices + 1;
@@ -503,8 +706,22 @@ void stadiumGraph::sizeUp()
     newList = nullptr;
 }
 
+/**********************************************************
+ *
+ * Method clear: Class stadiumGraph
+ *_________________________________________________________
+ * This method deletes all dynamic memory allocated to
+ * adjacencyList, setting it to nullptr and vertices to 0.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will clear all contents of this object.
+ ***********************************************************/
 void stadiumGraph::clear()
 {
+    //Delete each linked list in each index of adjacencyList
     for (int i = 0; i < vertices; i++)
     {
         for (graphNode *current = adjacencyList[i]; current != nullptr;)
@@ -523,7 +740,22 @@ void stadiumGraph::clear()
     vertices = 0;
 }
 
-// find and return index of stadium with same value in list
+/**********************************************************
+ *
+ * Method find: Class stadiumGraph
+ *_________________________________________________________
+ * This method searches for and returns the index of the
+ * graphNode in adjacencyList with the given value. If not
+ * found, return -1.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   value - the stadium being searched for
+ *
+ * POST-CONDITIONS
+ * This function will return the index of graphNode with the
+ * given value in adjacencyList or return -1 if not found.
+ ***********************************************************/
 int stadiumGraph::find(stadium value)
 {
     for (int i = 0; i < vertices; i++)
@@ -533,7 +765,23 @@ int stadiumGraph::find(stadium value)
     return -1;
 }
 
-// find and return index of stadium with same name in list
+/**********************************************************
+ *
+ * Method find: Class stadiumGraph
+ *_________________________________________________________
+ * This method searches for and returns the index of the
+ * graphNode in adjacencyList with the stadium with the
+ * given name. If not found returns -1.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   name - the name of the stadium being searched for
+ *
+ * POST-CONDITIONS
+ * This function will return the index of graphNode with the
+ * stadium with the given name in adjacencyList or return
+ * -1 if not found.
+ ***********************************************************/
 int stadiumGraph::find(string name)
 {
     for (int i = 0; i < vertices; i++)
@@ -543,9 +791,28 @@ int stadiumGraph::find(string name)
     return -1;
 }
 
-// find and return list of links with the shortest path fron start to end
+/**********************************************************
+ *
+ * Method shortestPathBetween: Class stadiumGraph
+ *_________________________________________________________
+ * This method applies dijkstra's algorithm to the graphNode
+ * with the given name, and then uses this information to
+ * form a linked list containing the path from start stadium
+ * to the stadium with endName that is the shortest.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following need a previously defined value:
+ *   startName - the name of the stadium the path is starting from
+ *   endName - the name of the stadium the path is ending at.
+ *
+ * POST-CONDITIONS
+ * This function will return a linked list containing the
+ * shortest path between the stadiums with the corresponding
+ * names.
+ ***********************************************************/
 graphNode *stadiumGraph::shortestPathBetween(const string &startName, const string &endName)
 {
+    //Find indexes of start and end stadiums
     int startIdx = find(startName);
     int endIdx = find(endName);
     if (startIdx == -1 || endIdx == -1)
@@ -555,8 +822,10 @@ graphNode *stadiumGraph::shortestPathBetween(const string &startName, const stri
     int *C = new int[vertices];
     int *P = new int[vertices];
 
+    //Obtain the dijkstra arrays
     dijkstra(startIdx, S, C, P);
 
+    //If no path exist between the start and end stadiums
     if (C[endIdx] == numeric_limits<int>::max())
     {
         delete[] S;
@@ -565,6 +834,7 @@ graphNode *stadiumGraph::shortestPathBetween(const string &startName, const stri
         return nullptr;
     }
 
+    //Backtrack using the P array to find the full path starting from the end stadium working back to the start stadium
     graphNode *head = new graphNode(adjacencyList[endIdx]->value);
     graphNode *current = head;
     int currentIdx = endIdx;
@@ -583,8 +853,23 @@ graphNode *stadiumGraph::shortestPathBetween(const string &startName, const stri
     return current;
 }
 
+/**********************************************************
+ *
+ * Method printGraph: Class stadiumGraph
+ *_________________________________________________________
+ * This method outputs the contents of the adjacencyList,
+ * and thus the contents of this stadiumGraph.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will output this object's contents for testing
+ * purposes.
+ ***********************************************************/
 void stadiumGraph::printGraph() const
 {
+    //If adjacencyList is nullptr or vertices is 0
     if (!adjacencyList || vertices == 0)
     {
         cout << "Graph is empty.\n";
@@ -594,10 +879,12 @@ void stadiumGraph::printGraph() const
     cout << "===== Stadium Graph =====" << endl;
     for (int i = 0; i < vertices; ++i)
     {
+        //If graph does not have a linked list/a stadium at this index, continue
         graphNode *current = adjacencyList[i];
         if (!current)
             continue;
 
+        //Output full linked list
         cout << "Stadium: " << current->value.getName() << endl;
         graphNode *adj = current->adjacent;
         while (adj)
@@ -610,6 +897,18 @@ void stadiumGraph::printGraph() const
     cout << "=========================" << endl;
 }
 
+/**********************************************************
+ *
+ * Method getVertexCount: Class stadiumGraph
+ *_________________________________________________________
+ * This method returns the vertices attribute.
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * none
+ *
+ * POST-CONDITIONS
+ * This function will return the vertices attribute.
+ ***********************************************************/
 int stadiumGraph::getVertexCount() const
 {
     return vertices;
