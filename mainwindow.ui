@@ -2817,169 +2817,6 @@ Team Name (with grass)</string>
      <string>Admin PIN: 12345</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_CustomTrip">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>200</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="placeholderText">
-     <string>TMobile Park</string>
-    </property>
-    <item>
-     <property name="text">
-      <string>American Family Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Angel Stadium</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Busch Stadium</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Chase Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Citi Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Citizens Bank Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Comerica Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Coors Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Daikin Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Dodger Stadium</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Fenway Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>George M. Steinbrenner Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Globe Life Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Great American Ball Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Kauffman Stadium</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>LoanDepot Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Nationals Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Oracle Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Oriole Park at Camden Yards</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Petco Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>PNC Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Progressive Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Rate Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Rogers Centre</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Sutter Health Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>TMobile Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Target Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Truist Park</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Wrigley Field</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Yankee Stadium</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QLabel" name="label_moveThisTeamText">
     <property name="geometry">
      <rect>
@@ -4567,6 +4404,169 @@ Team Name (with grass)</string>
      <string>19.99</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox_CustomTrip">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>200</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>American Family Field</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>American Family Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Angel Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Busch Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Camden Yards</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Chase Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citi Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Citizens Bank Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Comerica Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Coors Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Daikin Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dodger Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fenway Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>George M Steinbrenner Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Globe Life Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Great American Ballpark</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kauffman Stadium</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>LoanDepot Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nationals Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Oracle Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Petco Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>PNC Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Progressive Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rate Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rogers Centre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sutter Health Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>TMobile Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Target Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Truist Park</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Wrigley Field</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Yankee Stadium</string>
+     </property>
+    </item>
+   </widget>
    <zorder>backgroundWidget</zorder>
    <zorder>label_map</zorder>
    <zorder>label_FenwayParkToLoanDepotPark_Black</zorder>
@@ -4686,7 +4686,6 @@ Team Name (with grass)</string>
    <zorder>souvenirComboBox</zorder>
    <zorder>button_PurchaseSouvenir</zorder>
    <zorder>AdminPinLineEdit</zorder>
-   <zorder>comboBox_CustomTrip</zorder>
    <zorder>label_moveThisTeamText</zorder>
    <zorder>label_moveToThisStadiumText</zorder>
    <zorder>comboBox_moveToThisStadium</zorder>
@@ -4705,6 +4704,7 @@ Team Name (with grass)</string>
    <zorder>souvenirToChangePriceComboBox</zorder>
    <zorder>button_ChangeSouvenirPrice</zorder>
    <zorder>lineEdit_ChangePriceTo</zorder>
+   <zorder>comboBox_CustomTrip</zorder>
   </widget>
  </widget>
  <resources>

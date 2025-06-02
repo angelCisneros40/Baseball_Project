@@ -947,3 +947,55 @@ bool stadiumGraph::isEmpty() const
 {
     return vertices == 0 || adjacencyList == nullptr;
 }
+
+graphNode* stadiumGraph::shortestPathTrip(const vector<string>& stadiums)
+{
+    if (stadiums.size() < 2)
+        return nullptr;
+
+    graphNode* head = nullptr;
+    graphNode* tail = nullptr;
+
+    for (size_t i = 0; i < stadiums.size() - 1; ++i)
+    {
+        string from = stadiums[i];
+        string to = stadiums[i + 1];
+
+        graphNode* segment = shortestPathBetween(from, to);
+        if (!segment)
+        {
+            cerr << "No path between " << from << " and " << to << endl;
+            // Clean up already-allocated path
+            while (head)
+            {
+                graphNode* next = head->adjacent;
+                delete head;
+                head = next;
+            }
+            return nullptr;
+        }
+
+        // Chain segment into full path
+        if (!head)
+        {
+            head = segment;
+            tail = segment;
+        }
+        else
+        {
+            // Skip the first node of the segment (it's a duplicate)
+            segment = segment->adjacent;
+
+            while (segment)
+            {
+                graphNode* next = segment->adjacent;
+                segment->adjacent = nullptr;
+                tail->adjacent = segment;
+                tail = segment;
+                segment = next;
+            }
+        }
+    }
+
+    return head;
+}

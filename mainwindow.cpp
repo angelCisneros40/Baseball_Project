@@ -273,6 +273,126 @@ void MainWindow::planCustomTrip()
     printOutputToTextBrowser();
 }
 
+void MainWindow::runCustomTrip()
+{
+    fs::path projectRoot = findProjectRoot();
+    fs::path outputPath = projectRoot / "src" / "output.txt";
+
+    for (const QString &edge : blueEdges)
+        toggleEdgeLabel(edge, false);
+
+    ifstream inFile(outputPath);
+    if (!inFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for reading\n";
+        return;
+    }
+
+    vector<string> stadiumNames;
+    string line;
+    while (getline(inFile, line))
+    {
+        if (!line.empty())
+            stadiumNames.push_back(line);
+    }
+    inFile.close();
+
+    ofstream outFile(outputPath, ios::out | ios::trunc);
+    if (!outFile.is_open())
+    {
+        cerr << "Error: Could not open output.txt for writing\n";
+        return;
+    }
+
+    outFile << "Here is your Custom Trip!\n\n";
+    int totalDistance = 0;
+
+    for (size_t i = 0; i < stadiumNames.size() - 1; ++i)
+    {
+        string startName = stadiumNames[i];
+        string endName = stadiumNames[i + 1];
+
+        graphNode *path = stadiumGraphObject.shortestPathBetween(startName, endName);
+        if (!path)
+        {
+            outFile << "No path found from " << startName << " to " << endName << "\n\n";
+            continue;
+        }
+
+        outFile << "Trip from " << startName << " to " << endName << ":\n";
+
+        graphNode *node = path;
+        while (node && node->adjacent)
+        {
+            QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
+            QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+
+            QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
+            QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
+
+            bool found = false;
+            for (const QString &from : fromAliases)
+            {
+                for (const QString &to : toAliases)
+                {
+                    QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+                    QLabel *label = findChild<QLabel *>(labelName);
+
+                    if (!label)
+                    {
+                        labelName = QString("label_%1To%2_Blue").arg(to, from);
+                        label = findChild<QLabel *>(labelName);
+                    }
+
+                    if (label)
+                    {
+                        toggleEdgeLabel(labelName, true);
+                        found = true;
+                        break;
+                    }
+                }
+                if (found)
+                    break;
+            }
+
+            if (!found)
+            {
+                qDebug() << "Could not find edge label for " << baseFrom << " to " << baseTo;
+            }
+
+            int fromIndex = stadiumGraphObject.find(node->value);
+            graphNode *adj = stadiumGraphObject.getStadium(fromIndex);
+            while (adj && adj->value != node->adjacent->value)
+                adj = adj->adjacent;
+
+            if (adj)
+                totalDistance += adj->distance;
+
+            outFile << " - " << node->value.getName() << "\n";
+            node = node->adjacent;
+        }
+        if (node)
+            outFile << " - " << node->value.getName() << "\n";
+
+        outFile << "\n";
+
+        while (path)
+        {
+            graphNode *toDelete = path;
+            path = path->adjacent;
+            delete toDelete;
+        }
+    }
+
+    outFile << "Total Distance: " << totalDistance << "\n";
+    outFile.close();
+    printOutputToTextBrowser();
+    ui->button_AddStadiumToCustomTrip->setVisible(intiCustomTrip);
+    ui->comboBox_CustomTrip->setVisible(intiCustomTrip);
+    ui->button_StartCustomTrip->setVisible(intiCustomTrip);
+    intiCustomTrip = !intiCustomTrip;
+}
+
 void MainWindow::itemPurchased()
 {
     clearOutputFile();
@@ -420,25 +540,6 @@ void MainWindow::stadiumAToStadiumB()
     }
 }
 
-void MainWindow::runCustomTrip()
-{
-
-    clearOutputFile();
-
-    fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
-    if (!outFile.is_open())
-    {
-        cerr << "Error: Could not open output.txt for writing\n";
-        return;
-    }
-
-    outFile << "Here is your Custom Trip!\n";
-    outFile.close();
-    printOutputToTextBrowser();
-}
-
 void MainWindow::startAmericanLeaugeTrip()
 {
     clearOutputFile();
@@ -563,10 +664,8 @@ void MainWindow::ChangeTeamToStadium()
         return;
     }
 
-    // Swap teams
     swap(blocks[indexTeam][1], blocks[indexStadium][1]);
 
-    // Rewrite stadiums.txt
     for (const auto &block : blocks)
     {
         for (const auto &l : block)
@@ -581,7 +680,6 @@ void MainWindow::ChangeTeamToStadium()
             << "\" moved to \"" << selectedStadium.toStdString() << "\"!\n";
     outFile.close();
 
-    // Clear and reinsert into the trees
     teamSortedTree.clear();
     stadiumSortedTree.clear();
     dateSortedTree.clear();
@@ -601,7 +699,7 @@ void MainWindow::ChangeTeamToStadium()
             sscanf(block[5].c_str(), "%d/%d/%d", &month, &day, &year);
             s.setDate(month, day, year);
 
-            int capacity = std::stoi(block[6]);
+            int capacity = stoi(block[6]);
             s.setCapacity(capacity);
             s.setLeague(block[7]);
             s.setField(block[8]);
@@ -1126,8 +1224,7 @@ void MainWindow::souvenirToDelete()
         {
             QString currentStadium = currentLine.mid(8).trimmed();
 
-            // Peek at the next line without advancing
-            std::streampos pos = inFile.tellg();
+            streampos pos = inFile.tellg();
             string nextLine;
             if (getline(inFile, nextLine))
             {
@@ -1137,21 +1234,21 @@ void MainWindow::souvenirToDelete()
                     QString currentItem = nextLineStr.mid(5).trimmed();
                     if (currentStadium == stadiumName && currentItem == itemName && !deleted)
                     {
-                        // Skip this pair once
+
                         skipNext = true;
                         deleted = true;
                         continue;
                     }
                     else
                     {
-                        // Write both lines back
+
                         tempFile << line << '\n'
                                  << nextLine << '\n';
                     }
                 }
                 else
                 {
-                    // Not a valid item line; write both lines
+
                     tempFile << line << '\n'
                              << nextLine << '\n';
                 }
@@ -1161,7 +1258,6 @@ void MainWindow::souvenirToDelete()
                 tempFile << line << '\n';
             }
 
-            // Reposition stream if needed
             inFile.clear();
             inFile.seekg(pos);
         }
@@ -1182,10 +1278,8 @@ void MainWindow::souvenirToDelete()
     fs::remove(souvenirPath);
     fs::rename(tempPath, souvenirPath);
 
-    // Refresh combo box
     initSouvenirToDeleteComboBox();
 
-    // Update output
     fs::path outputPath = projectRoot / "src" / "output.txt";
     ofstream outFile(outputPath, ios::out | ios::trunc);
     if (outFile.is_open())
@@ -1288,7 +1382,7 @@ void MainWindow::changeSouvenirPrice()
     }
 
     double newPrice = newPriceStr.toDouble();
-    std::string itemKey = selected.toStdString();
+    string itemKey = selected.toStdString();
 
     if (priceMap.find(itemKey) != priceMap.end())
     {
@@ -1297,8 +1391,8 @@ void MainWindow::changeSouvenirPrice()
 
         outFile << "Souvenir price updated:\n"
                 << "Item: " << itemKey << "\n"
-                << "Old Price: $" << std::fixed << std::setprecision(2) << oldPrice << "\n"
-                << "New Price: $" << std::fixed << std::setprecision(2) << newPrice << "\n";
+                << "Old Price: $" << fixed << setprecision(2) << oldPrice << "\n"
+                << "New Price: $" << fixed << setprecision(2) << newPrice << "\n";
     }
     else
     {
@@ -1314,17 +1408,16 @@ void MainWindow::startFullLeagueTrip()
     clearOutputFile();
 
     fs::path outputPath = findProjectRoot() / "src" / "output.txt";
-    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
+    ofstream outFile(outputPath, ios::out | ios::trunc);
     if (!outFile.is_open())
     {
-        std::cerr << "Error: Could not open output.txt for writing\n";
+        cerr << "Error: Could not open output.txt for writing\n";
         return;
     }
 
     outFile << "Full League Trip\n";
     outFile << "Starting from a stadium in California (Dodger Stadium)\n\n";
 
-    // Use the already-built graph to get the trip
     graphNode *trip = stadiumGraphObject.shortestPathAll();
     if (!trip)
     {

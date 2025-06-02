@@ -85,6 +85,8 @@ public:
     int getVertexCount() const;
     bool isEmpty() const;
 
+    graphNode* shortestPathTrip(const vector<string>& stadiums);
+
 private:
     graphNode **adjacencyList;                                  //CALC/OUT - adjacency list containing all nodes and the nodes they're adjacent to
     int vertices;                                               //CALC/OUT - the number of nodes/vertices in the graph, also size of adjacencyList
