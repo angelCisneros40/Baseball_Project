@@ -94,7 +94,7 @@ public:
 ******************************/
 
 /****************************************************************
-* stadium(stadiumNode* root, char sortCriteria);
+* stadiumTree(stadiumNode* root, char sortCriteria);
 * Constructor; Default constructor, setting the root and sortCriteria
 * attributes to their default values or their given values if present,
 * and then using the sortCriteria, assign the compare attribute.
@@ -103,7 +103,7 @@ public:
 ***************************************************************/
 
 /****************************************************************
-* stadium(const stadiumTree& otherTree);
+* stadiumTree(const stadiumTree& otherTree);
 * Constructor; Copy constructor, copies attributes and each
 * element of the tree.
 * Parameters: otherTree (const stadiumTree&)
@@ -111,10 +111,18 @@ public:
 ***************************************************************/
 
 /****************************************************************
-* stadium(char sortCriteria);
+* stadiumTree(char sortCriteria);
 * Constructor; Initializes root to nullptr and, initializing
 * sortCriteria using given char, and using it to set compare.
 * Parameters: sortCriteria (char)
+* Return: none
+***************************************************************/
+
+/****************************************************************
+* ~stadiumTree();
+* Destructor; Deletes the dynamic memory set aside for the tree
+* starting at root.
+* Parameters: none
 * Return: none
 ***************************************************************/
 
