@@ -6,6 +6,7 @@
 #include <sstream>
 #include <algorithm>
 #include <unordered_set>
+#include <vector>
 #include "stadium.h"
 using namespace std;
 

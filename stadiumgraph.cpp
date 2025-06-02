@@ -648,4 +648,3 @@ bool stadiumGraph::isEmpty() const
 {
     return vertices == 0 || adjacencyList == nullptr;
 }
-

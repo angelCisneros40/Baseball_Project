@@ -361,9 +361,13 @@ void MainWindow::stadiumAToStadiumB()
                 QString labelName = QString("label_%1To%2_Blue").arg(from, to);
                 QLabel *label = findChild<QLabel *>(labelName);
 
+                // cout << "labelName " << labelName.toStdString() << endl;
+
                 if (!label)
                 {
+                    // cout << labelName.toStdString() << " failed, trying ";
                     labelName = QString("label_%1To%2_Blue").arg(to, from);
+                    // cout << labelName.toStdString() << " instead\n";
                     label = findChild<QLabel *>(labelName);
                 }
 
