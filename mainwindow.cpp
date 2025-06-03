@@ -564,7 +564,7 @@ void MainWindow::startAmericanLeaugeTrip()
             break;
         }
     }
-
+    americanGraph.printGraph();
     if (!foundStart)
     {
         outFile << "Error: No California stadium found in the American League.\n";

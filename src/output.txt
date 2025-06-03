@@ -1,2 +1,42 @@
-Here is your American League Trip
-Error: No California stadium found in the American League.
+Full League Trip
+Starting from a stadium in California (Dodger Stadium)
+
+1. Dodger Stadium
+2. Angel Stadium
+3. Petco Park
+4. Chase Field
+5. Coors Field
+6. Kauffman Stadium
+7. Busch Stadium
+8. Great American Ballpark
+9. Progressive Field
+10. Comerica Park
+11. Progressive Field
+12. PNC Park
+13. Nationals Park
+14. Camden Yards
+15. Citizens Bank Park
+16. Citi Field
+17. Yankee Stadium
+18. Fenway Park
+19. Rogers Centre
+20. American Family Field
+21. Wrigley Field
+22. Rate Field
+23. American Family Field
+24. Target Field
+25. American Family Field
+26. Wrigley Field
+27. Great American Ballpark
+28. Truist Park
+29. LoanDepot Park
+30. George M Steinbrenner Field
+31. Daikin Park
+32. Globe Life Field
+33. Chase Field
+34. Oracle Park
+35. Sutter Health Park
+36. TMobile Park
+
+Total stadiums visited: 36
+Total distance traveled: 9530 miles
