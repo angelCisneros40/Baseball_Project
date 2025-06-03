@@ -544,19 +544,54 @@ void MainWindow::startAmericanLeaugeTrip()
 {
     clearOutputFile();
 
-    fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
+    fs::path outputPath = findProjectRoot() / "src" / "output.txt";
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
     if (!outFile.is_open())
     {
-        cerr << "Error: Could not open output.txt for writing\n";
+        std::cerr << "Error: Could not open output.txt for writing\n";
         return;
     }
 
-    outFile << "Here is your American League Trip\nstarting from Dodgers Stadium!\n";
+    outFile << "Here is your American League Trip\n";
+    outFile << "Starting from Angel Stadium!\n\n";
+
+    // Use your dedicated function for this task
+    graphNode* trip = stadiumGraphObject.shortestPathAmerican();
+
+    if (!trip)
+    {
+        outFile << "Error: No trip could be planned.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    // Print path and accumulate distance
+    int count = 0;
+    int totalDistance = 0;
+    for (graphNode* current = trip; current; current = current->adjacent)
+    {
+        outFile << ++count << ". " << current->value.getName() << "\n";
+        if (current->adjacent)
+            totalDistance += current->adjacent->distance;
+    }
+
+    outFile << "\nTotal stadiums visited: " << count << "\n";
+    outFile << "Total distance traveled: " << totalDistance << " miles\n";
     outFile.close();
+    highlightTripEdges(trip);
     printOutputToTextBrowser();
+
+    // Clean up dynamically allocated path
+    while (trip)
+    {
+        graphNode* toDelete = trip;
+        trip = trip->adjacent;
+        delete toDelete;
+    }
 }
+
+
 
 void MainWindow::startNationalLeaugeTrip()
 {
@@ -564,17 +599,51 @@ void MainWindow::startNationalLeaugeTrip()
 
     fs::path projectRoot = findProjectRoot();
     fs::path outputPath = projectRoot / "src" / "output.txt";
-    ofstream outFile(outputPath, ios::out | ios::trunc);
+    std::ofstream outFile(outputPath, std::ios::out | std::ios::trunc);
     if (!outFile.is_open())
     {
-        cerr << "Error: Could not open output.txt for writing\n";
+        std::cerr << "Error: Could not open output.txt for writing\n";
         return;
     }
 
-    outFile << "Here is your National League Trip\nstarting from Dodgers Stadium!\n";
+    outFile << "Here is your National League Trip\n";
+    outFile << "Starting from Dodger Stadium!\n\n";
+
+    // Call the fixed trip planner
+    graphNode* trip = stadiumGraphObject.shortestPathNational();
+    if (!trip)
+    {
+        outFile << "Error: No trip could be planned.\n";
+        outFile.close();
+        printOutputToTextBrowser();
+        return;
+    }
+
+    // Output the trip
+    int count = 0;
+    int totalDistance = 0;
+    for (graphNode* current = trip; current; current = current->adjacent)
+    {
+        outFile << ++count << ". " << current->value.getName() << "\n";
+        if (current->adjacent)
+            totalDistance += current->adjacent->distance;
+    }
+
+    outFile << "\nTotal stadiums visited: " << count << "\n";
+    outFile << "Total distance traveled: " << totalDistance << " miles\n";
     outFile.close();
+
     printOutputToTextBrowser();
+    highlightTripEdges(trip);
+    // Cleanup
+    while (trip)
+    {
+        graphNode* toDelete = trip;
+        trip = trip->adjacent;
+        delete toDelete;
+    }
 }
+
 
 void MainWindow::printPurchaseSummaryToOutput()
 {

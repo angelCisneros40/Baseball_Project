@@ -1,0 +1,30 @@
+Here is your National League Trip
+Starting from Dodger Stadium!
+
+1. Dodger Stadium
+2. Petco Park
+3. Chase Field
+4. Coors Field
+5. Kauffman Stadium
+6. Busch Stadium
+7. Great American Ballpark
+8. Wrigley Field
+9. American Family Field
+10. Wrigley Field
+11. Comerica Park
+12. Progressive Field
+13. PNC Park
+14. Nationals Park
+15. Citizens Bank Park
+16. Citi Field
+17. Citizens Bank Park
+18. Nationals Park
+19. Truist Park
+20. LoanDepot Park
+21. Daikin Park
+22. Globe Life Field
+23. Chase Field
+24. Oracle Park
+
+Total stadiums visited: 24
+Total distance traveled: 13205 miles

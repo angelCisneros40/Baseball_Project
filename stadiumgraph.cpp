@@ -365,57 +365,80 @@ graphNode *stadiumGraph::shortestPathAll()
  * This function will return a linked list containing the
  * shortest path to pass through all national league stadiums.
  ***********************************************************/
-graphNode *stadiumGraph::shortestPathNational()
+graphNode* stadiumGraph::shortestPathNational()
 {
-    stadiumGraph compGraph = completeGraph();
+    int startIdx = find("Dodger Stadium");
+    if (startIdx == -1)
+    {
+        std::cerr << "Dodger Stadium not found.\n";
+        return nullptr;
+    }
 
-    graphNode *visited, *end;
-    visited = end = nullptr;
+    std::unordered_set<std::string> visited;
+    graphNode* head = new graphNode(adjacencyList[startIdx]->value);
+    graphNode* tail = head;
+    visited.insert(head->value.getName());
 
-    visited = new graphNode(adjacencyList[find("Dodger Stadium")]->value);
-    end = visited;
-    graphNode *current = compGraph.adjacencyList[compGraph.find("Dodger Stadium")];
+    stadium currentStadium = adjacencyList[startIdx]->value;
 
-    // Loops until no more national league stadiums to visit, everything else the same
     while (true)
     {
-        graphNode *smallestNode = nullptr;
-        int smallest = numeric_limits<int>::max();
-        for (; current; current = current->adjacent)
+        // Run Dijkstra from current stadium
+        graphNode* S = new graphNode[vertices];
+        int* C = new int[vertices];
+        int* P = new int[vertices];
+        dijkstra(find(currentStadium), S, C, P);
+
+        int nextIdx = -1;
+        int minDist = std::numeric_limits<int>::max();
+
+        // Find closest unvisited National League stadium
+        for (int i = 0; i < vertices; ++i)
         {
-            if (current->distance < smallest && current->value.getLeague() == "National")
+            if (adjacencyList[i]->value.getLeague() != "National") continue;
+            if (visited.count(adjacencyList[i]->value.getName())) continue;
+
+            if (C[i] < minDist)
             {
-                bool alreadyVisited = false;
-                for (graphNode *ptr = visited; ptr; ptr = ptr->adjacent)
-                {
-                    if (ptr->value == current->value)
-                    {
-                        alreadyVisited = true;
-                        break;
-                    }
-                }
-
-                if (alreadyVisited)
-                    continue;
-
-                smallestNode = current;
-                smallest = current->distance;
+                minDist = C[i];
+                nextIdx = i;
             }
         }
 
-        // If no more national league stadiums to visit
-        if (smallest == numeric_limits<int>::max())
+        // Done visiting all National League stadiums
+        if (nextIdx == -1)
+        {
+            delete[] S;
+            delete[] C;
+            delete[] P;
             break;
+        }
 
-        end->adjacent = new graphNode(smallestNode->value);
-        end = end->adjacent;
-        current = compGraph.adjacencyList[compGraph.find(smallestNode->value)];
+        // Reconstruct path from P[] and add to linked list
+        std::vector<int> pathIndices;
+        for (int v = nextIdx; v != -1; v = P[v])
+            pathIndices.push_back(v);
+        std::reverse(pathIndices.begin(), pathIndices.end());
+
+        for (size_t j = 1; j < pathIndices.size(); ++j)
+        {
+            graphNode* step = new graphNode(adjacencyList[pathIndices[j]]->value);
+            step->distance = C[pathIndices[j]];
+            tail->adjacent = step;
+            tail = step;
+            visited.insert(step->value.getName());
+        }
+
+        currentStadium = adjacencyList[nextIdx]->value;
+
+        delete[] S;
+        delete[] C;
+        delete[] P;
     }
 
-    expandPath(visited);
-
-    return visited;
+    return head;
 }
+
 
 /**********************************************************
  *
@@ -437,58 +460,79 @@ graphNode *stadiumGraph::shortestPathNational()
  * This function will return a linked list containing the
  * shortest path to pass through all american league stadiums.
  ***********************************************************/
-graphNode *stadiumGraph::shortestPathAmerican()
+graphNode* stadiumGraph::shortestPathAmerican()
 {
-    stadiumGraph compGraph = completeGraph();
+    int startIdx = find("Angel Stadium");
+    if (startIdx == -1)
+    {
+        std::cerr << "Angel Stadium not found.\n";
+        return nullptr;
+    }
 
-    graphNode *visited, *end;
-    visited = end = nullptr;
+    std::unordered_set<std::string> visited;
+    graphNode* head = new graphNode(adjacencyList[startIdx]->value);
+    graphNode* tail = head;
+    visited.insert(head->value.getName());
 
-    // Starts at Angel stadium cuz american league
-    visited = new graphNode(adjacencyList[find("Angel Stadium")]->value);
-    end = visited;
-    graphNode *current = compGraph.adjacencyList[compGraph.find("Angel Stadium")];
+    stadium currentStadium = adjacencyList[startIdx]->value;
 
-    // Loops until no more american league stadiums to visit, everything else same
     while (true)
     {
-        graphNode *smallestNode = nullptr;
-        int smallest = numeric_limits<int>::max();
-        for (; current; current = current->adjacent)
+        // Dijkstra to all nodes from current stadium
+        graphNode* S = new graphNode[vertices];
+        int* C = new int[vertices];
+        int* P = new int[vertices];
+        dijkstra(find(currentStadium), S, C, P);
+
+        int nextIdx = -1;
+        int minDist = std::numeric_limits<int>::max();
+
+        // Search for the closest unvisited American League stadium
+        for (int i = 0; i < vertices; ++i)
         {
-            if (current->distance < smallest && current->value.getLeague() == "American")
+            if (adjacencyList[i]->value.getLeague() != "American") continue;
+            if (visited.count(adjacencyList[i]->value.getName())) continue;
+
+            if (C[i] < minDist)
             {
-                bool alreadyVisited = false;
-                for (graphNode *ptr = visited; ptr; ptr = ptr->adjacent)
-                {
-                    if (ptr->value == current->value)
-                    {
-                        alreadyVisited = true;
-                        break;
-                    }
-                }
-
-                if (alreadyVisited)
-                    continue;
-
-                smallestNode = current;
-                smallest = current->distance;
+                minDist = C[i];
+                nextIdx = i;
             }
         }
 
-        // If no more American league stadiums to visit
-        if (smallest == numeric_limits<int>::max())
+        if (nextIdx == -1) // All visited
+        {
+            delete[] S;
+            delete[] C;
+            delete[] P;
             break;
+        }
 
-        end->adjacent = new graphNode(smallestNode->value);
-        end = end->adjacent;
-        current = compGraph.adjacencyList[compGraph.find(smallestNode->value)];
+        // Reconstruct the shortest path using P[] from currentStadium to nextIdx
+        std::vector<int> pathIndices;
+        for (int v = nextIdx; v != -1; v = P[v])
+            pathIndices.push_back(v);
+        std::reverse(pathIndices.begin(), pathIndices.end());
+
+        for (size_t j = 1; j < pathIndices.size(); ++j)
+        {
+            graphNode* step = new graphNode(adjacencyList[pathIndices[j]]->value);
+            step->distance = C[pathIndices[j]];
+            tail->adjacent = step;
+            tail = step;
+            visited.insert(step->value.getName());
+        }
+
+        currentStadium = adjacencyList[nextIdx]->value;
+
+        delete[] S;
+        delete[] C;
+        delete[] P;
     }
 
-    expandPath(visited);
-
-    return visited;
+    return head;
 }
+
 
 /**********************************************************
  *
