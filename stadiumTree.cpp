@@ -2,7 +2,8 @@
 #include "stadium.h"
 
 // Default and argumented constructor
-StadiumTree::StadiumTree(stadiumNode *root, char sortCriteria) : root(root), sortCriteria(sortCriteria)
+StadiumTree::StadiumTree(stadiumNode *root, char sortCriteria)
+    : root(root), sortCriteria(sortCriteria)
 {
     if (sortCriteria == 's')
         compare = compName;
@@ -50,8 +51,10 @@ StadiumTree::StadiumTree(const StadiumTree &otherTree)
  ***********************************************************/
 void StadiumTree::insertNode(stadium val, char style)
 {
-    // If only national and is american or only american and is national, don't add
-    if ((style == 'n' && val.getLeague() == "American") || (style == 'm' && val.getLeague() == "National"))
+    // If only national and is american or only
+    // american and is national, don't add
+    if ((style == 'n' && val.getLeague() == "American") ||
+        (style == 'm' && val.getLeague() == "National"))
         return;
 
     stadiumNode *newNode = new stadiumNode;
@@ -81,13 +84,15 @@ void StadiumTree::insertNode(stadium val, char style)
  * This function will insert the given node to the correct
  * spot at the correct empty spot.
  ***********************************************************/
-void StadiumTree::insert(stadiumNode *&nodePtr, stadiumNode *&newNode, char style)
+void StadiumTree::insert(stadiumNode *&nodePtr,
+                         stadiumNode *&newNode, char style)
 {
     // Empty spot reached
     if (nodePtr == NULL)
         nodePtr = newNode;
     // If field-separated, and don't both have same field type
-    else if (style == 'f' && nodePtr->value.getField() != newNode->value.getField())
+    else if (style == 'f' && nodePtr->value.getField() !=
+                                 newNode->value.getField())
     {
         // Grass come first, meaning lower value/left side of tree
         if (newNode->value.getField() == "grass")
@@ -123,7 +128,8 @@ void StadiumTree::insert(stadiumNode *&nodePtr, stadiumNode *&newNode, char styl
  * This function will change all values in the stadiumList
  * array.
  ***********************************************************/
-void StadiumTree::accessInOrder(stadiumNode *nodePtr, stadium *&stadiumList, int &index) const
+void StadiumTree::accessInOrder(stadiumNode *nodePtr,
+                                stadium *&stadiumList, int &index) const
 {
     if (nodePtr)
     {
@@ -201,7 +207,8 @@ bool StadiumTree::equal(stadiumNode *target, stadiumNode *otherNode)
     // If both have a left branch
     if (otherNode->left && target->left)
     {
-        // If the left branches are not equal in structure and value, return false
+        // If the left branches are not equal in structure
+        // and value, return false
         if (!equal(target->left, otherNode->left))
             return false;
     }
@@ -212,7 +219,8 @@ bool StadiumTree::equal(stadiumNode *target, stadiumNode *otherNode)
     // If both have a right branch
     if (otherNode->right && target->right)
     {
-        // If the right branches are not equal in structure and value, return false
+        // If the right branches are not equal in structure
+        //  and value, return false
         if (!equal(target->right, otherNode->right))
             return false;
     }
@@ -639,7 +647,7 @@ void StadiumTree::clear()
  * This function returns pointer to stadium with given name
  * or nullptr if not found.
  ***********************************************************/
-stadium *StadiumTree::findStadiumByName(const std::string &name)
+stadium *StadiumTree::findStadiumByName(const string &name)
 {
     return findNodeByNameHelper(root, name);
 }
@@ -662,20 +670,22 @@ stadium *StadiumTree::findStadiumByName(const std::string &name)
  * This function returns pointer to stadium with given name
  * or nullptr if not found.
  ***********************************************************/
-stadium *StadiumTree::findNodeByNameHelper(stadiumNode *node, const std::string &name)
+stadium *StadiumTree::findNodeByNameHelper(
+    stadiumNode *node, const string &name)
 {
-    //Tried to branch off from a leaf
+    // Tried to branch off from a leaf
     if (!node)
         return nullptr;
-    //Node found with stadium with matching name
+    // Node found with stadium with matching name
     if (node->value.getName() == name)
         return &node->value;
 
-    //Check left branch, and return result if it isn't nullptr
+    // Check left branch, and return result if it isn't nullptr
     stadium *left = findNodeByNameHelper(node->left, name);
     if (left)
         return left;
 
-    //Check right branch, either returning a valid pointer, or nullptr if not found.
+    // Check right branch, either returning a valid
+    // pointer, or nullptr if not found.
     return findNodeByNameHelper(node->right, name);
 }

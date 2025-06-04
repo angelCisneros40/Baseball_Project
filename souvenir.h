@@ -8,7 +8,11 @@ class souvenir
 {
 public:
     // Default constructor
-    souvenir(string stadium = "", string item = "", double price = 0) : stadium(stadium), item(item), price(price) {}
+    souvenir(string stadium = "",
+             string item = "",
+             double price = 0) : stadium(stadium),
+                                 item(item),
+                                 price(price) {}
 
     // Accessors
     string getStadiumName() { return stadium; }

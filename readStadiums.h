@@ -38,12 +38,12 @@ void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph);
 *******************************************************************/
 
 /*******************************************************************
-* void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
-*
-* This function writes stadium information to stadiums.txt using
-* the informatin in nameSorted and graph.
-*------------------------------------------------------------------
-* Parameter: nameSorted (StadiumTree&), graph (stadiumGraph&)
-*------------------------------------------------------------------
-* Return: none
-*******************************************************************/
+ * void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
+ *
+ * This function writes stadium information to stadiums.txt using
+ * the informatin in nameSorted and graph.
+ *------------------------------------------------------------------
+ * Parameter: nameSorted (StadiumTree&), graph (stadiumGraph&)
+ *------------------------------------------------------------------
+ * Return: none
+ *******************************************************************/

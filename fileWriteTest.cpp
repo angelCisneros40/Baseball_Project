@@ -47,7 +47,7 @@ void clearOutputFile()
 void testReadToWriteFile()
 {
     fs::path projectRoot = findProjectRoot();
-    fs::path outputPath = projectRoot / "src" / "output.txt"; // ./src/output.txt
+    fs::path outputPath = projectRoot / "src" / "output.txt"; //./src/output.txt
     ofstream outFile(outputPath, ios::out | ios::trunc);
     if (!outFile.is_open())
     {

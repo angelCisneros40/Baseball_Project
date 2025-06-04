@@ -16,9 +16,12 @@
  *   nameSorted - StadiumTree sorted by name
  *   teamSorted - StadiumTree sorted by team name
  *   dateSorted - StadiumTree sorted by dateOpened
- *   americanTeamSorted - StadiumTree sorted by team name containing only american league stadiums
- *   nationalTeamSorted - StadiumTree sorted by team name containing only national league stadiums
- *   fieldTeamSorted - StadiumTree sorted by team name separated by type of field
+ *   americanTeamSorted - StadiumTree sorted by
+ *   team name containing only american league stadiums
+ *   nationalTeamSorted - StadiumTree sorted by team name
+ *   containing only national league stadiums
+ *   fieldTeamSorted - StadiumTree sorted by team name
+ *   separated by type of field
  *   graph - stadiumGraph object
  *
  * POST-CONDITIONS
@@ -33,7 +36,7 @@ void readStadiumFiles(StadiumTree &nameSorted,
                       stadiumGraph &graph)
 {
 
-    //Open stadiums.txt
+    // Open stadiums.txt
     fs::path projectRoot = findProjectRoot();
     fs::path filePath = projectRoot / "src" / "stadiums.txt";
     ifstream infile(filePath);
@@ -43,14 +46,23 @@ void readStadiumFiles(StadiumTree &nameSorted,
         return;
     }
 
-    string line, name, team, address, addressLine2, phoneNum, date, capStr, league, field;
+    string line,
+        name,
+        team,
+        address,
+        addressLine2,
+        phoneNum,
+        date,
+        capStr,
+        league,
+        field;
     int day, month, year, capacity;
     bool og30;
 
-    //Loop til eof
+    // Loop til eof
     while (getline(infile, name))
     {
-        //Same format for all stadiums
+        // Same format for all stadiums
         getline(infile, team);
         getline(infile, address);
         getline(infile, addressLine2);
@@ -65,7 +77,7 @@ void readStadiumFiles(StadiumTree &nameSorted,
         char *modifiableCDate = new char[capStr.size() + 1];
         strcpy(modifiableCDate, capStr.c_str());
 
-        //Separate the date into month, day and year
+        // Separate the date into month, day and year
         char *part = strtok(modifiableCDate, "/");
         month = atoi(part);
         part = strtok(NULL, "/");
@@ -74,20 +86,32 @@ void readStadiumFiles(StadiumTree &nameSorted,
         year = atoi(part);
         delete[] part;
 
-        //If open bracket only, has edges/is in graph/is part of og30 major league stadiums
+        // If open bracket only, has edges/is in graph/is
+        // part of og30 major league stadiums
         getline(infile, line);
         if (line == "{")
         {
             og30 = true;
         }
-        //If open and closed bracket is a stadium that was added
+        // If open and closed bracket is a stadium that was added
         else
         {
             og30 = false;
         }
 
-        //Insert stadium object into all trees
-        stadium newStadium(name, team, address, addressLine2, phoneNum, month, day, year, capacity, league, field, og30);
+        // Insert stadium object into all trees
+        stadium newStadium(name,
+                           team,
+                           address,
+                           addressLine2,
+                           phoneNum,
+                           month,
+                           day,
+                           year,
+                           capacity,
+                           league,
+                           field,
+                           og30);
         nameSorted.insertNode(newStadium);
         teamSorted.insertNode(newStadium);
         dateSorted.insertNode(newStadium);
@@ -98,10 +122,10 @@ void readStadiumFiles(StadiumTree &nameSorted,
         if (!og30)
             continue;
 
-        //If part of og30/part of the graph, insert into graph
+        // If part of og30/part of the graph, insert into graph
         graph.insert(newStadium);
 
-        //Until '}' is reached
+        // Until '}' is reached
         getline(infile, line);
         while (line != "}")
         {
@@ -111,13 +135,13 @@ void readStadiumFiles(StadiumTree &nameSorted,
             char *modifiableLine = new char[line.size() + 1];
             strcpy(modifiableLine, line.c_str());
 
-            //Separate line into the stadium name and the edge distance
+            // Separate line into the stadium name and the edge distance
             char *halves = strtok(modifiableLine, ",");
             newName = halves;
             halves = strtok(NULL, ",");
             distance = atoi(halves);
 
-            //Use name and distance information to add edge
+            // Use name and distance information to add edge
             graph.insert(newStadium, stadium(newName), distance);
 
             getline(infile, line);
@@ -145,7 +169,7 @@ void readStadiumFiles(StadiumTree &nameSorted,
  ***********************************************************/
 void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
 {
-    //Open stadiums.txt for writing and clear its contents
+    // Open stadiums.txt for writing and clear its contents
     fs::path projectRoot = findProjectRoot();
     fs::path filePath = projectRoot / "src" / "stadiums.txt";
     ofstream outfile(filePath, ios::out | ios::trunc);
@@ -155,32 +179,34 @@ void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
         return;
     }
 
-    //Obtain a dynamic array of all stadiums in-order from the tree
+    // Obtain a dynamic array of all stadiums in-order from the tree
     stadium *allStadiums = nameSorted.compileInOrder();
     int size = nameSorted.size();
 
-    //for each stadium in allStadiums
+    // for each stadium in allStadiums
     for (int i = 0; i < size; i++)
     {
-        //Find index of current stadium in graph/check to see if exists in the graph
+        // Find index of current stadium in graph/check to see if
+        //  exists in the graph
         int index = graph.find(allStadiums[i]);
 
-        //Write the common info
+        // Write the common info
         outfile << allStadiums->getName() << "\n"
                 << allStadiums->getTeam() << "\n"
                 << allStadiums->getAddress() << "\n"
                 << allStadiums->getAddressLine2() << "\n"
                 << allStadiums->getPhone() << "\n"
-                << allStadiums->getMonth() << "/" << allStadiums->getDay() << "/" << allStadiums->getYear() << "\n"
+                << allStadiums->getMonth() << "/" << allStadiums->getDay()
+                << "/" << allStadiums->getYear() << "\n"
                 << allStadiums->getCapacity() << "\n"
                 << allStadiums->getLeague() << "\n"
                 << allStadiums->getField() << "\n"
                 << "{";
 
-        //If in graph -> og30 stadium
+        // If in graph -> og30 stadium
         if (index != -1)
         {
-            //Write each edge
+            // Write each edge
             graphNode *current = graph.getStadium(index)->adjacent;
 
             for (; current; current = current->adjacent)
@@ -189,7 +215,8 @@ void writeStadiumFiles(StadiumTree &nameSorted, stadiumGraph &graph)
             outfile << "\n";
         }
 
-        //If prev if statement doesn't prock, will result in just a line with "{}" on it
+        // If prev if statement doesn't prock,
+        // will result in just a line with "{}" on it
         outfile << "}\n";
     }
 

@@ -1,37 +1,116 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    connect(ui->button_showAllBlackLines, &QPushButton::clicked, this, &MainWindow::testBlackLinebutton);
+    connect(ui->button_showAllBlackLines,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::testBlackLinebutton);
 
-    connect(ui->souvenirComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
-    connect(ui->stadiumComboBox, &QComboBox::currentTextChanged, this, &MainWindow::outputSouvenirPurchase);
-    connect(ui->AdminPinLineEdit, &QLineEdit::returnPressed, this, &MainWindow::toggleAdminTools);
-    connect(ui->button_PlanCustomTrip, &QPushButton::clicked, this, &MainWindow::initCustomTrip);
-    connect(ui->button_AddStadiumToCustomTrip, &QPushButton::clicked, this, &MainWindow::planCustomTrip);
-    connect(ui->button_PurchaseSouvenir, &QPushButton::clicked, this, &MainWindow::itemPurchased);
-    connect(ui->button_PrintDistanceBetweenTwo, &QPushButton::clicked, this, &MainWindow::stadiumAToStadiumB);
-    connect(ui->button_StartCustomTrip, &QPushButton::clicked, this, &MainWindow::runCustomTrip);
-    connect(ui->button_PlanFullLeagueTrip, &QPushButton::clicked, this, &MainWindow::startFullLeagueTrip);
-    connect(ui->button_PlanAmericanLeaugeTrip, &QPushButton::clicked, this, &MainWindow::startAmericanLeaugeTrip);
-    connect(ui->button_PlanNationalLeaugeTrip, &QPushButton::clicked, this, &MainWindow::startNationalLeaugeTrip);
-    connect(ui->button_PurchaseSummary, &QPushButton::clicked, this, &MainWindow::printPurchaseSummaryToOutput);
-    connect(ui->button_SubmitTeamToStadiumChanges, &QPushButton::clicked, this, &MainWindow::ChangeTeamToStadium);
-    connect(ui->comboBox_moveThisTeam, &QComboBox::currentTextChanged, this, &MainWindow::ChangeTeamToStadiumOutput);
-    connect(ui->comboBox_moveToThisStadium, &QComboBox::currentTextChanged, this, &MainWindow::ChangeTeamToStadiumOutput);
-    connect(ui->button_SortStadiumsByTeamName, &QPushButton::clicked, this, &MainWindow::sortStadiumsByTeamName);
-    connect(ui->button_SortALStadiumsByTeamName, &QPushButton::clicked, this, &MainWindow::sortALStadiumsByTeamName);
-    connect(ui->button_SortNLStadiumsByTeamName, &QPushButton::clicked, this, &MainWindow::sortNLStadiumsByTeamName);
-    connect(ui->button_SortStadiumsByName, &QPushButton::clicked, this, &MainWindow::sortStadiumsByName);
-    connect(ui->button_SortStadiumsWithGrass, &QPushButton::clicked, this, &MainWindow::sortStadiumsWithGrass);
-    connect(ui->button_SortStadiumsByDateOpened, &QPushButton::clicked, this, &MainWindow::sortStadiumsByDateOpened);
-    connect(ui->button_AddTeamToStadium, &QPushButton::clicked, this, &MainWindow::addTeamToStadium);
-    connect(ui->button_DeleteSouvenir, &QPushButton::clicked, this, &MainWindow::souvenirToDelete);
-    connect(ui->souvenirToDeleteComboBox, &QComboBox::currentTextChanged, this, &MainWindow::selectedSouvenirToDeleteOutput);
-    connect(ui->button_ChangeSouvenirPrice, &QPushButton::clicked, this, &MainWindow::changeSouvenirPrice);
+    connect(ui->souvenirComboBox,
+            &QComboBox::currentTextChanged,
+            this,
+            &MainWindow::outputSouvenirPurchase);
+    connect(ui->stadiumComboBox,
+            &QComboBox::currentTextChanged,
+            this,
+            &MainWindow::outputSouvenirPurchase);
+    connect(ui->AdminPinLineEdit,
+            &QLineEdit::returnPressed,
+            this,
+            &MainWindow::toggleAdminTools);
+    connect(ui->button_PlanCustomTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::initCustomTrip);
+    connect(ui->button_AddStadiumToCustomTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::planCustomTrip);
+    connect(ui->button_PurchaseSouvenir,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::itemPurchased);
+    connect(ui->button_PrintDistanceBetweenTwo,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::stadiumAToStadiumB);
+    connect(ui->button_StartCustomTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::runCustomTrip);
+    connect(ui->button_PlanFullLeagueTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::startFullLeagueTrip);
+    connect(ui->button_PlanAmericanLeaugeTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::startAmericanLeaugeTrip);
+    connect(ui->button_PlanNationalLeaugeTrip,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::startNationalLeaugeTrip);
+    connect(ui->button_PurchaseSummary,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::printPurchaseSummaryToOutput);
+    connect(ui->button_SubmitTeamToStadiumChanges,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::ChangeTeamToStadium);
+    connect(ui->comboBox_moveThisTeam,
+            &QComboBox::currentTextChanged,
+            this,
+            &MainWindow::ChangeTeamToStadiumOutput);
+    connect(ui->comboBox_moveToThisStadium,
+            &QComboBox::currentTextChanged,
+            this,
+            &MainWindow::ChangeTeamToStadiumOutput);
+    connect(ui->button_SortStadiumsByTeamName,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortStadiumsByTeamName);
+    connect(ui->button_SortALStadiumsByTeamName,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortALStadiumsByTeamName);
+    connect(ui->button_SortNLStadiumsByTeamName,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortNLStadiumsByTeamName);
+    connect(ui->button_SortStadiumsByName,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortStadiumsByName);
+    connect(ui->button_SortStadiumsWithGrass,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortStadiumsWithGrass);
+    connect(ui->button_SortStadiumsByDateOpened,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::sortStadiumsByDateOpened);
+    connect(ui->button_AddTeamToStadium,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::addTeamToStadium);
+    connect(ui->button_DeleteSouvenir,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::souvenirToDelete);
+    connect(ui->souvenirToDeleteComboBox,
+            &QComboBox::currentTextChanged,
+            this,
+            &MainWindow::selectedSouvenirToDeleteOutput);
+    connect(ui->button_ChangeSouvenirPrice,
+            &QPushButton::clicked,
+            this,
+            &MainWindow::changeSouvenirPrice);
 
     ui->label_moveThisTeamText->setVisible(false);
     ui->label_moveToThisStadiumText->setVisible(false);
@@ -72,7 +151,9 @@ void MainWindow::printOutputToTextBrowser()
         QTextStream in(&file);
         QString fileContent = in.readAll();
         file.close();
-        QString formattedContent = "<pre style='font-family: Courier; font-size: 10pt;'>" + fileContent + "</pre>";
+        QString formattedContent =
+            "<pre style='font-family: Courier; font-size: 10pt;'>" +
+            fileContent + "</pre>";
         ui->textBrowser->setHtml(formattedContent);
     }
     else
@@ -104,7 +185,9 @@ void MainWindow::printSouvenirToTextBrowser()
         QTextStream in(&file);
         QString fileContent = in.readAll();
         file.close();
-        QString formattedContent = "<pre style='font-family: Courier; font-size: 10pt;'>" + fileContent + "</pre>";
+        QString formattedContent =
+            "<pre style='font-family: Courier; font-size: 10pt;'>" +
+            fileContent + "</pre>";
         ui->textBrowser->setHtml(formattedContent);
     }
     else
@@ -312,10 +395,12 @@ void MainWindow::runCustomTrip()
         string startName = stadiumNames[i];
         string endName = stadiumNames[i + 1];
 
-        graphNode *path = stadiumGraphObject.shortestPathBetween(startName, endName);
+        graphNode *path = stadiumGraphObject.shortestPathBetween(
+            startName, endName);
         if (!path)
         {
-            outFile << "No path found from " << startName << " to " << endName << "\n\n";
+            outFile << "No path found from " << startName << " to "
+                    << endName << "\n\n";
             continue;
         }
 
@@ -324,10 +409,15 @@ void MainWindow::runCustomTrip()
         graphNode *node = path;
         while (node && node->adjacent)
         {
-            QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
-            QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+            QString baseFrom = QString::fromStdString(
+                                   node->value.getName())
+                                   .remove(" ");
+            QString baseTo = QString::fromStdString(
+                                 node->adjacent->value.getName())
+                                 .remove(" ");
 
-            QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
+            QStringList fromAliases = stadiumAliases.value(
+                baseFrom, {baseFrom});
             QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
 
             bool found = false;
@@ -335,7 +425,8 @@ void MainWindow::runCustomTrip()
             {
                 for (const QString &to : toAliases)
                 {
-                    QString labelName = QString("label_%1To%2_Blue").arg(from, to);
+                    QString labelName =
+                        QString("label_%1To%2_Blue").arg(from, to);
                     QLabel *label = findChild<QLabel *>(labelName);
 
                     if (!label)
@@ -357,7 +448,8 @@ void MainWindow::runCustomTrip()
 
             if (!found)
             {
-                qDebug() << "Could not find edge label for " << baseFrom << " to " << baseTo;
+                qDebug() << "Could not find edge label for "
+                         << baseFrom << " to " << baseTo;
             }
 
             int fromIndex = stadiumGraphObject.find(node->value);
@@ -454,7 +546,8 @@ void MainWindow::stadiumAToStadiumB()
         return;
     }
 
-    graphNode *path = stadiumGraphObject.shortestPathBetween(startName, endName);
+    graphNode *path =
+        stadiumGraphObject.shortestPathBetween(startName, endName);
     if (!path)
     {
         cerr << "No path found between selected stadiums.\n";
@@ -466,8 +559,10 @@ void MainWindow::stadiumAToStadiumB()
 
     while (node && node->adjacent)
     {
-        QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
-        QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+        QString baseFrom =
+            QString::fromStdString(node->value.getName()).remove(" ");
+        QString baseTo =
+            QString::fromStdString(node->adjacent->value.getName()).remove(" ");
 
         QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
         QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
@@ -504,7 +599,8 @@ void MainWindow::stadiumAToStadiumB()
 
         if (!found)
         {
-            qDebug() << "Could not find edge label for " << baseFrom << " to " << baseTo;
+            qDebug() << "Could not find edge label for "
+                     << baseFrom << " to " << baseTo;
         }
 
         int fromIndex = stadiumGraphObject.find(node->value);
@@ -555,8 +651,7 @@ void MainWindow::startAmericanLeaugeTrip()
     outFile << "Here is your American League Trip\n";
     outFile << "Starting from Angel Stadium!\n\n";
 
-    // Use your dedicated function for this task
-    graphNode* trip = stadiumGraphObject.shortestPathAmerican();
+    graphNode *trip = stadiumGraphObject.shortestPathAmerican();
 
     if (!trip)
     {
@@ -566,10 +661,9 @@ void MainWindow::startAmericanLeaugeTrip()
         return;
     }
 
-    // Print path and accumulate distance
     int count = 0;
     int totalDistance = 0;
-    for (graphNode* current = trip; current; current = current->adjacent)
+    for (graphNode *current = trip; current; current = current->adjacent)
     {
         outFile << ++count << ". " << current->value.getName() << "\n";
         if (current->adjacent)
@@ -582,16 +676,13 @@ void MainWindow::startAmericanLeaugeTrip()
     highlightTripEdges(trip);
     printOutputToTextBrowser();
 
-    // Clean up dynamically allocated path
     while (trip)
     {
-        graphNode* toDelete = trip;
+        graphNode *toDelete = trip;
         trip = trip->adjacent;
         delete toDelete;
     }
 }
-
-
 
 void MainWindow::startNationalLeaugeTrip()
 {
@@ -609,8 +700,7 @@ void MainWindow::startNationalLeaugeTrip()
     outFile << "Here is your National League Trip\n";
     outFile << "Starting from Dodger Stadium!\n\n";
 
-    // Call the fixed trip planner
-    graphNode* trip = stadiumGraphObject.shortestPathNational();
+    graphNode *trip = stadiumGraphObject.shortestPathNational();
     if (!trip)
     {
         outFile << "Error: No trip could be planned.\n";
@@ -619,10 +709,9 @@ void MainWindow::startNationalLeaugeTrip()
         return;
     }
 
-    // Output the trip
     int count = 0;
     int totalDistance = 0;
-    for (graphNode* current = trip; current; current = current->adjacent)
+    for (graphNode *current = trip; current; current = current->adjacent)
     {
         outFile << ++count << ". " << current->value.getName() << "\n";
         if (current->adjacent)
@@ -635,15 +724,14 @@ void MainWindow::startNationalLeaugeTrip()
 
     printOutputToTextBrowser();
     highlightTripEdges(trip);
-    // Cleanup
+
     while (trip)
     {
-        graphNode* toDelete = trip;
+        graphNode *toDelete = trip;
         trip = trip->adjacent;
         delete toDelete;
     }
 }
-
 
 void MainWindow::printPurchaseSummaryToOutput()
 {
@@ -677,8 +765,10 @@ void MainWindow::ChangeTeamToStadiumOutput()
 void MainWindow::ChangeTeamToStadium()
 {
     clearOutputFile();
-    QString selectedTeam = ui->comboBox_moveThisTeam->currentText().trimmed();
-    QString selectedStadium = ui->comboBox_moveToThisStadium->currentText().trimmed();
+    QString selectedTeam =
+        ui->comboBox_moveThisTeam->currentText().trimmed();
+    QString selectedStadium =
+        ui->comboBox_moveToThisStadium->currentText().trimmed();
 
     fs::path projectRoot = findProjectRoot();
     fs::path stadiumsPath = projectRoot / "src" / "stadiums.txt";
@@ -717,7 +807,8 @@ void MainWindow::ChangeTeamToStadium()
     {
         if (blocks[i].size() >= 2)
         {
-            QString stadiumName = QString::fromStdString(blocks[i][0]).trimmed();
+            QString stadiumName =
+                QString::fromStdString(blocks[i][0]).trimmed();
             QString teamName = QString::fromStdString(blocks[i][1]).trimmed();
 
             if (teamName == selectedTeam)
@@ -853,17 +944,34 @@ void MainWindow::sortStadiumsByTeamName()
         return;
     }
 
-    outFile << "Stadiums sorted by team name:\n";
-    outFile << "=============================\n";
+    outFile << "Stadiums sorted by team name:\n\n";
 
     stadium *teamSortedList = teamSortedTree.compileInOrder();
     int size = teamSortedTree.size();
 
-    for (int i = size - 1; i > 0; --i)
-        outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+    for (int i = size - 1; i >= 0; --i)
+    {
+        stadium &s = teamSortedList[i];
+
+        outFile << s.getName() << '\n'
+                << s.getTeam() << '\n'
+                << s.getAddress() << '\n'
+                << s.getAddressLine2() << '\n'
+                << s.getPhone() << '\n'
+                << "Opened - ";
+        int month = s.getMonth();
+        int day = s.getDay();
+        int year = s.getYear();
+
+        if (month >= 1 && month <= 12)
+            outFile << months[month] << ' ' << day << ", " << year << '\n';
+        else
+            outFile << "Invalid Date\n";
+
+        outFile << "Capacity - " << s.getCapacity() << "\n\n";
+    }
 
     delete[] teamSortedList;
-    outFile << "=============================\n";
     outFile.close();
     printOutputToTextBrowser();
 }
@@ -881,17 +989,38 @@ void MainWindow::sortALStadiumsByTeamName()
         return;
     }
 
-    outFile << "American League Stadiums\n";
-    outFile << "sorted by team name:\n";
-    outFile << "=============================\n";
+    outFile << "AMERICAN LEAGUE STADIUMS:\n";
+    outFile << "=============================\n\n";
 
     stadium *teamSortedList = teamSortedTree.compileInOrder();
     int size = teamSortedTree.size();
 
     for (int i = size - 1; i >= 0; --i)
     {
-        if (teamSortedList[i].getLeague() == "American")
-            outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+        if (teamSortedList[i].getLeague() != "American")
+            continue;
+
+        outFile << teamSortedList[i].getName() << '\n';
+        outFile << teamSortedList[i].getTeam() << '\n';
+        outFile << teamSortedList[i].getAddress() << '\n';
+        outFile << teamSortedList[i].getAddressLine2() << '\n';
+        outFile << teamSortedList[i].getPhone() << '\n';
+
+        int month = teamSortedList[i].getMonth();
+        int day = teamSortedList[i].getDay();
+        int year = teamSortedList[i].getYear();
+
+        if (month >= 1 && month <= 12)
+        {
+            outFile << "Opened - " << months[month] << " "
+                    << day << ", " << year << '\n';
+        }
+        else
+        {
+            outFile << "Opened - Invalid Date\n";
+        }
+
+        outFile << "Capacity - " << teamSortedList[i].getCapacity() << "\n\n";
     }
 
     delete[] teamSortedList;
@@ -913,17 +1042,38 @@ void MainWindow::sortNLStadiumsByTeamName()
         return;
     }
 
-    outFile << "National League Stadiums\n";
-    outFile << "sorted by team name:\n";
-    outFile << "=============================\n";
+    outFile << "NATIONAL LEAGUE STADIUMS:\n";
+    outFile << "=============================\n\n";
 
     stadium *teamSortedList = teamSortedTree.compileInOrder();
     int size = teamSortedTree.size();
 
     for (int i = size - 1; i >= 0; --i)
     {
-        if (teamSortedList[i].getLeague() == "National")
-            outFile << teamSortedList[i].getTeam() << " - " << teamSortedList[i].getName() << '\n';
+        if (teamSortedList[i].getLeague() != "National")
+            continue;
+
+        outFile << teamSortedList[i].getName() << '\n';
+        outFile << teamSortedList[i].getTeam() << '\n';
+        outFile << teamSortedList[i].getAddress() << '\n';
+        outFile << teamSortedList[i].getAddressLine2() << '\n';
+        outFile << teamSortedList[i].getPhone() << '\n';
+
+        int month = teamSortedList[i].getMonth();
+        int day = teamSortedList[i].getDay();
+        int year = teamSortedList[i].getYear();
+
+        if (month >= 1 && month <= 12)
+        {
+            outFile << "Opened - " << months[month] << " " << day
+                    << ", " << year << '\n';
+        }
+        else
+        {
+            outFile << "Opened - Invalid Date\n";
+        }
+
+        outFile << "Capacity - " << teamSortedList[i].getCapacity() << "\n\n";
     }
 
     delete[] teamSortedList;
@@ -945,14 +1095,37 @@ void MainWindow::sortStadiumsByName()
         return;
     }
 
-    outFile << "Stadiums sorted by name:\n";
-    outFile << "=============================\n";
+    outFile << "STADIUMS SORTED BY NAME:\n";
+    outFile << "=============================\n\n";
 
     stadium *stadiumSortedList = stadiumSortedTree.compileInOrder();
     int size = stadiumSortedTree.size();
 
     for (int i = size - 1; i >= 0; --i)
-        outFile << stadiumSortedList[i].getName() << " - " << stadiumSortedList[i].getTeam() << '\n';
+    {
+        outFile << stadiumSortedList[i].getName() << '\n';
+        outFile << stadiumSortedList[i].getTeam() << '\n';
+        outFile << stadiumSortedList[i].getAddress() << '\n';
+        outFile << stadiumSortedList[i].getAddressLine2() << '\n';
+        outFile << stadiumSortedList[i].getPhone() << '\n';
+
+        int month = stadiumSortedList[i].getMonth();
+        int day = stadiumSortedList[i].getDay();
+        int year = stadiumSortedList[i].getYear();
+
+        if (month >= 1 && month <= 12)
+        {
+            outFile << "Opened - " << months[month] << " " << day
+                    << ", " << year << '\n';
+        }
+        else
+        {
+            outFile << "Opened - Invalid Date\n";
+        }
+
+        outFile << "Capacity - "
+                << stadiumSortedList[i].getCapacity() << "\n\n";
+    }
 
     delete[] stadiumSortedList;
     outFile << "=============================\n";
@@ -973,15 +1146,39 @@ void MainWindow::sortStadiumsWithGrass()
         return;
     }
 
-    outFile << "Stadiums sorted by name:\n";
-    outFile << "=============================\n";
+    outFile << "STADIUMS WITH GRASS FIELDS:\n";
+    outFile << "=============================\n\n";
 
     stadium *stadiumSortedList = stadiumSortedTree.compileInOrder();
     int size = stadiumSortedTree.size();
-
     for (int i = size - 1; i >= 0; --i)
-        if (stadiumSortedList[i].getField() == "grass")
-            outFile << stadiumSortedList[i].getName() << " - " << stadiumSortedList[i].getTeam() << '\n';
+    {
+        if (stadiumSortedList[i].getField() != "grass")
+            continue;
+
+        outFile << stadiumSortedList[i].getName() << '\n';
+        outFile << stadiumSortedList[i].getTeam() << '\n';
+        outFile << stadiumSortedList[i].getAddress() << '\n';
+        outFile << stadiumSortedList[i].getAddressLine2() << '\n';
+        outFile << stadiumSortedList[i].getPhone() << '\n';
+
+        int month = stadiumSortedList[i].getMonth();
+        int day = stadiumSortedList[i].getDay();
+        int year = stadiumSortedList[i].getYear();
+
+        if (month >= 1 && month <= 12)
+        {
+            outFile << "Opened - " << months[month] << " "
+                    << day << ", " << year << '\n';
+        }
+        else
+        {
+            outFile << "Opened - Invalid Date\n";
+        }
+
+        outFile << "Capacity - "
+                << stadiumSortedList[i].getCapacity() << "\n\n";
+    }
 
     delete[] stadiumSortedList;
     outFile << "=============================\n";
@@ -1002,24 +1199,40 @@ void MainWindow::sortStadiumsByDateOpened()
         return;
     }
 
-    outFile << "Stadiums sorted by Date Opened:\n";
-    outFile << "===============================\n";
+    outFile << "STADIUMS SORTED BY DATE OPENED:\n";
+    outFile << "=================================\n\n";
 
     stadium *dateSortedList = dateSortedTree.compileInOrder();
     int size = dateSortedTree.size();
 
     for (int i = size - 1; i >= 0; --i)
     {
-        stadium s = dateSortedList[i];
-        outFile << setw(2) << setfill('0') << s.getMonth() << '/'
-                << setw(2) << setfill('0') << s.getDay() << '/'
-                << s.getYear() << " - "
-                << s.getName() << " - "
-                << s.getTeam() << '\n';
+        stadium &s = dateSortedList[i];
+        int month = s.getMonth();
+        int day = s.getDay();
+        int year = s.getYear();
+
+        outFile << s.getName() << '\n';
+        outFile << s.getTeam() << '\n';
+        outFile << s.getAddress() << '\n';
+        outFile << s.getAddressLine2() << '\n';
+        outFile << s.getPhone() << '\n';
+
+        if (month >= 1 && month <= 12)
+        {
+            outFile << "Opened - " << months[month] << " " << day
+                    << ", " << year << '\n';
+        }
+        else
+        {
+            outFile << "Opened - Invalid Date\n";
+        }
+
+        outFile << "Capacity - " << s.getCapacity() << "\n\n";
     }
 
     delete[] dateSortedList;
-    outFile << "===============================\n";
+    outFile << "=================================\n";
     outFile.close();
 
     printOutputToTextBrowser();
@@ -1092,7 +1305,8 @@ void MainWindow::printSouvenirReceipt()
     printOutputToTextBrowser();
 }
 
-void MainWindow::toggleEdgeVisibility(const QStringList &edgeLabels, bool visible)
+void MainWindow::toggleEdgeVisibility(
+    const QStringList &edgeLabels, bool visible)
 {
     for (const QString &labelName : edgeLabels)
     {
@@ -1131,7 +1345,18 @@ stadium MainWindow::parseStadium(ifstream &inFile)
     getline(inFile, league);
     getline(inFile, field);
 
-    return stadium(name, team, address, addressLine2, phoneNum, month, day, year, capacity, league, field, true);
+    return stadium(name,
+                   team,
+                   address,
+                   addressLine2,
+                   phoneNum,
+                   month,
+                   day,
+                   year,
+                   capacity,
+                   league,
+                   field,
+                   true);
 }
 
 void MainWindow::loadStadiums(stadiumGraph &graph, const fs::path &filePath)
@@ -1297,11 +1522,14 @@ void MainWindow::souvenirToDelete()
             string nextLine;
             if (getline(inFile, nextLine))
             {
-                QString nextLineStr = QString::fromStdString(nextLine).trimmed();
+                QString nextLineStr =
+                    QString::fromStdString(nextLine).trimmed();
                 if (nextLineStr.startsWith("item:"))
                 {
                     QString currentItem = nextLineStr.mid(5).trimmed();
-                    if (currentStadium == stadiumName && currentItem == itemName && !deleted)
+                    if (
+                        currentStadium == stadiumName &&
+                        currentItem == itemName && !deleted)
                     {
 
                         skipNext = true;
@@ -1388,7 +1616,8 @@ void MainWindow::initSouvenirToDeleteComboBox()
             QString item = QString::fromStdString(line.substr(5)).trimmed();
             if (!currentStadium.isEmpty() && !item.isEmpty())
             {
-                ui->souvenirToDeleteComboBox->addItem(currentStadium + " - " + item);
+                ui->souvenirToDeleteComboBox->addItem(
+                    currentStadium + " - " + item);
             }
         }
     }
@@ -1421,7 +1650,8 @@ void MainWindow::selectedSouvenirToDeleteOutput()
 
 void MainWindow::changeSouvenirPrice()
 {
-    QString selected = ui->souvenirToChangePriceComboBox->currentText().trimmed();
+    QString selected =
+        ui->souvenirToChangePriceComboBox->currentText().trimmed();
     QString newPriceStr = ui->lineEdit_ChangePriceTo->text().trimmed();
 
     fs::path outputPath = findProjectRoot() / "src" / "output.txt";
@@ -1460,8 +1690,10 @@ void MainWindow::changeSouvenirPrice()
 
         outFile << "Souvenir price updated:\n"
                 << "Item: " << itemKey << "\n"
-                << "Old Price: $" << fixed << setprecision(2) << oldPrice << "\n"
-                << "New Price: $" << fixed << setprecision(2) << newPrice << "\n";
+                << "Old Price: $" << fixed
+                << setprecision(2) << oldPrice << "\n"
+                << "New Price: $" << fixed
+                << setprecision(2) << newPrice << "\n";
     }
     else
     {
@@ -1529,8 +1761,12 @@ void MainWindow::highlightTripEdges(graphNode *path)
 
     while (node && node->adjacent)
     {
-        QString baseFrom = QString::fromStdString(node->value.getName()).remove(" ");
-        QString baseTo = QString::fromStdString(node->adjacent->value.getName()).remove(" ");
+        QString baseFrom = QString::fromStdString(
+                               node->value.getName())
+                               .remove(" ");
+        QString baseTo = QString::fromStdString(
+                             node->adjacent->value.getName())
+                             .remove(" ");
 
         QStringList fromAliases = stadiumAliases.value(baseFrom, {baseFrom});
         QStringList toAliases = stadiumAliases.value(baseTo, {baseTo});
@@ -1562,7 +1798,8 @@ void MainWindow::highlightTripEdges(graphNode *path)
 
         if (!found)
         {
-            qDebug() << "Could not find edge label for" << baseFrom << "to" << baseTo;
+            qDebug() << "Could not find edge label for" << baseFrom
+                     << "to" << baseTo;
         }
 
         node = node->adjacent;
